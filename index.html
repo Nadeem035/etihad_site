@@ -440,6 +440,314 @@
           font-size: 1.1rem;
         }
       }
+
+      /* Feature Listings Section */
+      .feature-listings {
+        position: relative;
+        padding: 12rem 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(0, 156, 168, 0.12) 0%, transparent 28%),
+          radial-gradient(circle at 82% 75%, rgba(0, 156, 168, 0.08) 0%, transparent 32%),
+          linear-gradient(180deg, #050505 0%, #111111 55%, #0a0a0a 100%);
+      }
+
+      .feature-listings__inner {
+        position: relative;
+        z-index: 2;
+      }
+
+      .feature-listings__intro {
+        max-width: 140rem;
+        margin: 0 auto 5rem;
+        padding: 0 1.5rem;
+      }
+
+      .feature-listings__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 1.8rem;
+        color: var(--accent-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.28rem;
+        text-transform: uppercase;
+      }
+
+      .feature-listings__eyebrow::before {
+        content: '';
+        width: 5.6rem;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(0, 156, 168, 0) 0%, rgba(0, 156, 168, 1) 100%);
+      }
+
+      .feature-listings__heading-row {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .feature-listings__heading {
+        margin: 0;
+        color: #fff;
+        font-size: 4rem;
+        line-height: 1.05;
+        letter-spacing: 0.08rem;
+        text-transform: uppercase;
+      }
+
+      .feature-listings__heading span {
+        color: var(--accent-color);
+      }
+
+      .feature-listings__lede {
+        max-width: 66rem;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 1.55rem;
+        line-height: 1.85;
+      }
+
+      .feature-listings__rail {
+        position: relative;
+        width: 100%;
+      }
+
+      .feature-listings__track {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .feature-listings__cards {
+        display: flex;
+        gap: 2.4rem;
+        width: max-content;
+        padding: 0 1.5rem;
+        will-change: transform;
+      }
+
+      .feature-listings__card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: min(36rem, calc(100vw - 4rem));
+        min-height: 54rem;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 2.8rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+        box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.26);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+      }
+
+      .feature-listings__card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, rgba(0, 156, 168, 0.18) 0%, transparent 32%, transparent 100%);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      .feature-listings__card::after {
+        content: '';
+        position: absolute;
+        inset: auto 2rem 2rem 2rem;
+        height: 0.1rem;
+        background: linear-gradient(90deg, rgba(0, 156, 168, 0.9) 0%, rgba(255, 255, 255, 0.18) 100%);
+        pointer-events: none;
+      }
+
+      .feature-listings__card-top,
+      .feature-listings__card-bottom {
+        position: relative;
+        z-index: 1;
+      }
+
+      .feature-listings__card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature-listings__card-index {
+        color: rgba(255, 255, 255, 0.24);
+        font-size: 4.8rem;
+        font-weight: 700;
+        line-height: 0.9;
+        letter-spacing: -0.14rem;
+      }
+
+      .feature-listings__pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.4rem;
+        padding: 0 1.4rem;
+        border: 1px solid rgba(0, 156, 168, 0.35);
+        border-radius: 999px;
+        color: #d9ffff;
+        font-size: 1.15rem;
+        font-weight: 600;
+        letter-spacing: 0.18rem;
+        text-transform: uppercase;
+        background: rgba(0, 156, 168, 0.1);
+      }
+
+      .feature-listings__media {
+        position: relative;
+        height: 21rem;
+        margin-bottom: 2rem;
+        border-radius: 2rem;
+        overflow: hidden;
+      }
+
+      .feature-listings__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.04);
+        filter: saturate(0.92) contrast(1.05);
+      }
+
+      .feature-listings__media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(6, 6, 6, 0.04) 0%, rgba(6, 6, 6, 0.52) 100%);
+      }
+
+      .feature-listings__title {
+        margin: 0 0 1rem;
+        color: #fff;
+        font-size: 2.4rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .feature-listings__text {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 1.45rem;
+        line-height: 1.8;
+      }
+
+      .feature-listings__meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.2rem;
+        margin-top: 2.6rem;
+      }
+
+      .feature-listings__meta-item {
+        padding-top: 1.4rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .feature-listings__meta-label {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: rgba(255, 255, 255, 0.42);
+        font-size: 1.05rem;
+        letter-spacing: 0.16rem;
+        text-transform: uppercase;
+      }
+
+      .feature-listings__meta-value {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .feature-listings__glow,
+      .feature-listings__lines {
+        pointer-events: none;
+        position: absolute;
+      }
+
+      .feature-listings__glow {
+        top: 10%;
+        right: -10rem;
+        width: 42rem;
+        height: 42rem;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 156, 168, 0.18) 0%, transparent 70%);
+        opacity: 0.65;
+        z-index: 1;
+      }
+
+      .feature-listings__lines {
+        left: 0;
+        bottom: 8%;
+        width: 100%;
+        opacity: 0.025;
+        z-index: 0;
+      }
+
+      @media (min-width: 992px) {
+        .feature-listings__heading-row {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: end;
+          gap: 4rem;
+        }
+
+        .feature-listings__heading {
+          max-width: 70rem;
+          font-size: 6rem;
+        }
+
+        .feature-listings__lede {
+          padding-bottom: 0.8rem;
+        }
+
+        .feature-listings__cards {
+          gap: 3rem;
+          padding-inline: max(1.5rem, calc((100vw - 140rem) / 2 + 1.5rem));
+        }
+
+        .feature-listings__card {
+          width: 38rem;
+          min-height: 58rem;
+          padding: 2.4rem;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .feature-listings {
+          padding: 8rem 0;
+        }
+
+        .feature-listings__heading {
+          font-size: 3.2rem;
+        }
+
+        .feature-listings__lede {
+          font-size: 1.35rem;
+        }
+
+        .feature-listings__card {
+          min-height: 50rem;
+          border-radius: 2.2rem;
+        }
+
+        .feature-listings__media {
+          height: 18rem;
+        }
+
+        .feature-listings__title {
+          font-size: 2rem;
+        }
+
+        .feature-listings__meta {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
 
@@ -1572,6 +1880,166 @@
             alt="decorative lines pattern"
             class="ceo-message__lines"
           />
+        </section>
+
+        <section class="feature-listings">
+          <div class="feature-listings__inner">
+            <div class="feature-listings__intro">
+              <div class="feature-listings__eyebrow">Feature Listings</div>
+              <div class="feature-listings__heading-row">
+                <h2 class="feature-listings__heading">
+                  Signature capabilities built for <span>ambitious spaces</span>
+                </h2>
+                <p class="feature-listings__lede">
+                  A curated strip of our strongest delivery pillars, designed as a cinematic horizontal reveal to mirror the precision, momentum, and premium finish behind the Etihad brand.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-listings__rail">
+              <div class="feature-listings__track">
+                <div class="feature-listings__cards">
+                  <article class="feature-listings__card">
+                    <div class="feature-listings__card-top">
+                      <span class="feature-listings__card-index">01</span>
+                      <span class="feature-listings__pill">Fast Track</span>
+                    </div>
+
+                    <div class="feature-listings__card-bottom">
+                      <div class="feature-listings__media">
+                        <img src="assets/planning-3-C3t2e9L3.avif" alt="Etihad feature listing fast-track delivery" loading="lazy" />
+                      </div>
+                      <h3 class="feature-listings__title">Accelerated Delivery</h3>
+                      <p class="feature-listings__text">
+                        Structured sequencing, live coordination, and deadline-led execution that keep complex fit-out and renovation programs moving without losing finish quality.
+                      </p>
+                      <div class="feature-listings__meta">
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Strength</span>
+                          <span class="feature-listings__meta-value">Program Control</span>
+                        </div>
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Impact</span>
+                          <span class="feature-listings__meta-value">Faster Handover</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="feature-listings__card">
+                    <div class="feature-listings__card-top">
+                      <span class="feature-listings__card-index">02</span>
+                      <span class="feature-listings__pill">Turnkey</span>
+                    </div>
+
+                    <div class="feature-listings__card-bottom">
+                      <div class="feature-listings__media">
+                        <img src="assets/qualities-2-BrPElU0M.avif" alt="Etihad feature listing integrated delivery" loading="lazy" />
+                      </div>
+                      <h3 class="feature-listings__title">Integrated Execution</h3>
+                      <p class="feature-listings__text">
+                        Design intent, engineering, procurement, and site delivery operate as one connected system, reducing friction across every construction phase.
+                      </p>
+                      <div class="feature-listings__meta">
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Strength</span>
+                          <span class="feature-listings__meta-value">Single-Source Flow</span>
+                        </div>
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Impact</span>
+                          <span class="feature-listings__meta-value">Sharper Decisions</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="feature-listings__card">
+                    <div class="feature-listings__card-top">
+                      <span class="feature-listings__card-index">03</span>
+                      <span class="feature-listings__pill">Detail Driven</span>
+                    </div>
+
+                    <div class="feature-listings__card-bottom">
+                      <div class="feature-listings__media">
+                        <img src="assets/qualities-4-DnNZB2wz.avif" alt="Etihad feature listing premium finishes" loading="lazy" />
+                      </div>
+                      <h3 class="feature-listings__title">Premium Finishes</h3>
+                      <p class="feature-listings__text">
+                        Material discipline, finish consistency, and craftsmanship standards tuned for corporate, hospitality, retail, and luxury residential environments.
+                      </p>
+                      <div class="feature-listings__meta">
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Strength</span>
+                          <span class="feature-listings__meta-value">Craft Precision</span>
+                        </div>
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Impact</span>
+                          <span class="feature-listings__meta-value">Refined Output</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="feature-listings__card">
+                    <div class="feature-listings__card-top">
+                      <span class="feature-listings__card-index">04</span>
+                      <span class="feature-listings__pill">Engineering</span>
+                    </div>
+
+                    <div class="feature-listings__card-bottom">
+                      <div class="feature-listings__media">
+                        <img src="assets/planning-8-CVoCl0u3.avif" alt="Etihad feature listing technical planning" loading="lazy" />
+                      </div>
+                      <h3 class="feature-listings__title">Technical Foresight</h3>
+                      <p class="feature-listings__text">
+                        Proactive planning and multidisciplinary engineering reduce clashes early, protect budgets, and support confident execution on site.
+                      </p>
+                      <div class="feature-listings__meta">
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Strength</span>
+                          <span class="feature-listings__meta-value">Risk Reduction</span>
+                        </div>
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Impact</span>
+                          <span class="feature-listings__meta-value">Cleaner Delivery</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="feature-listings__card">
+                    <div class="feature-listings__card-top">
+                      <span class="feature-listings__card-index">05</span>
+                      <span class="feature-listings__pill">Client First</span>
+                    </div>
+
+                    <div class="feature-listings__card-bottom">
+                      <div class="feature-listings__media">
+                        <img src="assets/qualities-6-mLlP6-cB.avif" alt="Etihad feature listing client experience" loading="lazy" />
+                      </div>
+                      <h3 class="feature-listings__title">Transparent Partnership</h3>
+                      <p class="feature-listings__text">
+                        Clear reporting, disciplined communication, and responsive teams keep every stakeholder aligned from concept approvals to final handover.
+                      </p>
+                      <div class="feature-listings__meta">
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Strength</span>
+                          <span class="feature-listings__meta-value">Visibility</span>
+                        </div>
+                        <div class="feature-listings__meta-item">
+                          <span class="feature-listings__meta-label">Impact</span>
+                          <span class="feature-listings__meta-value">Client Confidence</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-listings__glow"></div>
+          <img src="assets/lines-2-y9dv42Ce.webp" alt="decorative lines pattern" class="feature-listings__lines" />
         </section>
 
         <!-- ENGINEERS  -->
@@ -3683,6 +4151,129 @@
             });
           }
         }
+      }
+
+      const featureListingsSection = document.querySelector('.feature-listings');
+      if (featureListingsSection) {
+        const featureCards = featureListingsSection.querySelectorAll('.feature-listings__card');
+        const featureTrack = featureListingsSection.querySelector('.feature-listings__track');
+        const featureCardsWrapper = featureListingsSection.querySelector('.feature-listings__cards');
+
+        gsap.fromTo(
+          '.feature-listings__intro',
+          { autoAlpha: 0, y: 50 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '.feature-listings',
+              start: 'top 78%'
+            }
+          }
+        );
+
+        gsap.fromTo(
+          featureCards,
+          { autoAlpha: 0, y: 60 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '.feature-listings',
+              start: 'top 70%'
+            }
+          }
+        );
+
+        const buildFeatureListingsScroll = () => {
+          const maxScrollX = Math.max(0, featureCardsWrapper.scrollWidth - featureTrack.clientWidth);
+
+          ScrollTrigger.getAll().forEach((trigger) => {
+            if (trigger.vars && trigger.vars.id === 'feature-listings-scroll') {
+              trigger.kill();
+            }
+          });
+
+          gsap.killTweensOf(featureCardsWrapper);
+          gsap.set(featureCardsWrapper, { x: 0 });
+
+          if (!maxScrollX) {
+            return;
+          }
+
+          gsap.to(featureCardsWrapper, {
+            x: -maxScrollX,
+            ease: 'none',
+            scrollTrigger: {
+              id: 'feature-listings-scroll',
+              trigger: featureListingsSection,
+              start: 'top top',
+              end: () => `+=${maxScrollX + window.innerHeight * 0.45}`,
+              scrub: 1,
+              pin: true,
+              invalidateOnRefresh: true,
+              anticipatePin: 1
+            }
+          });
+        };
+
+        buildFeatureListingsScroll();
+        ScrollTrigger.addEventListener('refreshInit', buildFeatureListingsScroll);
+
+        featureCards.forEach((card) => {
+          const image = card.querySelector('.feature-listings__media img');
+
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              y: -12,
+              borderColor: 'rgba(0, 156, 168, 0.35)',
+              duration: 0.45,
+              ease: 'power2.out'
+            });
+
+            if (image) {
+              gsap.to(image, {
+                scale: 1.1,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+            }
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              y: 0,
+              borderColor: 'rgba(255, 255, 255, 0.08)',
+              duration: 0.45,
+              ease: 'power2.out'
+            });
+
+            if (image) {
+              gsap.to(image, {
+                scale: 1.04,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+            }
+          });
+        });
+
+        gsap.to('.feature-listings__glow', {
+          y: 120,
+          x: -40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.feature-listings',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.4
+          }
+        });
       }
     </script>
   </body>
