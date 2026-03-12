@@ -133,6 +133,7 @@
         overflow: hidden;
         background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
         position: relative;
+        perspective: 1400px;
       }
 
       .ceo-message__container {
@@ -211,6 +212,8 @@
         width: 100%;
         max-width: 35rem;
         margin: 0 auto;
+        transform-style: preserve-3d;
+        will-change: transform;
       }
 
       .ceo-message__image-wrapper {
@@ -237,6 +240,8 @@
         object-fit: cover;
         filter: grayscale(0.3) contrast(1.1);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transform-origin: center center;
+        will-change: transform, filter;
       }
 
       .ceo-message__image-border {
@@ -266,6 +271,7 @@
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        will-change: transform;
       }
 
       .ceo-message__description {
@@ -281,6 +287,7 @@
         text-align: left;
         opacity: 0;
         transform: translateY(30px);
+        will-change: transform, opacity;
       }
 
       @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
@@ -313,6 +320,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         opacity: 0;
         transform: translateY(20px);
+        will-change: transform, opacity;
       }
 
       .ceo-message__name {
@@ -1675,7 +1683,7 @@
             class="ceo-message__lines"
           />
         </section>
-        
+
         <!-- CONTEMPORARY  -->
         <section class="contemporary">
           <div class="contemporary__content">
@@ -1794,7 +1802,7 @@
         </section>
 
         <!-- CHOICE  -->
-        <section class="choice" data-fade-out data-fade-out-scale="1">
+        <!-- <section class="choice" data-fade-out data-fade-out-scale="1">
           <picture>
             <source
               media="(orientation: portrait)"
@@ -1880,7 +1888,7 @@
             </div>
             <span class="choice__scroll-text" data-text-desktop="scroll" data-text-mobile="drag"></span>
           </div>
-        </section>
+        </section> -->
 
 
         <section class="feature-listings">
@@ -3975,11 +3983,17 @@
       // CEO Message Animations (matching About section)
       const ceoSection = document.querySelector('.ceo-message');
       if (ceoSection) {
+        const ceoImageContainer = document.querySelector('.ceo-message__image-container');
+        const ceoImageWrapper = document.querySelector('.ceo-message__image-wrapper');
+        const ceoTextContainer = document.querySelector('.ceo-message__text-container');
+
         // Clear any previous GSAP properties
         gsap.set([
           '.ceo-message__tagline', 
           '.ceo-message__heading span', 
+          '.ceo-message__image-container',
           '.ceo-message__image-wrapper',
+          '.ceo-message__text-container',
           '.ceo-message__text',
           '.ceo-message__signature',
           '.ceo-message__image-border',
@@ -4094,6 +4108,126 @@
           1.2
         );
 
+        // Rich in-view movement while the section remains on screen
+        const ceoMatchMedia = gsap.matchMedia();
+
+        ceoMatchMedia.add('(min-width: 992px)', () => {
+          if (ceoImageContainer && ceoTextContainer) {
+            gsap.timeline({
+              scrollTrigger: {
+                trigger: '.ceo-message',
+                start: 'top 85%',
+                end: 'bottom 15%',
+                scrub: 1.1
+              }
+            })
+            .fromTo(
+              ceoImageContainer,
+              { xPercent: 10, yPercent: 6, rotateY: -8, rotateX: 2 },
+              { xPercent: -5, yPercent: -4, rotateY: 4, rotateX: -1, ease: 'none' },
+              0
+            )
+            .fromTo(
+              ceoTextContainer,
+              { xPercent: -8, yPercent: 10 },
+              { xPercent: 5, yPercent: -6, ease: 'none' },
+              0
+            )
+            .fromTo(
+              '.ceo-message__image',
+              { scale: 1.08 },
+              { scale: 0.97, ease: 'none' },
+              0
+            )
+            .fromTo(
+              '.ceo-message__description',
+              { y: 18 },
+              { y: -18, ease: 'none' },
+              0
+            )
+            .fromTo(
+              '.ceo-message__signature',
+              { y: 10 },
+              { y: -12, ease: 'none' },
+              0
+            );
+
+            const ceoImageFloat = gsap.to(ceoImageContainer, {
+              y: '-=14',
+              rotateZ: 0.6,
+              duration: 2.8,
+              ease: 'sine.inOut',
+              repeat: -1,
+              yoyo: true,
+              paused: true,
+              overwrite: false
+            });
+
+            const ceoTextFloat = gsap.to(ceoTextContainer, {
+              y: '+=10',
+              duration: 3.2,
+              ease: 'sine.inOut',
+              repeat: -1,
+              yoyo: true,
+              paused: true,
+              overwrite: false
+            });
+
+            ScrollTrigger.create({
+              trigger: '.ceo-message',
+              start: 'top 78%',
+              end: 'bottom 22%',
+              onEnter: () => {
+                ceoImageFloat.play();
+                ceoTextFloat.play();
+              },
+              onEnterBack: () => {
+                ceoImageFloat.play();
+                ceoTextFloat.play();
+              },
+              onLeave: () => {
+                ceoImageFloat.pause();
+                ceoTextFloat.pause();
+              },
+              onLeaveBack: () => {
+                ceoImageFloat.pause();
+                ceoTextFloat.pause();
+              }
+            });
+          }
+        });
+
+        ceoMatchMedia.add('(max-width: 991px)', () => {
+          if (ceoImageContainer && ceoTextContainer) {
+            gsap.timeline({
+              scrollTrigger: {
+                trigger: '.ceo-message',
+                start: 'top 85%',
+                end: 'bottom 20%',
+                scrub: 1
+              }
+            })
+            .fromTo(
+              ceoImageContainer,
+              { yPercent: 5 },
+              { yPercent: -4, ease: 'none' },
+              0
+            )
+            .fromTo(
+              ceoTextContainer,
+              { yPercent: 6 },
+              { yPercent: -5, ease: 'none' },
+              0
+            )
+            .fromTo(
+              '.ceo-message__image',
+              { scale: 1.04 },
+              { scale: 0.99, ease: 'none' },
+              0
+            );
+          }
+        });
+
         // Parallax effect for background glow
         gsap.to('.ceo-message__glow', {
           scrollTrigger: {
@@ -4121,9 +4255,8 @@
 
         // Subtle floating animation for image on hover (only on desktop)
         if (window.innerWidth >= 992) {
-          const imageWrapper = document.querySelector('.ceo-message__image-wrapper');
-          if (imageWrapper) {
-            imageWrapper.addEventListener('mouseenter', () => {
+          if (ceoImageWrapper) {
+            ceoImageWrapper.addEventListener('mouseenter', () => {
               gsap.to('.ceo-message__image-wrapper', {
                 y: -10,
                 duration: 0.6,
@@ -4137,7 +4270,7 @@
               });
             });
 
-            imageWrapper.addEventListener('mouseleave', () => {
+            ceoImageWrapper.addEventListener('mouseleave', () => {
               gsap.to('.ceo-message__image-wrapper', {
                 y: 0,
                 duration: 0.6,
