@@ -6,26 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
-      Best Renovation Company &amp; Fit Out Contractor Abu Dhabi | Uptown
+      Best Renovation Company &amp; Fit Out Contractor Abu Dhabi | Etihad
     </title>
 
-    <meta name="title" content="Best Renovation Company &amp; Fit Out Contractor Abu Dhabi | Uptown" />
+    <meta name="title" content="Best Renovation Company &amp; Fit Out Contractor Abu Dhabi | Etihad" />
     <meta
       name="description"
-      content="Transform your space with Uptown, a leading renovation company in Abu Dhabi, Dubai &amp; UAE offering expert renovation and fit out contractors and premium services."
+      content="Transform your space with Etihad, a leading renovation company in Abu Dhabi, Dubai &amp; UAE offering expert renovation and fit out contractors and premium services."
     />
 
     <link rel="canonical" href="index.html" />
 
     <meta
       name="keywords"
-      content="MEP contractor Abu Dhabi, Renovation Contractor Dubai, Interior fit out contractor, Turnkey Contractor UAE, Luxury Renovation Dubai, Uptown Technical Services, Uptown Fit Out Dubai, Villa Renovation Dubai, Office Fit Out Abu Dhabi"
+      content="MEP contractor Abu Dhabi, Renovation Contractor Dubai, Interior fit out contractor, Turnkey Contractor UAE, Luxury Renovation Dubai, Etihad Technical Services, Etihad Fit Out Dubai, Villa Renovation Dubai, Office Fit Out Abu Dhabi"
     />
 
-    <meta property="og:title" content="Best Renovation Company &amp; Fit Out Contractor Abu Dhabi | Uptown" />
+    <meta property="og:title" content="Best Renovation Company &amp; Fit Out Contractor Abu Dhabi | Etihad" />
     <meta
       property="og:description"
-      content="Transform your space with Uptown, a leading renovation company in Abu Dhabi, Dubai &amp; UAE offering expert renovation and fit out contractors and premium services."
+      content="Transform your space with Etihad, a leading renovation company in Abu Dhabi, Dubai &amp; UAE offering expert renovation and fit out contractors and premium services."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.uptown.ae/" />
@@ -122,6 +122,324 @@
       .split.bottom {
         bottom: 0;
       }
+
+      /* CEO Message Section */
+      .ceo-message {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-inline: 1.5rem;
+        padding-block: 10rem;
+        overflow: hidden;
+        background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
+        position: relative;
+      }
+
+      .ceo-message__container {
+        display: flex;
+        flex-direction: column;
+        max-width: 140rem;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .ceo-message__content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ceo-message__tagline {
+        color: var(--accent-color);
+        font-size: 1.2rem;
+        line-height: normal;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        letter-spacing: 3px;
+        font-weight: 600;
+        opacity: 0;
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .ceo-message__tagline {
+          font-size: 1.8rem;
+        }
+      }
+
+      .ceo-message__tagline span {
+        display: inline-block;
+      }
+
+      .ceo-message__heading {
+        color: #fff;
+        font-size: 4rem;
+        line-height: 1.2;
+        margin-bottom: 4rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .ceo-message__heading {
+          font-size: 6rem;
+        }
+      }
+
+      .ceo-message__heading span {
+        display: block;
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      .ceo-message__heading span:nth-child(2) {
+        margin-left: 0;
+        background: linear-gradient(90deg, var(--accent-color) 0%, #fff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .ceo-message__split {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+      }
+
+      .ceo-message__image-container {
+        position: relative;
+        width: 100%;
+        max-width: 35rem;
+        margin: 0 auto;
+      }
+
+      .ceo-message__image-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 140%;
+        overflow: visible;
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .ceo-message__image-wrapper {
+          max-width: 47rem;
+        }
+      }
+
+      .ceo-message__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(0.3) contrast(1.1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .ceo-message__image-border {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
+        border: 2px solid var(--accent-color);
+        opacity: 0.3;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .ceo-message__image-accent {
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        width: 100px;
+        height: 100px;
+        background: var(--accent-color);
+        opacity: 0.1;
+        z-index: -1;
+      }
+
+      .ceo-message__text-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      .ceo-message__description {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .ceo-message__text {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.6rem;
+        line-height: 1.8;
+        text-align: left;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .ceo-message__text {
+          font-size: 2rem;
+          line-height: 2;
+        }
+      }
+
+      .ceo-message__text span {
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .ceo-message__quote-icon {
+        display: inline-block;
+        font-size: 4rem;
+        color: var(--accent-color);
+        opacity: 0.2;
+        line-height: 1;
+        margin-right: 1rem;
+      }
+
+      .ceo-message__signature {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .ceo-message__name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .ceo-message__name {
+          font-size: 2.4rem;
+        }
+      }
+
+      .ceo-message__title {
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 300;
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .ceo-message__title {
+          font-size: 1.6rem;
+        }
+      }
+
+      .ceo-message__lines {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 60%;
+        object-fit: cover;
+        opacity: 0.02;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .ceo-message__glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(0, 156, 168, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .ceo-message__decoration {
+        position: absolute;
+        width: 200px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, var(--accent-color) 50%, transparent 100%);
+        opacity: 0.3;
+        left: 0;
+        top: 0;
+      }
+
+      /* Desktop Layout */
+      @media (min-width: 992px) {
+        .ceo-message {
+          padding-block: 15rem;
+        }
+
+        .ceo-message__split {
+          flex-direction: row;
+          align-items: center;
+          gap: 8rem;
+        }
+
+        .ceo-message__image-container {
+          flex: 0 0 40%;
+          max-width: 45rem;
+        }
+
+        .ceo-message__text-container {
+          flex: 1;
+          gap: 4rem;
+        }
+
+        .ceo-message__heading {
+          font-size: 5.5rem;
+        }
+
+        .ceo-message__text {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .ceo-message {
+          padding-block: 8rem;
+        }
+
+        .ceo-message__heading {
+          font-size: 3.2rem;
+        }
+
+        .ceo-message__heading span:nth-child(2) {
+          margin-left: 0;
+        }
+
+        .ceo-message__image-wrapper {
+          width: 100%;
+          max-width: 35rem;
+          height: 50rem;
+        }
+
+        .ceo-message__text {
+          font-size: 1.3rem;
+        }
+
+        .ceo-message__name {
+          font-size: 1.6rem;
+        }
+
+        .ceo-message__title {
+          font-size: 1.1rem;
+        }
+      }
     </style>
   </head>
 
@@ -170,7 +488,7 @@
         <div class="menu" data-menu>
           <div class="menu-inner">
             <div class="menu-image">
-              <img src="assets/menu-image-o9Z7G9pj.webp" alt="UPTOWN menu image" />
+              <img src="assets/menu-image-o9Z7G9pj.webp" alt="ETIHAD menu image" />
             </div>
 
             <div class="menu-flex">
@@ -312,7 +630,7 @@
               <img
                 class="hero__background"
                 src="assets/hero-screen-1-D7I92d4H.webp"
-                alt="UPTOWN hero screen 1"
+                alt="ETIHAD hero screen 1"
               />
             </picture>
 
@@ -383,13 +701,13 @@
                 <img
                   class="hero__image-1"
                   src="assets/hero-screen-2-DrpSS_Vn.webp"
-                  alt="UPTOWN hero screen 2"
+                  alt="ETIHAD hero screen 2"
                 />
 
                 <img
                   class="hero__image-2"
                   src="assets/hero-screen-3-c_rohBUT.webp"
-                  alt="UPTOWN hero screen 3"
+                  alt="ETIHAD hero screen 3"
                 />
               </div>
             </div>
@@ -408,7 +726,7 @@
                 <!-- left content  -->
                 <div class="hero__flex-left">
                   <div class="hero__tagline">
-                    <span>ABOUT UPTOWN</span>
+                    <span>ABOUT ETIHAD</span>
                     <span>OUR VISION</span>
                   </div>
 
@@ -440,14 +758,14 @@
                     <!-- first text block  -->
                     <div class="hero__flex-block hero__flex-block-1">
                       <p class="hero__description">
-                        Uptown is an established and well-renowned Renovation &
+                        Etihad is an established and well-renowned Renovation &
                     fit-out company <span>in Abu Dhabi, Dubai. Also known as one of the leading “Fast Track Projects
                       Service Providers”
                       in the UAE.</span>
                       </p>
 
                       <p class="hero__description">
-                        Uptown has only expanded in terms of projects,
+                        Etihad has only expanded in terms of projects,
                     experience, distinctive
                     solutions, and an eye for aesthetics in its <span>13 years in the sector. We
                       believe in bringing
@@ -466,7 +784,7 @@
                       <p class="hero__description">
                         Our vision is to create <span>iconic spaces that
                       transcend time,</span>
-                        reflecting the sophisticated and avant-garde spirit of uptown living.
+                        reflecting the sophisticated and avant-garde spirit of Etihad living.
                       </p>
 
                       <a
@@ -488,13 +806,13 @@
                   <img
                     class="hero__image-1"
                     src="assets/hero-screen-2-DrpSS_Vn.webp"
-                    alt="UPTOWN hero screen 2"
+                    alt="ETIHAD hero screen 2"
                   />
 
                   <img
                     class="hero__image-2"
                     src="assets/hero-sc2-B12iBfl-.avif"
-                    alt="UPTOWN hero screen 3"
+                    alt="ETIHAD hero screen 3"
                   />
                 </div>
               </div>
@@ -527,7 +845,7 @@
         <section class="about --is-mobile">
           <div class="about-content about-content__top">
             <div class="about-tagline">
-              <span>ABOUT UPTOWN</span>
+              <span>ABOUT ETIHAD</span>
             </div>
 
             <div class="about-heading">
@@ -538,13 +856,13 @@
             <div class="about-image">
               <img
                 src="assets/hero-screen-2-DrpSS_Vn.webp"
-                alt="UPTOWN hero screen 2"
+                alt="ETIHAD hero screen 2"
               />
             </div>
 
             <div class="about-description">
               <p class="about-description__text">
-                <span>Uptown is an established and well-renowned Renovation &
+                <span>Etihad is an established and well-renowned Renovation &
               fit-out
               company </span>in Abu Dhabi, Dubai. Also known as one of the leading “Fast Track Projects
             Service
@@ -552,7 +870,7 @@
               </p>
 
               <p class="about-description__text">
-                Uptown has only expanded in terms of projects, experience,
+                Etihad has only expanded in terms of projects, experience,
             distinctive
             solutions, and an eye for aesthetics in its <span>13 years in the sector. We believe in bringing
               visions to
@@ -590,7 +908,7 @@
 
           <div class="about-content about-content__bottom" data-fade-out data-fade-out-scale="1">
             <div class="about-tagline">
-              <span>ABOUT UPTOWN</span>
+              <span>ABOUT ETIHAD</span>
             </div>
 
             <div class="about-heading">
@@ -601,7 +919,7 @@
             <div class="about-image">
               <img
                 src="assets/hero-screen-3-c_rohBUT.webp"
-                alt="UPTOWN hero screen 2"
+                alt="ETIHAD hero screen 2"
               />
             </div>
 
@@ -631,7 +949,7 @@
               <p class="about-description__text">
                 Our vision is to create <span>iconic spaces that transcend
               time</span>,
-            reflecting the sophisticated and avant-garde spirit of uptown living.
+            reflecting the sophisticated and avant-garde spirit of Etihad living.
               </p>
             </div>
 
@@ -662,7 +980,7 @@
                   <img
                     class="projects__accordion-css__image"
                     src="assets/project-1-CgjlQV5Q.webp"
-                    alt="UPTOWN project image"
+                    alt="ETIHAD project image"
                   />
 
                   <div data-hover="" class="projects__accordion-css__item-top">
@@ -747,7 +1065,7 @@
                   <img
                     class="projects__accordion-css__image"
                     src="assets/project-2-BnzO0N21.webp"
-                    alt="UPTOWN project image"
+                    alt="ETIHAD project image"
                   />
 
                   <div data-hover="" class="projects__accordion-css__item-top">
@@ -830,7 +1148,7 @@
                   <img
                     class="projects__accordion-css__image"
                     src="assets/project-3-C6YK5w1q.webp"
-                    alt="UPTOWN project image"
+                    alt="ETIHAD project image"
                   />
 
                   <div data-hover="" data-accordion-toggle="" class="projects__accordion-css__item-top">
@@ -917,7 +1235,7 @@
                   <img
                     class="projects__accordion-css__image"
                     src="assets/project-4-DCwOO40E.webp"
-                    alt="UPTOWN project image"
+                    alt="ETIHAD project image"
                   />
 
                   <div data-hover="" data-accordion-toggle="" class="projects__accordion-css__item-top">
@@ -1009,7 +1327,7 @@
             <div class="contemporary__image-left">
               <img
                 src="assets/contemporary-left-BqpaZZO6.avif"
-                alt="UPTOWN contemporary image"
+                alt="ETIHAD contemporary image"
                 loading="lazy"
               />
               <div class="contemporary__image-layer">
@@ -1019,7 +1337,7 @@
             <div class="contemporary__image-center">
               <img
                 src="assets/contemporary-center-Cy1UF1UF.avif"
-                alt="UPTOWN contemporary image"
+                alt="ETIHAD contemporary image"
                 loading="lazy"
               />
             </div>
@@ -1027,7 +1345,7 @@
             <div class="contemporary__image-right">
               <img
                 src="assets/contemporary-right-BGFk98DL.avif"
-                alt="UPTOWN contemporary image"
+                alt="ETIHAD contemporary image"
                 loading="lazy"
               />
 
@@ -1038,7 +1356,7 @@
             <div class="contemporary__image-center-back">
               <img
                 src="assets/contemporary-center-back-MRHJVZZb.avif"
-                alt="UPTOWN contemporary image"
+                alt="ETIHAD contemporary image"
                 loading="lazy"
               />
             </div>
@@ -1084,7 +1402,7 @@
           <!-- why flex wrapper  -->
           <div class="why-flex">
             <h3 class="why__heading">
-              WHY CHOOSE <span>UPTOWN?</span>
+              WHY CHOOSE <span>ETIHAD?</span>
             </h3>
             <p class="why__description">
               To achieve flawless interior design from planning to execution, you need a
@@ -1126,7 +1444,7 @@
             <img
               class="choice__background"
               src="assets/choice-background-CtCIvw6A.avif"
-              alt="UPTOWN choice background"
+              alt="ETIHAD choice background"
             />
           </picture>
 
@@ -1205,6 +1523,57 @@
           </div>
         </section>
 
+        <!-- CEO MESSAGE -->
+        <section class="ceo-message">
+          <div class="ceo-message__container">
+            <div class="ceo-message__content">
+              <div class="ceo-message__tagline">
+                <span>MESSAGE FROM OUR CEO</span>
+              </div>
+
+              <div class="ceo-message__heading">
+                <span>A VISION FOR</span>
+                <span>EXCELLENCE</span>
+              </div>
+
+              <div class="ceo-message__split">
+                <div class="ceo-message__image-container">
+                  <div class="ceo-message__image-wrapper">
+                    <img src="assets/team-1-BbYwF_zE.webp" alt="CEO - John Kharouf" class="ceo-message__image" />
+                    <div class="ceo-message__image-border"></div>
+                    <div class="ceo-message__image-accent"></div>
+                  </div>
+                </div>
+
+                <div class="ceo-message__text-container">
+                  <div class="ceo-message__description">
+                    <p class="ceo-message__text">
+                      <span>"At Etihad, we don't just build spaces—we craft experiences.</span> Our commitment to excellence, innovation, and client satisfaction drives every project we undertake. With over 28 years of experience, we've transformed visions into reality across the UAE."
+                    </p>
+
+                    <p class="ceo-message__text">
+                      <span>"Our team of dedicated professionals</span> brings passion and precision to every detail, ensuring that your project not only meets but exceeds expectations. Thank you for trusting us with your vision."
+                    </p>
+                  </div>
+
+                  <div class="ceo-message__signature">
+                    <div class="ceo-message__name">JOHN KHAROUF</div>
+                    <div class="ceo-message__title">Chief Executive Officer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!--  decorative elements  -->
+          <div class="ceo-message__glow"></div>
+          <img
+            src="assets/lines-2-y9dv42Ce.webp"
+            alt="decorative lines pattern"
+            class="ceo-message__lines"
+          />
+        </section>
+
         <!-- ENGINEERS  -->
         
         <section class="engineers">
@@ -1235,7 +1604,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-5-Dhwq0MSh.webp"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1311,7 +1680,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-4-CF7hJjnb.webp"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1402,7 +1771,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-7-DUtWwN1m.avif"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1469,7 +1838,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-8-BBY5_l4c.avif"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1542,7 +1911,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-9-DF7f4plj.avif"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1615,7 +1984,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-10-OTLoLSu5.avif"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1688,7 +2057,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-11-D6FlRDrG.avif"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -1755,7 +2124,7 @@
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-12-DmWN4WJ1.avif"
-                      alt="UPTOWN Engineers"
+                      alt="ETIHAD Engineers"
                       loading="lazy"
                     />
 
@@ -2397,13 +2766,13 @@
                   </span>
 
                   <p class="reviews-swiper-slide__text">
-                    I recently hired Uptown for some engineering and maintenance work, and I couldn’t be more satisfied with the results. From start to finish, the team was professional, punctual, and highly skilled. They communicated clearly throughout the process and delivered high-quality work that exceeded my expectations. It’s rare to find such a reliable and knowledgeable team these days. I would absolutely recommend them to anyone looking for top-tier service. Thank you for a job well done!
+                    I recently hired Etihad for some engineering and maintenance work, and I couldn’t be more satisfied with the results. From start to finish, the team was professional, punctual, and highly skilled. They communicated clearly throughout the process and delivered high-quality work that exceeded my expectations. It’s rare to find such a reliable and knowledgeable team these days. I would absolutely recommend them to anyone looking for top-tier service. Thank you for a job well done!
                   </p>
 
                   <div class="reviews-swiper-slide__user">
                     <img
                       src="assets/review-user-ali-CemV8SSu.png"
-                      alt="UPTOWN review user image"
+                      alt="ETIHAD review user image"
                       class="reviews-swiper-slide__user-avatar"
                     />
 
@@ -2465,7 +2834,7 @@
                   <div class="reviews-swiper-slide__user">
                     <img
                       src="assets/review-user-ali-CemV8SSu.png"
-                      alt="UPTOWN review user image"
+                      alt="ETIHAD review user image"
                       class="reviews-swiper-slide__user-avatar"
                     />
 
@@ -2521,13 +2890,13 @@
                   </span>
 
                   <p class="reviews-swiper-slide__text">
-                    In my experience Uptown has a wonderful team and delivered the project as on time as per our requirements . The team was very professional and organized, supportive and detail oriented. Appreciating the best for new uptown new projects.
+                    In my experience Etihad has a wonderful team and delivered the project as on time as per our requirements . The team was very professional and organized, supportive and detail oriented. Appreciating the best for new Etihad projects.
                   </p>
 
                   <div class="reviews-swiper-slide__user">
                     <img
                       src="assets/review-user-akash-DZgECTpW.png"
-                      alt="UPTOWN review user image"
+                      alt="ETIHAD review user image"
                       class="reviews-swiper-slide__user-avatar"
                     />
 
@@ -2589,7 +2958,7 @@
                   <div class="reviews-swiper-slide__user">
                     <img
                       src="assets/review-user-yana-CnR2oWKW.png"
-                      alt="UPTOWN review user image"
+                      alt="ETIHAD review user image"
                       class="reviews-swiper-slide__user-avatar"
                     />
 
@@ -2657,7 +3026,7 @@
                   <div class="reviews-swiper-slide__user">
                     <img
                       src="assets/review-user-ali-CemV8SSu.png"
-                      alt="UPTOWN review user image"
+                      alt="ETIHAD review user image"
                       class="reviews-swiper-slide__user-avatar"
                     />
 
@@ -2719,7 +3088,7 @@
                   <div class="reviews-swiper-slide__user">
                     <img
                       src="assets/review-user-ali-CemV8SSu.png"
-                      alt="UPTOWN review user image"
+                      alt="ETIHAD review user image"
                       class="reviews-swiper-slide__user-avatar"
                     />
 
@@ -2755,7 +3124,7 @@
               <div class="reviews__background-image">
                 <img
                   src="assets/reviews-background-DaLEvkAd.webp"
-                  alt="UPTOWN reviews background image"
+                  alt="ETIHAD reviews background image"
                   loading="lazy"
                 />
               </div>
@@ -2791,7 +3160,7 @@
             />
 
             <div class="location-card__content">
-              <span class="location-card__content-title">Uptown</span>
+              <span class="location-card__content-title">Etihad</span>
               <h4 class="location-card__content-name">
                 AL OTAIBA BUILDING
               </h4>
@@ -2881,7 +3250,7 @@
           <div data-marquee-scroll-target="" class="marquee-advanced__scroll">
             <div data-marquee-collection-target="" class="marquee-advanced__collection">
               <div class="marquee-advanced__item-width">
-                WE ARE UPTOWN
+                WE ARE ETIHAD
 
                             <span></span>
               </div>
@@ -3035,7 +3404,7 @@
                 media="(min-width: 482px) and (max-width: 1024px) and (orientation: portrait)"
               />
 
-              <img src="assets/footer-img-qOMPXiNy.webp" alt="UPTOWN footer image" />
+              <img src="assets/footer-img-qOMPXiNy.webp" alt="ETIHAD footer image" />
             </picture>
 
             <button class="footer-back-to-top" data-scrollto="0">
@@ -3061,7 +3430,7 @@
 
           <!-- copyright  -->
           <p class="footer-copyright">
-            <span>©</span>2025 UPTOWN. All Rights Reserved
+            <span>©</span>2025 ETIHAD. All Rights Reserved
           </p>
 
           <!-- terms  -->
@@ -3133,6 +3502,188 @@
       });
       gsap.to(".split.top", { y: '-100%', duration: 1.5, ease: "power2.inOut", delay: 1, display: "none" });
       gsap.to(".split.bottom", { y: '100%', duration: 1.5, ease: "power2.inOut", delay: 1, display: "none" });
+
+      // CEO Message Animations (matching About section)
+      const ceoSection = document.querySelector('.ceo-message');
+      if (ceoSection) {
+        // Clear any previous GSAP properties
+        gsap.set([
+          '.ceo-message__tagline', 
+          '.ceo-message__heading span', 
+          '.ceo-message__image-wrapper',
+          '.ceo-message__text',
+          '.ceo-message__signature',
+          '.ceo-message__image-border',
+          '.ceo-message__image-accent'
+        ], { clearProps: 'all' });
+        
+        // Main timeline for CEO section
+        const ceoTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.ceo-message',
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: 1,
+            // markers: true
+          }
+        });
+
+        // Animate tagline
+        ceoTimeline.fromTo('.ceo-message__tagline', 
+          { opacity: 0, y: 30 }, 
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 
+          0
+        );
+
+        // Animate heading words with stagger
+        ceoTimeline.fromTo('.ceo-message__heading span', 
+          { opacity: 0, y: 50, rotationX: 45 }, 
+          { 
+            opacity: 1, 
+            y: 0, 
+            rotationX: 0,
+            duration: 0.8, 
+            stagger: 0.15,
+            ease: 'power3.out'
+          }, 
+          0.2
+        );
+
+        // Animate image wrapper with scale and fade
+        ceoTimeline.fromTo('.ceo-message__image-wrapper', 
+          { opacity: 0, scale: 0.85, y: 40 }, 
+          { 
+            opacity: 1, 
+            scale: 1, 
+            y: 0,
+            duration: 1.2, 
+            ease: 'power2.out' 
+          }, 
+          0.4
+        );
+
+        // Animate image itself with clip-path
+        ceoTimeline.fromTo('.ceo-message__image', 
+          { scale: 1.2, filter: 'grayscale(1) blur(5px)' }, 
+          { 
+            scale: 1, 
+            filter: 'grayscale(0.3) blur(0px) contrast(1.1)',
+            duration: 1.5,
+            ease: 'power2.inOut'
+          }, 
+          0.5
+        );
+
+        // Animate decorative border
+        ceoTimeline.fromTo('.ceo-message__image-border', 
+          { opacity: 0, scale: 0.9, rotation: -5 }, 
+          { 
+            opacity: 0.3, 
+            scale: 1, 
+            rotation: 0,
+            duration: 1,
+            ease: 'back.out(1.2)'
+          }, 
+          0.7
+        );
+
+        // Animate decorative accent
+        ceoTimeline.fromTo('.ceo-message__image-accent', 
+          { opacity: 0, x: -30, y: 30 }, 
+          { 
+            opacity: 0.1, 
+            x: 0, 
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+          }, 
+          0.8
+        );
+
+        // Animate text paragraphs with stagger
+        ceoTimeline.fromTo('.ceo-message__text', 
+          { opacity: 0, y: 30 }, 
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power2.out'
+          }, 
+          0.9
+        );
+
+        // Animate signature
+        ceoTimeline.fromTo('.ceo-message__signature', 
+          { opacity: 0, y: 20 }, 
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.6,
+            ease: 'power2.out'
+          }, 
+          1.2
+        );
+
+        // Parallax effect for background glow
+        gsap.to('.ceo-message__glow', {
+          scrollTrigger: {
+            trigger: '.ceo-message',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5
+          },
+          y: 100,
+          scale: 1.2,
+          ease: 'none'
+        });
+
+        // Parallax effect for lines
+        gsap.to('.ceo-message__lines', {
+          scrollTrigger: {
+            trigger: '.ceo-message',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 2
+          },
+          y: -50,
+          ease: 'none'
+        });
+
+        // Subtle floating animation for image on hover (only on desktop)
+        if (window.innerWidth >= 992) {
+          const imageWrapper = document.querySelector('.ceo-message__image-wrapper');
+          if (imageWrapper) {
+            imageWrapper.addEventListener('mouseenter', () => {
+              gsap.to('.ceo-message__image-wrapper', {
+                y: -10,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+              gsap.to('.ceo-message__image-border', {
+                scale: 1.05,
+                opacity: 0.5,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+            });
+
+            imageWrapper.addEventListener('mouseleave', () => {
+              gsap.to('.ceo-message__image-wrapper', {
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+              gsap.to('.ceo-message__image-border', {
+                scale: 1,
+                opacity: 0.3,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+            });
+          }
+        }
+      }
     </script>
   </body>
 </html>
