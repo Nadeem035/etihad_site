@@ -449,310 +449,528 @@
         }
       }
 
-      /* Feature Listings Section */
-      .feature-listings {
+      /* DHA Projects Section */
+      .dha-showcase,
+      .popular-listings {
         position: relative;
-        padding: 12rem 0;
         overflow: hidden;
         background:
-          radial-gradient(circle at 18% 20%, rgba(0, 156, 168, 0.12) 0%, transparent 28%),
-          radial-gradient(circle at 82% 75%, rgba(0, 156, 168, 0.08) 0%, transparent 32%),
-          linear-gradient(180deg, #050505 0%, #111111 55%, #0a0a0a 100%);
+          radial-gradient(circle at 18% 12%, rgba(0, 156, 168, 0.1) 0%, transparent 24%),
+          radial-gradient(circle at 82% 78%, rgba(194, 156, 60, 0.12) 0%, transparent 28%),
+          linear-gradient(180deg, #050505 0%, #111111 56%, #0a0a0a 100%);
       }
 
-      .feature-listings__inner {
+      .dha-showcase {
+        padding: 11rem 0 8rem;
+      }
+
+      .popular-listings {
+        padding: 9rem 0 11rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .dha-showcase__inner,
+      .popular-listings__inner {
         position: relative;
         z-index: 2;
-      }
-
-      .feature-listings__intro {
         max-width: 140rem;
-        margin: 0 auto 5rem;
+        margin: 0 auto;
         padding: 0 1.5rem;
       }
 
-      .feature-listings__eyebrow {
+      .dha-showcase__header,
+      .popular-listings__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 2.2rem;
+        margin-bottom: 4rem;
+      }
+
+      .dha-showcase__eyebrow,
+      .popular-listings__eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 1.2rem;
-        margin-bottom: 1.8rem;
-        color: var(--accent-color);
+        margin-bottom: 0;
+        color: #c8a24c;
         font-size: 1.2rem;
-        font-weight: 600;
-        letter-spacing: 0.28rem;
+        font-weight: 700;
+        letter-spacing: 0.24rem;
         text-transform: uppercase;
       }
 
-      .feature-listings__eyebrow::before {
+      .dha-showcase__eyebrow::before,
+      .popular-listings__eyebrow::before {
         content: '';
-        width: 5.6rem;
+        width: 5.2rem;
         height: 1px;
-        background: linear-gradient(90deg, rgba(0, 156, 168, 0) 0%, rgba(0, 156, 168, 1) 100%);
+        background: linear-gradient(90deg, rgba(200, 162, 76, 0) 0%, rgba(200, 162, 76, 1) 100%);
       }
 
-      .feature-listings__heading-row {
+      .dha-showcase__heading-row,
+      .popular-listings__heading-row {
         display: flex;
         flex-direction: column;
         gap: 2rem;
       }
 
-      .feature-listings__heading {
+      .dha-showcase__title,
+      .popular-listings__heading {
         margin: 0;
         color: #fff;
-        font-size: 4rem;
+        font-size: 4.8rem;
         line-height: 1.05;
-        letter-spacing: 0.08rem;
         text-transform: uppercase;
       }
 
-      .feature-listings__heading span {
-        color: var(--accent-color);
+      .dha-showcase__title span,
+      .popular-listings__heading span {
+        color: #c8a24c;
       }
 
-      .feature-listings__lede {
+      .dha-showcase__text,
+      .popular-listings__lede {
         max-width: 66rem;
         margin: 0;
         color: rgba(255, 255, 255, 0.68);
-        font-size: 1.55rem;
+        font-size: 1.52rem;
         line-height: 1.85;
       }
 
-      .feature-listings__rail {
-        position: relative;
-        width: 100%;
-      }
-
-      .feature-listings__track {
-        width: 100%;
-        overflow: hidden;
-      }
-
-      .feature-listings__cards {
+      .dha-showcase__meta-bar {
         display: flex;
-        gap: 2.4rem;
-        width: max-content;
-        padding: 0 1.5rem;
-        will-change: transform;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
 
-      .feature-listings__card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: min(36rem, calc(100vw - 4rem));
-        min-height: 54rem;
-        padding: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 2.8rem;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-        box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.26);
-        backdrop-filter: blur(12px);
-        overflow: hidden;
-      }
-
-      .feature-listings__card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(145deg, rgba(0, 156, 168, 0.18) 0%, transparent 32%, transparent 100%);
-        opacity: 0.8;
-        pointer-events: none;
-      }
-
-      .feature-listings__card::after {
-        content: '';
-        position: absolute;
-        inset: auto 2rem 2rem 2rem;
-        height: 0.1rem;
-        background: linear-gradient(90deg, rgba(0, 156, 168, 0.9) 0%, rgba(255, 255, 255, 0.18) 100%);
-        pointer-events: none;
-      }
-
-      .feature-listings__card-top,
-      .feature-listings__card-bottom {
-        position: relative;
-        z-index: 1;
-      }
-
-      .feature-listings__card-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .feature-listings__card-index {
-        color: rgba(255, 255, 255, 0.24);
-        font-size: 4.8rem;
-        font-weight: 700;
-        line-height: 0.9;
-        letter-spacing: -0.14rem;
-      }
-
-      .feature-listings__pill {
+      .dha-showcase__meta-chip,
+      .popular-listings__tab {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 3.4rem;
-        padding: 0 1.4rem;
-        border: 1px solid rgba(0, 156, 168, 0.35);
+        min-height: 3.8rem;
+        padding: 0 1.5rem;
         border-radius: 999px;
-        color: #d9ffff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.78);
         font-size: 1.15rem;
         font-weight: 600;
-        letter-spacing: 0.18rem;
+        letter-spacing: 0.12rem;
         text-transform: uppercase;
-        background: rgba(0, 156, 168, 0.1);
       }
 
-      .feature-listings__media {
+      .dha-showcase__rail {
         position: relative;
-        height: 21rem;
-        margin-bottom: 2rem;
-        border-radius: 2rem;
-        overflow: hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 0.2rem;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
       }
 
-      .feature-listings__media img {
+      .dha-showcase__rail::-webkit-scrollbar {
+        display: none;
+      }
+
+      .dha-showcase__cards {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(29rem, 33rem);
+        gap: 2.2rem;
+        width: max-content;
+      }
+
+      .dha-showcase__card {
+        position: relative;
+        min-height: 51rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 2.8rem;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.22);
+        scroll-snap-align: start;
+        transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+      }
+
+      .dha-showcase__card.is-active {
+        border-color: rgba(200, 162, 76, 0.28);
+        box-shadow: 0 2.4rem 5.4rem rgba(0, 0, 0, 0.28);
+      }
+
+      .dha-showcase__card-media {
+        position: absolute;
+        inset: 0;
+      }
+
+      .dha-showcase__card-media img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(1.04);
-        filter: saturate(0.92) contrast(1.05);
+        transform: scale(1.03);
+        transition: transform 0.7s ease;
+        filter: saturate(0.92) contrast(1.04);
       }
 
-      .feature-listings__media::after {
+      .dha-showcase__card::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(6, 6, 6, 0.04) 0%, rgba(6, 6, 6, 0.52) 100%);
+        background: linear-gradient(180deg, rgba(8, 8, 8, 0.12) 0%, rgba(8, 8, 8, 0.26) 40%, rgba(6, 6, 6, 0.84) 100%);
+        z-index: 1;
       }
 
-      .feature-listings__title {
-        margin: 0 0 1rem;
+      .dha-showcase__card-content {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 2;
+        padding: 2.6rem;
+      }
+
+      .dha-showcase__card-index {
+        display: block;
+        margin-bottom: 1.4rem;
+        color: rgba(255, 255, 255, 0.34);
+        font-size: 4.6rem;
+        font-weight: 700;
+        line-height: 0.9;
+      }
+
+      .dha-showcase__tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 3.1rem;
+        padding: 0 1.2rem;
+        border-radius: 999px;
+        border: 1px solid rgba(200, 162, 76, 0.3);
+        color: #f2ddaa;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.14rem;
+        text-transform: uppercase;
+        background: rgba(200, 162, 76, 0.12);
+      }
+
+      .dha-showcase__card-title {
+        margin: 1.6rem 0 0.9rem;
         color: #fff;
-        font-size: 2.4rem;
-        line-height: 1.1;
+        font-size: 2.7rem;
+        line-height: 1.12;
+      }
+
+      .dha-showcase__card-text {
+        margin: 0 0 2rem;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 1.4rem;
+        line-height: 1.75;
+      }
+
+      .dha-showcase__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .dha-showcase__meta-item {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.9rem;
+        padding: 0 1.1rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 1.1rem;
+      }
+
+      .dha-showcase__footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-top: 2.2rem;
+      }
+
+      .dha-showcase__note {
+        color: rgba(255, 255, 255, 0.54);
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
         text-transform: uppercase;
       }
 
-      .feature-listings__text {
+      .dha-showcase__progress {
+        position: relative;
+        width: min(100%, 24rem);
+        height: 0.3rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .dha-showcase__progress span {
+        display: block;
+        width: 36%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #8e6b1d 0%, #c8a24c 100%);
+      }
+
+      .dha-showcase__orb,
+      .popular-listings__panel-glow {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .dha-showcase__orb--one {
+        top: 8%;
+        right: -10rem;
+        width: 30rem;
+        height: 30rem;
+        background: radial-gradient(circle, rgba(0, 156, 168, 0.14) 0%, transparent 72%);
+      }
+
+      .dha-showcase__orb--two {
+        left: -8rem;
+        bottom: 0;
+        width: 24rem;
+        height: 24rem;
+        background: radial-gradient(circle, rgba(200, 162, 76, 0.14) 0%, transparent 72%);
+      }
+
+      /* Popular Listings Section */
+      .popular-listings__tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .popular-listings__tab {
+        cursor: pointer;
+        transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+      }
+
+      .popular-listings__tab.is-active,
+      .popular-listings__tab[aria-selected='true'] {
+        color: #fff;
+        border-color: rgba(200, 162, 76, 0.4);
+        background: rgba(200, 162, 76, 0.14);
+      }
+
+      .popular-listings__panels {
+        position: relative;
+      }
+
+      .popular-listings__panel {
+        position: relative;
+      }
+
+      .popular-listings__panel[hidden] {
+        display: none;
+      }
+
+      .popular-listings__grid {
+        display: grid;
+        gap: 2.4rem;
+      }
+
+      .popular-listings__card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 2.6rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        overflow: hidden;
+        box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.18);
+      }
+
+      .popular-listings__media {
+        position: relative;
+        height: 23rem;
+        margin: 1.8rem 1.8rem 0;
+        border-radius: 2rem;
+        overflow: hidden;
+        background: #1a1a1a;
+      }
+
+      .popular-listings__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.65s ease;
+      }
+
+      .popular-listings__media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(6, 6, 6, 0.04) 0%, rgba(6, 6, 6, 0.46) 100%);
+      }
+
+      .popular-listings__badge {
+        position: absolute;
+        top: 1.6rem;
+        left: 1.6rem;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        min-height: 3rem;
+        padding: 0 1.2rem;
+        border-radius: 999px;
+        border: 1px solid rgba(200, 162, 76, 0.32);
+        background: rgba(200, 162, 76, 0.16);
+        color: #f2ddaa;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.12rem;
+        text-transform: uppercase;
+      }
+
+      .popular-listings__body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 2rem 2rem 2.3rem;
+      }
+
+      .popular-listings__location {
+        margin: 0 0 1rem;
+        color: rgba(255, 255, 255, 0.46);
+        font-size: 1.25rem;
+      }
+
+      .popular-listings__title {
+        margin: 0;
+        color: #fff;
+        font-size: 2.5rem;
+        line-height: 1.14;
+      }
+
+      .popular-listings__price {
+        margin: 1.5rem 0 1rem;
+        color: #c8a24c;
+        font-size: 2.9rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .popular-listings__text {
         margin: 0;
         color: rgba(255, 255, 255, 0.68);
-        font-size: 1.45rem;
-        line-height: 1.8;
+        font-size: 1.4rem;
+        line-height: 1.78;
       }
 
-      .feature-listings__meta {
+      .popular-listings__meta {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.2rem;
-        margin-top: 2.6rem;
-      }
-
-      .feature-listings__meta-item {
-        padding-top: 1.4rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 1.8rem;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .feature-listings__meta-label {
+      .popular-listings__meta-value {
         display: block;
-        margin-bottom: 0.4rem;
-        color: rgba(255, 255, 255, 0.42);
-        font-size: 1.05rem;
+        color: #fff;
+        font-size: 1.45rem;
+        font-weight: 700;
+      }
+
+      .popular-listings__meta-label {
+        display: block;
+        margin-top: 0.4rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 1rem;
+        letter-spacing: 0.12rem;
+        text-transform: uppercase;
+      }
+
+      .popular-listings__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        color: #fff;
+        font-size: 1.15rem;
+        font-weight: 700;
         letter-spacing: 0.16rem;
         text-transform: uppercase;
       }
 
-      .feature-listings__meta-value {
-        color: #fff;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-
-      .feature-listings__glow,
-      .feature-listings__lines {
-        pointer-events: none;
-        position: absolute;
-      }
-
-      .feature-listings__glow {
-        top: 10%;
-        right: -10rem;
-        width: 42rem;
-        height: 42rem;
+      .popular-listings__cta::after {
+        content: '';
+        width: 2.8rem;
+        height: 2.8rem;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(0, 156, 168, 0.18) 0%, transparent 70%);
-        opacity: 0.65;
-        z-index: 1;
+        background: linear-gradient(135deg, #7c5a14 0%, #c8a24c 100%);
       }
 
-      .feature-listings__lines {
-        left: 0;
-        bottom: 8%;
-        width: 100%;
-        opacity: 0.025;
-        z-index: 0;
+      .popular-listings__panel-glow {
+        right: -10rem;
+        top: 2rem;
+        width: 24rem;
+        height: 24rem;
+        background: radial-gradient(circle, rgba(0, 156, 168, 0.12) 0%, transparent 72%);
       }
 
       @media (min-width: 992px) {
-        .feature-listings__heading-row {
+        .dha-showcase__heading-row,
+        .popular-listings__heading-row {
           flex-direction: row;
           justify-content: space-between;
           align-items: end;
           gap: 4rem;
         }
 
-        .feature-listings__heading {
-          max-width: 70rem;
-          font-size: 6rem;
+        .dha-showcase__title,
+        .popular-listings__heading {
+          max-width: 72rem;
+          font-size: 5.8rem;
         }
 
-        .feature-listings__lede {
-          padding-bottom: 0.8rem;
-        }
-
-        .feature-listings__cards {
-          gap: 3rem;
-          padding-inline: max(1.5rem, calc((100vw - 140rem) / 2 + 1.5rem));
-        }
-
-        .feature-listings__card {
-          width: 38rem;
-          min-height: 58rem;
-          padding: 2.4rem;
+        .popular-listings__grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
       }
 
       @media (max-width: 991px) {
-        .feature-listings {
+        .dha-showcase,
+        .popular-listings {
           padding: 8rem 0;
         }
 
-        .feature-listings__heading {
-          font-size: 3.2rem;
+        .dha-showcase__title,
+        .popular-listings__heading {
+          font-size: 3.4rem;
         }
 
-        .feature-listings__lede {
-          font-size: 1.35rem;
+        .dha-showcase__cards {
+          grid-auto-columns: minmax(27rem, 30rem);
         }
 
-        .feature-listings__card {
-          min-height: 50rem;
-          border-radius: 2.2rem;
+        .popular-listings__meta {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .dha-showcase__card,
+        .popular-listings__card {
+          border-radius: 2.3rem;
         }
 
-        .feature-listings__media {
-          height: 18rem;
+        .dha-showcase__card-title,
+        .popular-listings__title {
+          font-size: 2.3rem;
         }
 
-        .feature-listings__title {
-          font-size: 2rem;
+        .dha-showcase__card-content,
+        .popular-listings__body {
+          padding-inline: 1.8rem;
         }
 
-        .feature-listings__meta {
+        .popular-listings__meta {
           grid-template-columns: 1fr;
         }
       }
@@ -1891,155 +2109,329 @@
         </section> -->
 
 
-        <section class="feature-listings">
-          <div class="feature-listings__inner">
-            <div class="feature-listings__intro">
-              <div class="feature-listings__eyebrow">Feature Listings</div>
-              <div class="feature-listings__heading-row">
-                <h2 class="feature-listings__heading">
-                  Signature capabilities built for <span>ambitious spaces</span>
-                </h2>
-                <p class="feature-listings__lede">
-                  A curated strip of our strongest delivery pillars, designed as a cinematic horizontal reveal to mirror the precision, momentum, and premium finish behind the Etihad brand.
-                </p>
+        <section class="dha-showcase">
+          <div class="dha-showcase__inner">
+            <div class="dha-showcase__header">
+              <div class="dha-showcase__eyebrow">Investment Corridor</div>
+              <div class="dha-showcase__heading-row">
+                <div>
+                  <h2 class="dha-showcase__title">Explore <span>DHA Projects</span></h2>
+                  <p class="dha-showcase__text">
+                    This section now behaves like a project strip instead of a one-time hero, so more DHA locations can be added without breaking the layout. The content below is still placeholder for now.
+                  </p>
+                </div>
+
+                <div class="dha-showcase__meta-bar">
+                  <span class="dha-showcase__meta-chip">Luxury Communities</span>
+                  <span class="dha-showcase__meta-chip">Installment Options</span>
+                  <span class="dha-showcase__meta-chip">Ready for More Cards</span>
+                </div>
               </div>
             </div>
 
-            <div class="feature-listings__rail">
-              <div class="feature-listings__track">
-                <div class="feature-listings__cards">
-                  <article class="feature-listings__card">
-                    <div class="feature-listings__card-top">
-                      <span class="feature-listings__card-index">01</span>
-                      <span class="feature-listings__pill">Fast Track</span>
+            <div class="dha-showcase__rail">
+              <div class="dha-showcase__cards">
+                <article class="dha-showcase__card">
+                  <div class="dha-showcase__card-media">
+                    <img src="assets/project-1-CgjlQV5Q.webp" alt="Dummy DHA Lahore project preview" loading="lazy" />
+                  </div>
+                  <div class="dha-showcase__card-content">
+                    <span class="dha-showcase__card-index">01</span>
+                    <span class="dha-showcase__tag">DHA Lahore</span>
+                    <h3 class="dha-showcase__card-title">Canal-facing residential cluster</h3>
+                    <p class="dha-showcase__card-text">
+                      Placeholder copy for a high-demand community with stronger resale appeal and clean urban planning.
+                    </p>
+                    <div class="dha-showcase__meta">
+                      <span class="dha-showcase__meta-item">5 Marla to 1 Kanal</span>
+                      <span class="dha-showcase__meta-item">Installments</span>
                     </div>
+                  </div>
+                </article>
 
-                    <div class="feature-listings__card-bottom">
-                      <div class="feature-listings__media">
-                        <img src="assets/planning-3-C3t2e9L3.avif" alt="Etihad feature listing fast-track delivery" loading="lazy" />
+                <article class="dha-showcase__card">
+                  <div class="dha-showcase__card-media">
+                    <img src="assets/project-2-BnzO0N21.webp" alt="Dummy DHA Multan project preview" loading="lazy" />
+                  </div>
+                  <div class="dha-showcase__card-content">
+                    <span class="dha-showcase__card-index">02</span>
+                    <span class="dha-showcase__tag">DHA Multan</span>
+                    <h3 class="dha-showcase__card-title">Central boulevard family plots</h3>
+                    <p class="dha-showcase__card-text">
+                      Placeholder copy for a growth-led location with wide roads, active booking interest, and long-term upside.
+                    </p>
+                    <div class="dha-showcase__meta">
+                      <span class="dha-showcase__meta-item">Balloted</span>
+                      <span class="dha-showcase__meta-item">High demand</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dha-showcase__card">
+                  <div class="dha-showcase__card-media">
+                    <img src="assets/project-3-C6YK5w1q.webp" alt="Dummy DHA Bahawalpur project preview" loading="lazy" />
+                  </div>
+                  <div class="dha-showcase__card-content">
+                    <span class="dha-showcase__card-index">03</span>
+                    <span class="dha-showcase__tag">DHA Bahawalpur</span>
+                    <h3 class="dha-showcase__card-title">Gateway plots for early entry</h3>
+                    <p class="dha-showcase__card-text">
+                      Placeholder copy for a value-first option designed for buyers entering before the next price movement.
+                    </p>
+                    <div class="dha-showcase__meta">
+                      <span class="dha-showcase__meta-item">Launch pricing</span>
+                      <span class="dha-showcase__meta-item">File options</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dha-showcase__card">
+                  <div class="dha-showcase__card-media">
+                    <img src="assets/project-4-DCwOO40E.webp" alt="Dummy DHA Gujranwala project preview" loading="lazy" />
+                  </div>
+                  <div class="dha-showcase__card-content">
+                    <span class="dha-showcase__card-index">04</span>
+                    <span class="dha-showcase__tag">DHA Gujranwala</span>
+                    <h3 class="dha-showcase__card-title">Urban plots near future retail spine</h3>
+                    <p class="dha-showcase__card-text">
+                      Placeholder copy for a strategic community anchored by access, commerce, and family-oriented blocks.
+                    </p>
+                    <div class="dha-showcase__meta">
+                      <span class="dha-showcase__meta-item">Residential mix</span>
+                      <span class="dha-showcase__meta-item">Future growth</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="dha-showcase__card">
+                  <div class="dha-showcase__card-media">
+                    <img src="assets/planning-8-CVoCl0u3.avif" alt="Dummy DHA Quetta project preview" loading="lazy" />
+                  </div>
+                  <div class="dha-showcase__card-content">
+                    <span class="dha-showcase__card-index">05</span>
+                    <span class="dha-showcase__tag">DHA Quetta</span>
+                    <h3 class="dha-showcase__card-title">Wide-front plots with staged delivery</h3>
+                    <p class="dha-showcase__card-text">
+                      Placeholder copy for a market-ready launch where land profile and entry timing matter most.
+                    </p>
+                    <div class="dha-showcase__meta">
+                      <span class="dha-showcase__meta-item">Investor entry</span>
+                      <span class="dha-showcase__meta-item">Flexible plan</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="dha-showcase__footer">
+              <div class="dha-showcase__note">Scrollable strip built for multiple projects</div>
+              <div class="dha-showcase__progress" aria-hidden="true"><span></span></div>
+            </div>
+          </div>
+
+          <div class="dha-showcase__orb dha-showcase__orb--one"></div>
+          <div class="dha-showcase__orb dha-showcase__orb--two"></div>
+        </section>
+
+        <section class="popular-listings">
+          <div class="popular-listings__inner">
+            <div class="popular-listings__intro">
+              <div class="popular-listings__eyebrow">Browse Hot Offers</div>
+              <div class="popular-listings__heading-row">
+                <div>
+                  <h2 class="popular-listings__heading">Featured <span>Hot Offers</span></h2>
+                  <p class="popular-listings__lede">
+                    Tabs now switch actual listing groups instead of only changing the look of the pills, while keeping the styling aligned with the current homepage sections.
+                  </p>
+                </div>
+
+                <div class="popular-listings__tabs" role="tablist" aria-label="Hot offer categories">
+                  <button class="popular-listings__tab is-active" type="button" role="tab" aria-selected="true" aria-controls="hot-offers-popular" id="hot-offers-tab-popular" data-tab-target="hot-offers-popular">Popular</button>
+                  <button class="popular-listings__tab" type="button" role="tab" aria-selected="false" aria-controls="hot-offers-residential" id="hot-offers-tab-residential" data-tab-target="hot-offers-residential">Residential</button>
+                  <button class="popular-listings__tab" type="button" role="tab" aria-selected="false" aria-controls="hot-offers-commercial" id="hot-offers-tab-commercial" data-tab-target="hot-offers-commercial">Commercial</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="popular-listings__panels">
+              <div class="popular-listings__panel" id="hot-offers-popular" role="tabpanel" aria-labelledby="hot-offers-tab-popular">
+                <div class="popular-listings__grid">
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Featured</span>
+                      <img src="assets/planning-1-VJSRUVaE.avif" alt="Dummy Alpine Farm House listing" loading="lazy" />
+                    </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Main Batapur, Bhaini Road</p>
+                      <h3 class="popular-listings__title">Alpine Farm House</h3>
+                      <p class="popular-listings__price">PKR 2,400,000</p>
+                      <p class="popular-listings__text">Placeholder listing copy for a leisure-style investment opportunity with edge-of-city positioning.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">4 Kanal</span><span class="popular-listings__meta-label">Plot Range</span></div>
+                        <div><span class="popular-listings__meta-value">12%</span><span class="popular-listings__meta-label">Projected ROI</span></div>
+                        <div><span class="popular-listings__meta-value">36 Mo</span><span class="popular-listings__meta-label">Installments</span></div>
                       </div>
-                      <h3 class="feature-listings__title">Accelerated Delivery</h3>
-                      <p class="feature-listings__text">
-                        Structured sequencing, live coordination, and deadline-led execution that keep complex fit-out and renovation programs moving without losing finish quality.
-                      </p>
-                      <div class="feature-listings__meta">
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Strength</span>
-                          <span class="feature-listings__meta-value">Program Control</span>
-                        </div>
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Impact</span>
-                          <span class="feature-listings__meta-value">Faster Handover</span>
-                        </div>
-                      </div>
+                      <div class="popular-listings__cta">View listing</div>
                     </div>
                   </article>
 
-                  <article class="feature-listings__card">
-                    <div class="feature-listings__card-top">
-                      <span class="feature-listings__card-index">02</span>
-                      <span class="feature-listings__pill">Turnkey</span>
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Phase 2</span>
+                      <img src="assets/planning-6-BcHUs8jI.avif" alt="Dummy Etihad Town Phase 2 listing" loading="lazy" />
                     </div>
-
-                    <div class="feature-listings__card-bottom">
-                      <div class="feature-listings__media">
-                        <img src="assets/qualities-2-BrPElU0M.avif" alt="Etihad feature listing integrated delivery" loading="lazy" />
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Main LDA City Road, Halloki Interchange</p>
+                      <h3 class="popular-listings__title">Etihad Town Phase 2</h3>
+                      <p class="popular-listings__price">PKR 3,000,000</p>
+                      <p class="popular-listings__text">Placeholder copy for a family-focused phase supported by access-led planning and mid-ticket demand.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">5 Marla</span><span class="popular-listings__meta-label">Entry Size</span></div>
+                        <div><span class="popular-listings__meta-value">Balloted</span><span class="popular-listings__meta-label">Status</span></div>
+                        <div><span class="popular-listings__meta-value">Hot</span><span class="popular-listings__meta-label">Demand</span></div>
                       </div>
-                      <h3 class="feature-listings__title">Integrated Execution</h3>
-                      <p class="feature-listings__text">
-                        Design intent, engineering, procurement, and site delivery operate as one connected system, reducing friction across every construction phase.
-                      </p>
-                      <div class="feature-listings__meta">
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Strength</span>
-                          <span class="feature-listings__meta-value">Single-Source Flow</span>
-                        </div>
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Impact</span>
-                          <span class="feature-listings__meta-value">Sharper Decisions</span>
-                        </div>
-                      </div>
+                      <div class="popular-listings__cta">View listing</div>
                     </div>
                   </article>
 
-                  <article class="feature-listings__card">
-                    <div class="feature-listings__card-top">
-                      <span class="feature-listings__card-index">03</span>
-                      <span class="feature-listings__pill">Detail Driven</span>
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Phase 1</span>
+                      <img src="assets/planning-10-DBhe8CXi.avif" alt="Dummy Etihad Town Phase 1 listing" loading="lazy" />
                     </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Main Raiwind Road, Lahore</p>
+                      <h3 class="popular-listings__title">Etihad Town Phase 1</h3>
+                      <p class="popular-listings__price">PKR 7,500,000</p>
+                      <p class="popular-listings__text">Placeholder copy for a mature community with stronger comparables and confident end-user activity.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">10 Marla</span><span class="popular-listings__meta-label">Typical Plot</span></div>
+                        <div><span class="popular-listings__meta-value">Ready Area</span><span class="popular-listings__meta-label">Location</span></div>
+                        <div><span class="popular-listings__meta-value">Prime</span><span class="popular-listings__meta-label">Positioning</span></div>
+                      </div>
+                      <div class="popular-listings__cta">View listing</div>
+                    </div>
+                  </article>
+                </div>
+              </div>
 
-                    <div class="feature-listings__card-bottom">
-                      <div class="feature-listings__media">
-                        <img src="assets/qualities-4-DnNZB2wz.avif" alt="Etihad feature listing premium finishes" loading="lazy" />
+              <div class="popular-listings__panel" id="hot-offers-residential" role="tabpanel" aria-labelledby="hot-offers-tab-residential" hidden>
+                <div class="popular-listings__grid">
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Residential</span>
+                      <img src="assets/project-2-BnzO0N21.webp" alt="Dummy residence listing one" loading="lazy" />
+                    </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Sector Access Boulevard</p>
+                      <h3 class="popular-listings__title">DHA Lahore 8 Marla</h3>
+                      <p class="popular-listings__price">PKR 6,800,000</p>
+                      <p class="popular-listings__text">Placeholder copy for a residential file targeting buyers looking for balanced affordability and location strength.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">8 Marla</span><span class="popular-listings__meta-label">Type</span></div>
+                        <div><span class="popular-listings__meta-value">Live</span><span class="popular-listings__meta-label">Inventory</span></div>
+                        <div><span class="popular-listings__meta-value">Flexible</span><span class="popular-listings__meta-label">Payment</span></div>
                       </div>
-                      <h3 class="feature-listings__title">Premium Finishes</h3>
-                      <p class="feature-listings__text">
-                        Material discipline, finish consistency, and craftsmanship standards tuned for corporate, hospitality, retail, and luxury residential environments.
-                      </p>
-                      <div class="feature-listings__meta">
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Strength</span>
-                          <span class="feature-listings__meta-value">Craft Precision</span>
-                        </div>
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Impact</span>
-                          <span class="feature-listings__meta-value">Refined Output</span>
-                        </div>
-                      </div>
+                      <div class="popular-listings__cta">View listing</div>
                     </div>
                   </article>
 
-                  <article class="feature-listings__card">
-                    <div class="feature-listings__card-top">
-                      <span class="feature-listings__card-index">04</span>
-                      <span class="feature-listings__pill">Engineering</span>
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Residential</span>
+                      <img src="assets/project-3-C6YK5w1q.webp" alt="Dummy residence listing two" loading="lazy" />
                     </div>
-
-                    <div class="feature-listings__card-bottom">
-                      <div class="feature-listings__media">
-                        <img src="assets/planning-8-CVoCl0u3.avif" alt="Etihad feature listing technical planning" loading="lazy" />
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Main Family District, Multan</p>
+                      <h3 class="popular-listings__title">DHA Multan 1 Kanal</h3>
+                      <p class="popular-listings__price">PKR 8,900,000</p>
+                      <p class="popular-listings__text">Placeholder copy for a premium plot positioned around long-front roads and planned neighborhood amenities.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">1 Kanal</span><span class="popular-listings__meta-label">Type</span></div>
+                        <div><span class="popular-listings__meta-value">Premium</span><span class="popular-listings__meta-label">Tier</span></div>
+                        <div><span class="popular-listings__meta-value">Ready</span><span class="popular-listings__meta-label">Demand</span></div>
                       </div>
-                      <h3 class="feature-listings__title">Technical Foresight</h3>
-                      <p class="feature-listings__text">
-                        Proactive planning and multidisciplinary engineering reduce clashes early, protect budgets, and support confident execution on site.
-                      </p>
-                      <div class="feature-listings__meta">
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Strength</span>
-                          <span class="feature-listings__meta-value">Risk Reduction</span>
-                        </div>
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Impact</span>
-                          <span class="feature-listings__meta-value">Cleaner Delivery</span>
-                        </div>
-                      </div>
+                      <div class="popular-listings__cta">View listing</div>
                     </div>
                   </article>
 
-                  <article class="feature-listings__card">
-                    <div class="feature-listings__card-top">
-                      <span class="feature-listings__card-index">05</span>
-                      <span class="feature-listings__pill">Client First</span>
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Residential</span>
+                      <img src="assets/project-4-DCwOO40E.webp" alt="Dummy residence listing three" loading="lazy" />
                     </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Boulevard Extension, Bahawalpur</p>
+                      <h3 class="popular-listings__title">DHA Bahawalpur 10 Marla</h3>
+                      <p class="popular-listings__price">PKR 4,950,000</p>
+                      <p class="popular-listings__text">Placeholder copy for a residential entry designed around family demand and structured payment planning.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">10 Marla</span><span class="popular-listings__meta-label">Type</span></div>
+                        <div><span class="popular-listings__meta-value">Early</span><span class="popular-listings__meta-label">Entry</span></div>
+                        <div><span class="popular-listings__meta-value">24 Mo</span><span class="popular-listings__meta-label">Plan</span></div>
+                      </div>
+                      <div class="popular-listings__cta">View listing</div>
+                    </div>
+                  </article>
+                </div>
+              </div>
 
-                    <div class="feature-listings__card-bottom">
-                      <div class="feature-listings__media">
-                        <img src="assets/qualities-6-mLlP6-cB.avif" alt="Etihad feature listing client experience" loading="lazy" />
+              <div class="popular-listings__panel" id="hot-offers-commercial" role="tabpanel" aria-labelledby="hot-offers-tab-commercial" hidden>
+                <div class="popular-listings__grid">
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Commercial</span>
+                      <img src="assets/planning-3-C3t2e9L3.avif" alt="Dummy commercial listing one" loading="lazy" />
+                    </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Main Commercial Spine</p>
+                      <h3 class="popular-listings__title">Etihad Square Shops</h3>
+                      <p class="popular-listings__price">PKR 9,200,000</p>
+                      <p class="popular-listings__text">Placeholder copy for storefront inventory built around front visibility, parking, and strong daily movement.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">Ground</span><span class="popular-listings__meta-label">Floor</span></div>
+                        <div><span class="popular-listings__meta-value">Retail</span><span class="popular-listings__meta-label">Use</span></div>
+                        <div><span class="popular-listings__meta-value">Prime</span><span class="popular-listings__meta-label">Frontage</span></div>
                       </div>
-                      <h3 class="feature-listings__title">Transparent Partnership</h3>
-                      <p class="feature-listings__text">
-                        Clear reporting, disciplined communication, and responsive teams keep every stakeholder aligned from concept approvals to final handover.
-                      </p>
-                      <div class="feature-listings__meta">
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Strength</span>
-                          <span class="feature-listings__meta-value">Visibility</span>
-                        </div>
-                        <div class="feature-listings__meta-item">
-                          <span class="feature-listings__meta-label">Impact</span>
-                          <span class="feature-listings__meta-value">Client Confidence</span>
-                        </div>
+                      <div class="popular-listings__cta">View listing</div>
+                    </div>
+                  </article>
+
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Commercial</span>
+                      <img src="assets/planning-5-DE4NL4q8.avif" alt="Dummy commercial listing two" loading="lazy" />
+                    </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Business District, Phase 2</p>
+                      <h3 class="popular-listings__title">Corporate Office Floors</h3>
+                      <p class="popular-listings__price">PKR 14,500,000</p>
+                      <p class="popular-listings__text">Placeholder copy for office inventory targeting investors looking for premium rental positioning.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">Office</span><span class="popular-listings__meta-label">Type</span></div>
+                        <div><span class="popular-listings__meta-value">Yield</span><span class="popular-listings__meta-label">Focus</span></div>
+                        <div><span class="popular-listings__meta-value">Top</span><span class="popular-listings__meta-label">Zone</span></div>
                       </div>
+                      <div class="popular-listings__cta">View listing</div>
+                    </div>
+                  </article>
+
+                  <article class="popular-listings__card">
+                    <div class="popular-listings__media">
+                      <span class="popular-listings__badge">Commercial</span>
+                      <img src="assets/planning-9-BMyzCawk.avif" alt="Dummy commercial listing three" loading="lazy" />
+                    </div>
+                    <div class="popular-listings__body">
+                      <p class="popular-listings__location">Central Avenue Block</p>
+                      <h3 class="popular-listings__title">Mixed-use Corner Plot</h3>
+                      <p class="popular-listings__price">PKR 18,000,000</p>
+                      <p class="popular-listings__text">Placeholder copy for a corner commercial site tailored for visibility, traffic capture, and mixed-use value.</p>
+                      <div class="popular-listings__meta">
+                        <div><span class="popular-listings__meta-value">Corner</span><span class="popular-listings__meta-label">Position</span></div>
+                        <div><span class="popular-listings__meta-value">Mixed</span><span class="popular-listings__meta-label">Use</span></div>
+                        <div><span class="popular-listings__meta-value">High</span><span class="popular-listings__meta-label">Footfall</span></div>
+                      </div>
+                      <div class="popular-listings__cta">View listing</div>
                     </div>
                   </article>
                 </div>
@@ -2047,8 +2439,7 @@
             </div>
           </div>
 
-          <div class="feature-listings__glow"></div>
-          <img src="assets/lines-2-y9dv42Ce.webp" alt="decorative lines pattern" class="feature-listings__lines" />
+          <div class="popular-listings__panel-glow"></div>
         </section>
 
         <!-- ENGINEERS  -->
@@ -4287,93 +4678,172 @@
         }
       }
 
-      const featureListingsSection = document.querySelector('.feature-listings');
-      if (featureListingsSection) {
-        const featureCards = featureListingsSection.querySelectorAll('.feature-listings__card');
-        const featureTrack = featureListingsSection.querySelector('.feature-listings__track');
-        const featureCardsWrapper = featureListingsSection.querySelector('.feature-listings__cards');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const dhaShowcaseSection = document.querySelector('.dha-showcase');
+      if (dhaShowcaseSection) {
+        const dhaIntro = dhaShowcaseSection.querySelector('.dha-showcase__header');
+        const dhaRail = dhaShowcaseSection.querySelector('.dha-showcase__rail');
+        const dhaCards = dhaShowcaseSection.querySelectorAll('.dha-showcase__card');
+        const dhaOrbs = dhaShowcaseSection.querySelectorAll('.dha-showcase__orb');
+        const dhaProgressFill = dhaShowcaseSection.querySelector('.dha-showcase__progress span');
+        let dhaActiveIndex = 0;
+        let dhaAutoplayId;
+        let dhaResumeTimeoutId;
+
+        const setDhaActiveCard = (index, scrollBehavior = 'smooth') => {
+          if (!dhaCards.length || !dhaRail) {
+            return;
+          }
+
+          dhaActiveIndex = (index + dhaCards.length) % dhaCards.length;
+
+          dhaCards.forEach((card, cardIndex) => {
+            card.classList.toggle('is-active', cardIndex === dhaActiveIndex);
+          });
+
+          if (dhaProgressFill) {
+            gsap.to(dhaProgressFill, {
+              width: `${((dhaActiveIndex + 1) / dhaCards.length) * 100}%`,
+              duration: prefersReducedMotion ? 0 : 0.35,
+              ease: 'power2.out'
+            });
+          }
+
+          const activeCard = dhaCards[dhaActiveIndex];
+          if (activeCard) {
+            dhaRail.scrollTo({
+              left: activeCard.offsetLeft,
+              behavior: prefersReducedMotion ? 'auto' : scrollBehavior
+            });
+          }
+        };
+
+        const stopDhaAutoplay = () => {
+          if (dhaAutoplayId) {
+            window.clearInterval(dhaAutoplayId);
+            dhaAutoplayId = undefined;
+          }
+        };
+
+        const startDhaAutoplay = () => {
+          if (prefersReducedMotion || dhaCards.length < 2) {
+            return;
+          }
+
+          stopDhaAutoplay();
+          dhaAutoplayId = window.setInterval(() => {
+            setDhaActiveCard(dhaActiveIndex + 1);
+          }, 3500);
+        };
+
+        const pauseAndResumeDhaAutoplay = () => {
+          stopDhaAutoplay();
+
+          if (dhaResumeTimeoutId) {
+            window.clearTimeout(dhaResumeTimeoutId);
+          }
+
+          dhaResumeTimeoutId = window.setTimeout(() => {
+            startDhaAutoplay();
+          }, 5000);
+        };
+
+        const syncDhaActiveCardFromScroll = () => {
+          if (!dhaRail || !dhaCards.length) {
+            return;
+          }
+
+          const railCenter = dhaRail.scrollLeft + dhaRail.clientWidth / 2;
+          let nextIndex = dhaActiveIndex;
+          let closestDistance = Number.POSITIVE_INFINITY;
+
+          dhaCards.forEach((card, index) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const distance = Math.abs(cardCenter - railCenter);
+
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              nextIndex = index;
+            }
+          });
+
+          if (nextIndex !== dhaActiveIndex) {
+            dhaActiveIndex = nextIndex;
+            dhaCards.forEach((card, cardIndex) => {
+              card.classList.toggle('is-active', cardIndex === dhaActiveIndex);
+            });
+
+            if (dhaProgressFill) {
+              gsap.to(dhaProgressFill, {
+                width: `${((dhaActiveIndex + 1) / dhaCards.length) * 100}%`,
+                duration: prefersReducedMotion ? 0 : 0.2,
+                ease: 'power2.out'
+              });
+            }
+          }
+        };
 
         gsap.fromTo(
-          '.feature-listings__intro',
-          { autoAlpha: 0, y: 50 },
+          dhaIntro,
+          { autoAlpha: 0, y: 34 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 1,
+            duration: 0.9,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: '.feature-listings',
+              trigger: dhaShowcaseSection,
               start: 'top 78%'
             }
           }
         );
 
         gsap.fromTo(
-          featureCards,
-          { autoAlpha: 0, y: 60 },
+          dhaCards,
+          { autoAlpha: 0, y: 46 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.9,
-            stagger: 0.1,
+            duration: 0.75,
+            stagger: 0.08,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: '.feature-listings',
+              trigger: dhaShowcaseSection,
               start: 'top 70%'
             }
           }
         );
 
-        const buildFeatureListingsScroll = () => {
-          const maxScrollX = Math.max(0, featureCardsWrapper.scrollWidth - featureTrack.clientWidth);
-
-          ScrollTrigger.getAll().forEach((trigger) => {
-            if (trigger.vars && trigger.vars.id === 'feature-listings-scroll') {
-              trigger.kill();
-            }
-          });
-
-          gsap.killTweensOf(featureCardsWrapper);
-          gsap.set(featureCardsWrapper, { x: 0 });
-
-          if (!maxScrollX) {
-            return;
-          }
-
-          gsap.to(featureCardsWrapper, {
-            x: -maxScrollX,
+        dhaOrbs.forEach((orb, index) => {
+          gsap.to(orb, {
+            y: index === 0 ? 85 : -70,
+            x: index === 0 ? -25 : 20,
             ease: 'none',
             scrollTrigger: {
-              id: 'feature-listings-scroll',
-              trigger: featureListingsSection,
-              start: 'top top',
-              end: () => `+=${maxScrollX + window.innerHeight * 0.45}`,
-              scrub: 1,
-              pin: true,
-              invalidateOnRefresh: true,
-              anticipatePin: 1
+              trigger: dhaShowcaseSection,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.2
             }
           });
-        };
+        });
 
-        buildFeatureListingsScroll();
-        ScrollTrigger.addEventListener('refreshInit', buildFeatureListingsScroll);
-
-        featureCards.forEach((card) => {
-          const image = card.querySelector('.feature-listings__media img');
+        dhaCards.forEach((card) => {
+          const image = card.querySelector('img');
 
           card.addEventListener('mouseenter', () => {
             gsap.to(card, {
-              y: -12,
-              borderColor: 'rgba(0, 156, 168, 0.35)',
-              duration: 0.45,
+              y: -8,
+              borderColor: 'rgba(200, 162, 76, 0.28)',
+              duration: 0.35,
               ease: 'power2.out'
             });
 
-            if (image) {
+            if (image && !prefersReducedMotion) {
               gsap.to(image, {
-                scale: 1.1,
-                duration: 0.6,
+                scale: 1.08,
+                duration: 0.5,
                 ease: 'power2.out'
               });
             }
@@ -4383,33 +4853,167 @@
             gsap.to(card, {
               y: 0,
               borderColor: 'rgba(255, 255, 255, 0.08)',
-              duration: 0.45,
+              duration: 0.35,
               ease: 'power2.out'
             });
 
-            if (image) {
+            if (image && !prefersReducedMotion) {
               gsap.to(image, {
-                scale: 1.04,
-                duration: 0.6,
+                scale: 1.03,
+                duration: 0.5,
                 ease: 'power2.out'
               });
             }
           });
         });
 
-        gsap.to('.feature-listings__glow', {
-          y: 120,
-          x: -40,
+        setDhaActiveCard(0, 'auto');
+        startDhaAutoplay();
+
+        if (dhaRail) {
+          dhaRail.addEventListener('mouseenter', stopDhaAutoplay);
+          dhaRail.addEventListener('mouseleave', startDhaAutoplay);
+          dhaRail.addEventListener('focusin', stopDhaAutoplay);
+          dhaRail.addEventListener('focusout', startDhaAutoplay);
+          dhaRail.addEventListener('scroll', syncDhaActiveCardFromScroll, { passive: true });
+          dhaRail.addEventListener('pointerdown', pauseAndResumeDhaAutoplay);
+          dhaRail.addEventListener('touchstart', pauseAndResumeDhaAutoplay, { passive: true });
+        }
+      }
+
+      const popularListingsSection = document.querySelector('.popular-listings');
+      if (popularListingsSection) {
+        const popularIntro = popularListingsSection.querySelector('.popular-listings__intro');
+        const popularCards = popularListingsSection.querySelectorAll('.popular-listings__card');
+        const popularTabs = popularListingsSection.querySelectorAll('.popular-listings__tab');
+        const popularPanels = popularListingsSection.querySelectorAll('.popular-listings__panel');
+
+        gsap.fromTo(
+          popularIntro,
+          { autoAlpha: 0, y: 40 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: popularListingsSection,
+              start: 'top 80%'
+            }
+          }
+        );
+
+        gsap.fromTo(
+          popularCards,
+          { autoAlpha: 0, y: 60 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.08,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: popularListingsSection,
+              start: 'top 72%'
+            }
+          }
+        );
+
+        gsap.to('.popular-listings__panel-glow', {
+          y: 100,
+          x: -30,
           ease: 'none',
           scrollTrigger: {
-            trigger: '.feature-listings',
+            trigger: popularListingsSection,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1.4
+            scrub: 1.2
           }
         });
+
+        if (!prefersReducedMotion) {
+          popularCards.forEach((card) => {
+            const image = card.querySelector('.popular-listings__media img');
+
+            card.addEventListener('mouseenter', () => {
+              gsap.to(card, {
+                y: -12,
+                duration: 0.35,
+                ease: 'power2.out'
+              });
+
+              if (image) {
+                gsap.to(image, {
+                  scale: 1.08,
+                  duration: 0.5,
+                  ease: 'power2.out'
+                });
+              }
+            });
+
+            card.addEventListener('mouseleave', () => {
+              gsap.to(card, {
+                y: 0,
+                duration: 0.35,
+                ease: 'power2.out'
+              });
+
+              if (image) {
+                gsap.to(image, {
+                  scale: 1,
+                  duration: 0.5,
+                  ease: 'power2.out'
+                });
+              }
+            });
+          });
+        }
+
+        if (popularTabs.length && popularPanels.length) {
+          const activateHotOfferPanel = (tab) => {
+            const targetId = tab.dataset.tabTarget;
+
+            popularTabs.forEach((button) => {
+              const isActive = button === tab;
+              button.classList.toggle('is-active', isActive);
+              button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+              button.setAttribute('tabindex', isActive ? '0' : '-1');
+            });
+
+            popularPanels.forEach((panel) => {
+              const isTarget = panel.id === targetId;
+
+              if (!isTarget) {
+                panel.hidden = true;
+                return;
+              }
+
+              panel.hidden = false;
+
+              if (prefersReducedMotion) {
+                return;
+              }
+
+              gsap.fromTo(
+                panel.querySelectorAll('.popular-listings__card'),
+                { autoAlpha: 0, y: 24 },
+                {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: 0.45,
+                  stagger: 0.06,
+                  ease: 'power2.out',
+                  clearProps: 'all'
+                }
+              );
+            });
+          };
+
+          popularTabs.forEach((tab) => {
+            tab.addEventListener('click', () => activateHotOfferPanel(tab));
+          });
+        }
       }
-      // udpated the location card animation to match the new design and add a subtle hover effect on the CTA button
     </script>
   </body>
 </html>
