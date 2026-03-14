@@ -766,6 +766,13 @@
         height: 24rem;
         background: radial-gradient(circle, rgba(187, 156, 70, 0.14) 0%, transparent 72%);
       }
+      .dha-map__google-map .gm-style .gm-style-iw-c{
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      .gm-ui-hover-effect>span{
+        filter: invert(1) brightness(1.2) !important;
+      }
 
       /* Popular Listings Section */
       .popular-listings__tabs {
@@ -1008,7 +1015,646 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* DHA Map Section */
+      .dha-map {
+        position: relative;
+        padding: 8rem 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 12%, rgba(187, 156, 70, 0.1) 0%, transparent 24%),
+          radial-gradient(circle at 82% 78%, rgba(194, 156, 60, 0.12) 0%, transparent 28%),
+          linear-gradient(180deg, #050505 0%, #111111 56%, #0a0a0a 100%);
+      }
+
+      .dha-map__inner {
+        position: relative;
+        z-index: 2;
+        max-width: 140rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .dha-map__header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .dha-map__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        color: #bb9c46;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.24rem;
+        text-transform: uppercase;
+      }
+
+      .dha-map__title {
+        margin: 0 0 1.5rem;
+        color: #fff;
+        font-size: 4.8rem;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+
+      .dha-map__title span {
+        color: #bb9c46;
+      }
+
+      .dha-map__description {
+        max-width: 66rem;
+        margin: 0 auto 4rem;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 1.52rem;
+        line-height: 1.85;
+      }
+
+      .dha-map__container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 25rem;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .dha-map__map-wrapper {
+        position: relative;
+        width: 100%;
+        height: 50rem;
+        overflow: hidden;
+        border-radius: 2.4rem;
+        box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.18);
+      }
+
+      .dha-map__google-map {
+        width: 100%;
+        height: 100%;
+        border-radius: 2.4rem;
+      }
+
+      .dha-map__fullscreen-btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 4.4rem;
+        height: 4.4rem;
+        border: none;
+        border-radius: 0.8rem;
+        background: rgba(20, 20, 30, 0.85);
+        color: #bb9c46;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(1rem);
+        border: 1px solid rgba(187, 156, 70, 0.3);
+      }
+
+      .dha-map__fullscreen-btn:hover {
+        background: rgba(187, 156, 70, 0.15);
+        transform: scale(1.05);
+      }
+
+      .dha-map__fullscreen-btn svg {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+
+      /* Info Window Styles */
+      .dha-map__info-window {
+        background: linear-gradient(135deg, rgba(20, 20, 30, 0.98) 0%, rgba(30, 25, 40, 0.98) 100%);
+        border: 1px solid rgba(187, 156, 70, 0.4);
+        border-radius: 1.6rem;
+        padding: 1.8rem;
+        max-width: 32rem;
+        backdrop-filter: blur(0.5rem);
+        box-shadow: 
+          0 2rem 6rem rgba(0, 0, 0, 0.5),
+          0 0 2rem rgba(187, 156, 70, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .dha-map__info-window-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+        margin-bottom: 1.4rem;
+        padding-bottom: 1.4rem;
+        border-bottom: 1px solid rgba(187, 156, 70, 0.2);
+      }
+
+      .dha-map__info-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1.2rem;
+        background: linear-gradient(135deg, rgba(187, 156, 70, 0.25) 0%, rgba(187, 156, 70, 0.15) 100%);
+        border: 1px solid rgba(187, 156, 70, 0.5);
+        border-radius: 0.8rem;
+        color: #ffd700;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+        box-shadow: 0 0.4rem 1.2rem rgba(187, 156, 70, 0.15);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .dha-map__info-title {
+        margin: 0;
+        color: #fff;
+        font-size: 1.35rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .dha-map__info-text {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin: 0;
+        padding: 1rem 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .dha-map__info-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1.4rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid rgba(187, 156, 70, 0.2);
+      }
+
+      .dha-map__info-meta span {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        padding: 0.8rem;
+        background: rgba(187, 156, 70, 0.05);
+        border-radius: 0.8rem;
+        border: 1px solid rgba(187, 156, 70, 0.15);
+        transition: all 0.3s ease;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .dha-map__info-meta span strong {
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.9rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .dha-map__info-meta span:hover {
+        background: rgba(187, 156, 70, 0.1);
+        border-color: rgba(187, 156, 70, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 0.4rem 1rem rgba(187, 156, 70, 0.1);
+      }
+
+      .dha-map__info-meta span::before {
+        content: '';
+        display: inline-block;
+        width: 0.4rem;
+        height: 0.4rem;
+        background: #bb9c46;
+        border-radius: 50%;
+      }
+
+      .dha-map__info-cta {
+        margin-top: 1.4rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid rgba(187, 156, 70, 0.2);
+        text-align: center;
+      }
+
+      .dha-map__info-cta button {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        color: #0a0a0a;
+        border: none;
+        border-radius: 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.25);
+      }
+
+      .dha-map__info-cta button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.35);
+        filter: brightness(1.2);
+      }
+
+      .dha-map__info-cta button:active {
+        transform: translateY(0);
+      }
+
+      .dha-map__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: auto;
+      }
+
+      .dha-map__legend {
+        padding: 2rem;
+        background: rgba(20, 20, 30, 0.6);
+        border: 1px solid rgba(187, 156, 70, 0.2);
+        border-radius: 1.2rem;
+        backdrop-filter: blur(1rem);
+      }
+
+      .dha-map__legend-title {
+        margin: 0 0 1.5rem;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12rem;
+      }
+
+      .dha-map__communities-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-height: 50rem;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+      }
+
+      .dha-map__communities-container::-webkit-scrollbar {
+        width: 0.4rem;
+      }
+
+      .dha-map__communities-container::-webkit-scrollbar-track {
+        background: rgba(187, 156, 70, 0.05);
+        border-radius: 0.2rem;
+      }
+
+      .dha-map__communities-container::-webkit-scrollbar-thumb {
+        background: rgba(187, 156, 70, 0.3);
+        border-radius: 0.2rem;
+      }
+
+      .dha-map__communities-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(187, 156, 70, 0.5);
+      }
+
+      .dha-map__community-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(187, 156, 70, 0.2);
+      }
+
+      .dha-map__community-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+        background: linear-gradient(135deg, rgba(187, 156, 70, 0.15) 0%, rgba(187, 156, 70, 0.08) 100%);
+        border: 1px solid rgba(187, 156, 70, 0.3);
+        border-radius: 0.8rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        user-select: none;
+      }
+
+      .dha-map__community-header:hover {
+        background: linear-gradient(135deg, rgba(187, 156, 70, 0.25) 0%, rgba(187, 156, 70, 0.15) 100%);
+        border-color: rgba(187, 156, 70, 0.5);
+        transform: translateX(0.3rem);
+      }
+
+      .dha-map__community-color {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.4rem;
+        flex-shrink: 0;
+        box-shadow: 0 0 1rem currentColor;
+      }
+
+      .dha-map__community-name {
+        flex: 1;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+
+      .dha-map__community-toggle {
+        width: 1.4rem;
+        height: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(187, 156, 70, 0.8);
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .dha-map__community-toggle.expanded {
+        transform: rotate(180deg);
+      }
+
+      .dha-map__locations-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .dha-map__location-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.6rem 0.8rem 0.6rem 2rem;
+        cursor: pointer;
+        border-radius: 0.6rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .dha-map__location-item::before {
+        content: '';
+        position: absolute;
+        left: 0.8rem;
+        width: 0.5rem;
+        height: 0.5rem;
+        background: currentColor;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .dha-map__location-item:hover {
+        background: rgba(187, 156, 70, 0.12);
+        padding-left: 2.2rem;
+      }
+
+      .dha-map__location-pin {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .dha-map__location-text {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.85rem;
+        line-height: 1.3;
+        transition: color 0.3s ease;
+      }
+
+      .dha-map__location-item:hover .dha-map__location-text {
+        color: #fff;
+      }
+
+      .dha-map__legend-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .dha-map__legend-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.6rem 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dha-map__legend-item:hover {
+        transform: translateX(0.4rem);
+      }
+
+      .dha-map__legend-pin {
+        width: 0.8rem;
+        height: 0.8rem;
+        background: #bb9c46;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .dha-map__legend-text {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .dha-map__orb {
+        position: absolute;
+        bottom: -5rem;
+        right: -8rem;
+        width: 30rem;
+        height: 30rem;
+        background: radial-gradient(circle, rgba(187, 156, 70, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+      }
+
+      /* Face/Flip animations for cards */
+      @keyframes flipIn {
+        0% {
+          opacity: 0;
+          transform: perspective(400px) rotateY(-90deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(400px) rotateY(0deg);
+        }
+      }
+
+      @keyframes flipInLeft {
+        0% {
+          opacity: 0;
+          transform: perspective(400px) rotateY(90deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(400px) rotateY(0deg);
+        }
+      }
+
+      @keyframes faceUp {
+        0% {
+          opacity: 0;
+          transform: perspective(600px) rotateX(-90deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(600px) rotateX(0deg);
+        }
+      }
+
+      @keyframes cardFlip {
+        0% {
+          opacity: 0;
+          transform: perspective(800px) rotateY(-100deg) rotateZ(10deg);
+        }
+        50% {
+          transform: perspective(800px) rotateY(-50deg) rotateZ(5deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(800px) rotateY(0deg) rotateZ(0deg);
+        }
+      }
+
+      .dha-map__info-window {
+        animation: flipIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform-origin: center center;
+      }
+
+      .dha-map__community-group {
+        animation: faceUp 0.5s ease-out;
+      }
+
+      .dha-map__location-item {
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .dha-map__location-item:hover {
+        animation: flipInLeft 0.4s ease-out;
+      }
+
+      @media (max-width: 1024px) {
+        .dha-map__container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .dha-map__map-wrapper {
+          height: 40rem;
+        }
+
+        .dha-map__legend {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+          gap: 1rem;
+          padding: 1.5rem;
+        }
+
+        .dha-map__legend-list {
+          flex-direction: row;
+          gap: 0.8rem;
+          grid-column: 1 / -1;
+          flex-wrap: wrap;
+        }
+
+        .dha-map__legend-item {
+          padding: 0.5rem;
+          gap: 0.6rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .dha-map {
+          padding: 6rem 0;
+        }
+
+        .dha-map__title {
+          font-size: 3.2rem;
+        }
+
+        .dha-map__description {
+          font-size: 1.1rem;
+          margin-bottom: 3rem;
+        }
+
+        .dha-map__map-wrapper {
+          height: 35rem;
+        }
+
+        .dha-map__tooltip {
+          padding: 1.5rem;
+          position: fixed;
+          max-width: 28rem !important;
+          z-index: 1000;
+        }
+
+        .dha-map__legend {
+          padding: 1.5rem;
+        }
+
+        .dha-map__legend-list {
+          gap: 0.8rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .dha-map__title {
+          font-size: 2.4rem;
+        }
+
+        .dha-map__description {
+          font-size: 1rem;
+        }
+
+        .dha-map__map-wrapper {
+          height: 30rem;
+          border-radius: 1.6rem;
+        }
+
+        .dha-map__legend {
+          padding: 1rem;
+        }
+
+        .dha-map__legend-title {
+          font-size: 1rem;
+        }
+
+        .dha-map__legend-list {
+          gap: 0.6rem;
+        }
+
+        .dha-map__legend-item {
+          padding: 0.4rem;
+          gap: 0.5rem;
+        }
+
+        .dha-map__legend-text {
+          font-size: 0.8rem;
+        }
+      }
     </style>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYrLB-ltxWv32OFEF6c07B376JNrDyOIA&libraries=marker"></script>
   </head>
 
   <body data-scrolling-started="false" data-scrolling-direction="up">
@@ -2806,6 +3452,50 @@
           </div>
 
           <div class="popular-listings__panel-glow"></div>
+        </section>
+
+
+        <!-- DHA LAHORE MAP -->
+        <section class="dha-map">
+          <div class="dha-map__inner">
+            <div class="dha-map__header">
+              <div class="dha-map__eyebrow">Explore Our Locations</div>
+              <h2 class="dha-map__title">DHA Lahore <span>Locations</span></h2>
+              <p class="dha-map__description">
+                Discover our premium properties across different zones in DHA Lahore. Click on the markers to view location details.
+              </p>
+            </div>
+
+            <div class="dha-map__container">
+              <!-- Google Map Container -->
+              <div class="dha-map__map-wrapper">
+                <div id="dha-google-map" class="dha-map__google-map"></div>
+                
+                <!-- Info Window Template -->
+                <div id="info-window-template" class="dha-map__info-window" style="display: none;">
+                  <div class="dha-map__info-window-header">
+                    <span class="dha-map__info-badge"></span>
+                    <h4 class="dha-map__info-title"></h4>
+                  </div>
+                  <p class="dha-map__info-text"></p>
+                  <div class="dha-map__info-meta">
+                    <span class="dha-map__info-size"></span>
+                    <span class="dha-map__info-status"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Legend Sidebar -->
+              <div class="dha-map__legend">
+                <h3 class="dha-map__legend-title">Communities</h3>
+                <div id="communities-container" class="dha-map__communities-container">
+                  <!-- Communities will be dynamically populated -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dha-map__orb"></div>
         </section>
 
 
@@ -5398,6 +6088,417 @@
           popularTabs.forEach((tab) => {
             tab.addEventListener('click', () => activateHotOfferPanel(tab));
           });
+        }
+
+
+
+
+
+
+
+
+
+        // DHA Lahore Developments - Hierarchical Structure
+        const developments = [
+          {
+            id: 'dha-lahore',
+            name: 'DHA Lahore',
+            color: '#bb9c46',
+            bgColor: 'rgba(187, 156, 70, 0.15)',
+            hoverColor: 'rgba(187, 156, 70, 0.25)',
+            centerLat: 31.5310,
+            centerLng: 74.3550,
+            description: 'Premium residential community in Lahore',
+            locations: [
+              {
+                id: 1,
+                name: 'Main Gate Area',
+                phase: 'Phase 1',
+                lat: 31.5268,
+                lng: 74.3451,
+                description: 'Premium entry plots with direct access to main avenue. 5-10 Marla residential units with excellent connectivity.',
+                size: '5 Marla - 1 Kanal',
+                status: 'Installments Available',
+                community: 'dha-lahore'
+              },
+              {
+                id: 2,
+                name: 'Canal-facing Cluster',
+                phase: 'Phase 2',
+                lat: 31.5320,
+                lng: 74.3520,
+                description: 'High-demand community with scenic canal views and strong resale appeal. Premium urban planning excellence.',
+                size: '7 Marla - 1 Kanal',
+                status: 'Hot Offers',
+                community: 'dha-lahore'
+              },
+              {
+                id: 3,
+                name: 'Central Boulevard',
+                phase: 'Phase 3',
+                lat: 31.5380,
+                lng: 74.3580,
+                description: 'Wide roads and central location. Perfect for families seeking balanced lifestyle and strong growth potential.',
+                size: '6 Marla - 1 Kanal',
+                status: 'Active Bookings',
+                community: 'dha-lahore'
+              },
+              {
+                id: 4,
+                name: 'Commercial Zone',
+                phase: 'Phase 4',
+                lat: 31.5420,
+                lng: 74.3650,
+                description: 'Prime retail and office space with strategic location. Perfect for business establishments and entrepreneurship.',
+                size: 'Ground + 2 Floors',
+                status: 'Prime Frontage',
+                community: 'dha-lahore'
+              }
+            ]
+          },
+          {
+            id: 'etihad-town',
+            name: 'Etihad Town',
+            color: '#00d4ff',
+            bgColor: 'rgba(0, 212, 255, 0.15)',
+            hoverColor: 'rgba(0, 212, 255, 0.25)',
+            centerLat: 31.4850,
+            centerLng: 74.3200,
+            description: 'Modern residential development',
+            locations: [
+              {
+                id: 5,
+                name: 'Park View Estate',
+                phase: 'Phase 1',
+                lat: 31.4800,
+                lng: 74.3150,
+                description: 'Exclusive residential area with scenic park views and green spaces. Premium lifestyle community at its finest.',
+                size: '8 Marla - 1.5 Kanal',
+                status: 'Premium Segment',
+                community: 'etihad-town'
+              },
+              {
+                id: 6,
+                name: 'Education Hub',
+                phase: 'Phase 2',
+                lat: 31.4880,
+                lng: 74.3250,
+                description: 'Located near schools and educational institutions. Ideal for families prioritizing quality education and development.',
+                size: '5 Marla - 1 Kanal',
+                status: 'Family Oriented',
+                community: 'etihad-town'
+              },
+              {
+                id: 7,
+                name: 'Business District',
+                phase: 'Phase 3',
+                lat: 31.4920,
+                lng: 74.3320,
+                description: 'Modern commercial and residential mix with great accessibility. Future growth corridor with strong investment potential.',
+                size: 'Multiple Options',
+                status: 'High Upside',
+                community: 'etihad-town'
+              }
+            ]
+          },
+          {
+            id: 'dream-housing',
+            name: 'Dream Housing',
+            color: '#ff6b9d',
+            bgColor: 'rgba(255, 107, 157, 0.15)',
+            hoverColor: 'rgba(255, 107, 157, 0.25)',
+            centerLat: 31.5600,
+            centerLng: 74.3800,
+            description: 'Affordable housing solutions',
+            locations: [
+              {
+                id: 8,
+                name: 'Family Colony',
+                phase: 'Phase 1',
+                lat: 31.5550,
+                lng: 74.3750,
+                description: 'Affordable yet premium quality residential plots designed for middle-class families. Excellent investment opportunity.',
+                size: '3 Marla - 5 Marla',
+                status: 'New Launch',
+                community: 'dream-housing'
+              },
+              {
+                id: 9,
+                name: 'Green Valley',
+                phase: 'Phase 2',
+                lat: 31.5650,
+                lng: 74.3850,
+                description: 'Nature-inspired community with parks and recreational facilities. Perfect for families looking for quality living.',
+                size: '4 Marla - 8 Marla',
+                status: 'On Sale',
+                community: 'dream-housing'
+              }
+            ]
+          }
+        ];
+
+        // Flatten locations for easy access
+        const allLocations = [];
+        developments.forEach((dev) => {
+          allLocations.push(...dev.locations);
+        });
+
+        // Initialize Google Map
+        // Populate sidebar with communities and locations
+        function populateSidebar() {
+          const container = document.getElementById('communities-container');
+          if (!container) return;
+
+          container.innerHTML = '';
+
+          developments.forEach((development) => {
+            // Create community group
+            const group = document.createElement('div');
+            group.className = 'dha-map__community-group';
+
+            // Create community header
+            const header = document.createElement('div');
+            header.className = 'dha-map__community-header';
+            header.style.borderColor = development.color;
+            header.style.borderLeftWidth = '3px';
+            header.style.borderLeftColor = development.color;
+            header.style.background = `linear-gradient(135deg, ${development.bgColor} 0%, ${development.hoverColor} 100%)`;
+            header.innerHTML = `
+              <div class="dha-map__community-color" style="background-color: ${development.color}; box-shadow: 0 0 1rem ${development.color};"></div>
+              <div class="dha-map__community-name">${development.name}</div>
+              <div class="dha-map__community-toggle expanded">▼</div>
+            `;
+
+            // Create locations list
+            const locationsList = document.createElement('ul');
+            locationsList.className = 'dha-map__locations-list';
+
+            development.locations.forEach((location) => {
+              const item = document.createElement('li');
+              item.className = 'dha-map__location-item';
+              item.style.color = development.color;
+              item.innerHTML = `
+                <div class="dha-map__location-pin" style="background-color: ${development.color};"></div>
+                <span class="dha-map__location-text">${location.name}</span>
+              `;
+
+              item.addEventListener('click', () => {
+                // Highlight this location on map
+                highlightLocation(location.id, development.color);
+              });
+
+              locationsList.appendChild(item);
+            });
+
+            // Toggle expand/collapse with hover effect
+            header.addEventListener('click', () => {
+              const toggle = header.querySelector('.dha-map__community-toggle');
+              locationsList.style.display = locationsList.style.display === 'none' ? 'flex' : 'none';
+              toggle.classList.toggle('expanded');
+            });
+
+            header.addEventListener('mouseenter', () => {
+              header.style.background = `linear-gradient(135deg, ${development.hoverColor} 0%, ${development.bgColor} 100%)`;
+            });
+
+            header.addEventListener('mouseleave', () => {
+              header.style.background = `linear-gradient(135deg, ${development.bgColor} 0%, ${development.hoverColor} 100%)`;
+            });
+
+            group.appendChild(header);
+            group.appendChild(locationsList);
+            container.appendChild(group);
+          });
+        }
+
+        // Initialize Google Map
+        function initializeGoogleMap() {
+          const mapContainer = document.getElementById('dha-google-map');
+          if (!mapContainer) return;
+
+          // Center of DHA Lahore
+          const centerLocation = { lat: 31.5310, lng: 74.3550 };
+
+          const map = new google.maps.Map(mapContainer, {
+            zoom: 16,
+            center: centerLocation,
+            disableDefaultUI: false,
+            styles: [
+              {
+                elementType: 'geometry',
+                stylers: [{ color: '#0a0a0a' }]
+              },
+              {
+                elementType: 'labels.text.stroke',
+                stylers: [{ color: '#0a0a0a' }]
+              },
+              {
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#bb9c46' }]
+              },
+              {
+                featureType: 'administrative.locality',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#bb9c46' }]
+              },
+              {
+                featureType: 'poi',
+                elementType: 'labels.text.fill',
+                stylers: [{ color: '#747474' }]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [{ color: '#181818' }]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{ color: '#1a1a1a' }]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [{ color: '#2a2a2a' }]
+              },
+              {
+                featureType: 'road.highway',
+                elementType: 'geometry',
+                stylers: [{ color: '#2a2a3a' }]
+              },
+              {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{ color: '#0d1219' }]
+              }
+            ]
+          });
+
+          // Store markers globally for highlighting
+          window.mapMarkers = {};
+          const infoWindows = [];
+          
+          // Add custom markers for each location
+          allLocations.forEach((location) => {
+            // Get community color
+            const community = developments.find(d => d.id === location.community);
+            const markerColor = community ? community.color : '#bb9c46';
+
+            // Create custom marker icon
+            const markerIcon = {
+              path: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z',
+              fillColor: markerColor,
+              fillOpacity: 1,
+              strokeColor: '#0a0a0a',
+              strokeWeight: 2,
+              scale: 2,
+              anchor: new google.maps.Point(12, 24)
+            };
+
+            const marker = new google.maps.Marker({
+              position: { lat: location.lat, lng: location.lng },
+              map: map,
+              title: location.name,
+              icon: markerIcon
+            });
+
+            window.mapMarkers[location.id] = marker;
+
+            // Create custom info window
+            const infoWindowContent = document.createElement('div');
+            infoWindowContent.className = 'dha-map__info-window';
+            infoWindowContent.innerHTML = `
+              <div class="dha-map__info-window-header">
+                <span class="dha-map__info-badge" style="border-color: ${markerColor}; color: ${markerColor};">${location.phase}</span>
+                <h4 class="dha-map__info-title">${location.name}</h4>
+              </div>
+              <p class="dha-map__info-text">${location.description}</p>
+              <div class="dha-map__info-meta">
+                <span><strong>${location.size}</strong></span>
+                <span><strong>${location.status}</strong></span>
+              </div>
+              <div class="dha-map__info-cta">
+                <button style="background: linear-gradient(135deg, ${markerColor} 0%, ${markerColor}dd 100%);" onclick="alert('Contact us for more details about ${location.name}')">View Details</button>
+              </div>
+            `;
+
+            const infoWindow = new google.maps.InfoWindow({
+              content: infoWindowContent
+            });
+
+            infoWindows.push(infoWindow);
+
+            // Click event for marker
+            marker.addListener('click', () => {
+              // Close all other info windows
+              infoWindows.forEach((iw) => iw.close());
+              infoWindow.open(map, marker);
+            });
+
+            // Marker animation on hover
+            marker.addListener('mouseover', () => {
+              gsap.to(marker.getIcon(), {
+                fillOpacity: 0.8,
+                scale: 2.2,
+                duration: 0.3
+              });
+            });
+
+            marker.addListener('mouseout', () => {
+              gsap.to(marker.getIcon(), {
+                fillOpacity: 1,
+                scale: 2,
+                duration: 0.3
+              });
+            });
+          });
+
+          // Highlight location function
+          window.highlightLocation = function(locationId, color) {
+            const location = allLocations.find(l => l.id === locationId);
+            if (!location) return;
+
+            // Pan to location
+            map.panTo({ lat: location.lat, lng: location.lng });
+            map.setZoom(17);
+
+            // Open info window
+            const marker = window.mapMarkers[locationId];
+            if (marker) {
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+              setTimeout(() => marker.setAnimation(null), 1500);
+
+              // Trigger click to open info window
+              google.maps.event.trigger(marker, 'click');
+            }
+          };
+
+          // Fullscreen functionality
+          const fullscreenBtn = document.getElementById('fullscreen-btn');
+          const mapWrapper = document.querySelector('.dha-map__map-wrapper');
+
+          if (fullscreenBtn && mapWrapper) {
+            fullscreenBtn.addEventListener('click', () => {
+              if (!document.fullscreenElement) {
+                mapWrapper.requestFullscreen().catch((err) => {
+                  console.warn('Fullscreen request failed:', err);
+                });
+              } else {
+                document.exitFullscreen();
+              }
+            });
+          }
+        }
+
+        // Initialize map when DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            populateSidebar();
+            initializeGoogleMap();
+          });
+        } else {
+          populateSidebar();
+          initializeGoogleMap();
         }
       }
     </script>
