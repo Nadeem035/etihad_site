@@ -64,6 +64,9 @@
     <link rel="stylesheet" href="assets/homepage-DUfNMqJf.css" />
     <script type="module" defer src="assets/homepage-D6GbVUca.js"></script>
     
+    <!-- WOW.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
     <!-- Loader Styles -->
     <style>
       :root {
@@ -1889,6 +1892,763 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
+
+      /* ============================================
+         ADDITIONAL ANIMATIONS & ENHANCEMENTS
+         ============================================ */
+
+      /* Floating Background Shapes */
+      @keyframes float-slow {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-30px) rotate(10deg); }
+      }
+
+      @keyframes float-medium {
+        0%, 100% { transform: translateY(0px) rotate(360deg); }
+        100% { transform: translateY(-40px) rotate(0deg); }
+      }
+
+      @keyframes float-fast {
+        0%, 100% { transform: translateX(0px) rotate(0deg); }
+        50% { transform: translateX(30px) rotate(-15deg); }
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { 
+          box-shadow: 0 0 20px rgba(29, 122, 110, 0.5);
+          transform: scale(1);
+        }
+        50% { 
+          box-shadow: 0 0 40px rgba(187, 156, 70, 0.8);
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes shimmer {
+        0% { background-position: -1000px 0; }
+        100% { background-position: 1000px 0; }
+      }
+
+      @keyframes wave-animation {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+
+      @keyframes counter-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes draw-border {
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes rotate-gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes text-reveal {
+        from {
+          opacity: 0;
+          clip-path: inset(0 100% 0 0);
+        }
+        to {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      @keyframes line-draw {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+
+      @keyframes bounce-in {
+        0% { 
+          opacity: 0;
+          transform: scale(0.3) translateY(40px);
+        }
+        50% { 
+          opacity: 1;
+        }
+        100% { 
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      /* Animated Background Shapes Container */
+      .animated-bg-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.15;
+      }
+
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(29, 122, 110, 0.4) 0%, transparent 70%);
+        border-radius: 50%;
+        top: -50px;
+        right: -100px;
+        animation: float-slow 8s ease-in-out infinite;
+      }
+
+      .shape-2 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(187, 156, 70, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        bottom: -100px;
+        left: 10%;
+        animation: float-medium 12s linear infinite;
+      }
+
+      .shape-3 {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, rgba(29, 122, 110, 0.2), rgba(187, 156, 70, 0.2));
+        bottom: 20%;
+        right: 5%;
+        animation: float-fast 10s ease-in-out infinite;
+      }
+
+      /* Statistics Section */
+      .stats-section {
+        width: 100%;
+        padding-block: min(12rem, 12vh) min(8rem, 8vh);
+        background: linear-gradient(180deg, #171717 0%, #0a0a0a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stats-container {
+        max-width: 140rem;
+        margin: 0 auto;
+        padding-inline: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stats-header {
+        text-align: center;
+        margin-bottom: min(8rem, 8vh);
+      }
+
+      .stats-title {
+        color: #fff;
+        font-size: clamp(40px, min(8rem, 8vh), 100px);
+        line-height: normal;
+        margin-bottom: min(2rem, 2vh);
+        position: relative;
+      }
+
+      .stats-title span {
+        color: #1d7a6e;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: min(4rem, 4vh);
+      }
+
+      .stat-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: min(4rem, 4vh);
+        background: linear-gradient(135deg, rgba(29, 122, 110, 0.08) 0%, rgba(187, 156, 70, 0.04) 100%);
+        border: 2px solid rgba(29, 122, 110, 0.3);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        animation: slideInUp 0.8s ease-out var(--delay);
+      }
+
+      .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        animation: wave-animation 3s infinite;
+      }
+
+      .stat-card:hover {
+        border-color: rgba(187, 156, 70, 0.6);
+        box-shadow: 0 0 30px rgba(187, 156, 70, 0.3);
+        transform: translateY(-10px);
+      }
+
+      .stat-number {
+        color: #bb9c46;
+        font-size: clamp(3rem, min(6rem, 6vh), 8rem);
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: min(1rem, 1vh);
+        position: relative;
+        z-index: 1;
+        counter-increment: stat-counter;
+      }
+
+      .stat-label {
+        color: #ffffff99;
+        font-size: min(1.8rem, 1.8vh);
+        line-height: 130%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-card:hover .stat-label {
+        color: #fff;
+      }
+
+      /* Timeline/Process Section */
+      .timeline-section {
+        width: 100%;
+        padding-block: min(15rem, 15vh) min(10rem, 10vh);
+        background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-container {
+        max-width: 140rem;
+        margin: 0 auto;
+        padding-inline: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-header {
+        text-align: center;
+        margin-bottom: min(8rem, 8vh);
+      }
+
+      .timeline-title {
+        color: #fff;
+        font-size: clamp(40px, min(8rem, 8vh), 100px);
+        line-height: normal;
+        margin-bottom: min(2rem, 2vh);
+      }
+
+      .timeline-title span {
+        color: #1d7a6e;
+      }
+
+      .timeline-content {
+        position: relative;
+        padding: min(4rem, 4vh) 0;
+      }
+
+      .timeline-content::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, #1d7a6e 0%, #bb9c46 50%, transparent 100%);
+        transform: translateX(-50%);
+        animation: draw-line 2s ease-out forwards;
+      }
+
+      @keyframes draw-line {
+        from { 
+          height: 0;
+          top: 0;
+        }
+        to { 
+          height: 100%;
+          top: 0;
+        }
+      }
+
+      .timeline-item {
+        margin-bottom: min(6rem, 6vh);
+        position: relative;
+        opacity: 0;
+        animation: fadeInTimeline 0.8s ease-out var(--delay) forwards;
+      }
+
+      @keyframes fadeInTimeline {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .timeline-item:nth-child(1) {
+        --delay: 0.2s;
+        margin-left: 0;
+        margin-right: auto;
+        width: 48%;
+        text-align: right;
+        padding-right: min(4rem, 4vh);
+      }
+
+      .timeline-item:nth-child(2) {
+        --delay: 0.4s;
+        margin-left: auto;
+        margin-right: 0;
+        width: 48%;
+        text-align: left;
+        padding-left: min(4rem, 4vh);
+      }
+
+      .timeline-item:nth-child(3) {
+        --delay: 0.6s;
+        margin-left: 0;
+        margin-right: auto;
+        width: 48%;
+        text-align: right;
+        padding-right: min(4rem, 4vh);
+      }
+
+      .timeline-item:nth-child(4) {
+        --delay: 0.8s;
+        margin-left: auto;
+        margin-right: 0;
+        width: 48%;
+        text-align: left;
+        padding-left: min(4rem, 4vh);
+      }
+
+      .timeline-item:nth-child(5) {
+        --delay: 1s;
+        margin-left: 0;
+        margin-right: auto;
+        width: 48%;
+        text-align: right;
+        padding-right: min(4rem, 4vh);
+      }
+
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background: radial-gradient(circle at 35% 35%, #ffd966, #bb9c46 50%, rgba(187, 156, 70, 0.6) 100%);
+        border: 5px solid #0a0a0a;
+        border-radius: 50%;
+        top: min(2rem, 2vh);
+        right: -16px;
+        z-index: 10;
+        box-shadow: 0 0 0 0 rgba(187, 156, 70, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        animation: pulse-dot var(--delay) 0s, pulse-ring 2.5s ease-out calc(var(--delay) + 0.3s) infinite;
+      }
+
+      @keyframes pulse-dot {
+        0% {
+          opacity: 0;
+          transform: scale(0);
+          box-shadow: 0 0 0 0 rgba(187, 156, 70, 0.8);
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(187, 156, 70, 0);
+        }
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          box-shadow: 0 0 0 0 rgba(187, 156, 70, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        }
+        70% {
+          box-shadow: 0 0 0 25px rgba(187, 156, 70, 0), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(187, 156, 70, 0), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      .timeline-item:nth-child(2)::before,
+      .timeline-item:nth-child(4)::before {
+        right: auto;
+        left: -16px;
+      }
+
+      .timeline-item-content {
+        padding: min(2.5rem, 2.5vh);
+        background: linear-gradient(135deg, rgba(29, 122, 110, 0.12) 0%, rgba(187, 156, 70, 0.05) 100%);
+        border: 2px solid rgba(29, 122, 110, 0.4);
+        border-radius: 16px;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-item-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+        animation: shimmer-timeline 3s infinite;
+      }
+
+      @keyframes shimmer-timeline {
+        0% { left: -100%; }
+        50% { left: 100%; }
+        100% { left: 100%; }
+      }
+
+      .timeline-item:hover .timeline-item-content {
+        background: linear-gradient(135deg, rgba(29, 122, 110, 0.25) 0%, rgba(187, 156, 70, 0.12) 100%);
+        border-color: rgba(187, 156, 70, 0.8);
+        box-shadow: 0 10px 40px rgba(187, 156, 70, 0.3), inset 0 0 20px rgba(29, 122, 110, 0.1);
+        transform: translateY(-8px) scale(1.02);
+      }
+
+      .timeline-item-title {
+        color: #bb9c46;
+        font-size: min(1.8rem, 1.8vh);
+        font-weight: 700;
+        margin-bottom: min(1rem, 1vh);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-item-description {
+        color: #ffffff99;
+        font-size: min(1.5rem, 1.5vh);
+        line-height: 160%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-item:hover .timeline-item-description {
+        color: #fff;
+      }
+
+      /* Parallax Divider */
+      .parallax-divider {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #bb9c46, #1d7a6e, transparent);
+        position: relative;
+        margin: min(4rem, 4vh) 0;
+        overflow: hidden;
+      }
+
+      .parallax-divider::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+        animation: wave-animation 4s ease-in-out infinite;
+      }
+
+      
+      /* CTA Button Animations */
+      .animated-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: min(1.2rem, 1.2vh) min(3rem, 3vh);
+        background: transparent;
+        border: 2px solid #bb9c46;
+        border-radius: 8px;
+        color: #fff;
+        font-size: min(1.6rem, 1.6vh);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.6s ease;
+        text-decoration: none;
+      }
+
+      .animated-cta-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #bb9c46;
+        z-index: -1;
+        transition: left 0.6s ease;
+      }
+
+      .animated-cta-btn:hover {
+        color: #0a0a0a;
+        box-shadow: 0 0 30px rgba(187, 156, 70, 0.5);
+      }
+
+      .animated-cta-btn:hover::before {
+        left: 0;
+      }
+
+      .animated-cta-btn svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: 1rem;
+        transition: transform 0.6s ease;
+      }
+
+      .animated-cta-btn:hover svg {
+        transform: translateX(5px);
+      }
+
+      /* Hover Tilt Effect */
+      .tilt-card {
+        perspective: 1000px;
+      }
+
+      .tilt-card:hover {
+        transform: rotateX(-5deg) rotateY(5deg);
+        transition: transform 0.6s ease;
+      }
+
+      /* Scroll Reveal Animation */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s ease;
+      }
+
+      /* Animated Underlines */
+      .animated-underline {
+        position: relative;
+        display: inline-block;
+      }
+
+      .animated-underline::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #1d7a6e, #bb9c46);
+        animation: line-draw 0.8s ease forwards;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(135deg, #1d7a6e, #bb9c46, #1d7a6e);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: rotate-gradient 6s ease infinite;
+      }
+
+      /* Mobile Responsive */
+      @media screen and (orientation: portrait) {
+        .timeline-content::before {
+          left: 20px;
+        }
+
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+          width: 100%;
+          text-align: left;
+          padding-left: 60px;
+          padding-right: 0;
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        .timeline-item::before {
+          left: 0;
+          transform: translateX(-50%);
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-item {
+          height: 25rem;
+        }
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ============================================
+         WOW.JS CUSTOM ANIMATIONS
+         ============================================ */
+
+      /* Slow Fade In Animation */
+      @keyframes slowFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slowFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slowFadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slowFadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-80px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slowFadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(80px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* WOW.js Animation Classes */
+      .wow {
+        visibility: hidden;
+      }
+
+      .wow.animated {
+        visibility: visible;
+      }
+
+      /* Slow animations - 2.5 seconds */
+      .slowFadeIn {
+        animation: slowFadeIn 2.5s ease-out;
+      }
+
+      .slowFadeInUp {
+        animation: slowFadeInUp 2.5s ease-out;
+      }
+
+      .slowFadeInDown {
+        animation: slowFadeInDown 2.5s ease-out;
+      }
+
+      .slowFadeInLeft {
+        animation: slowFadeInLeft 2.5s ease-out;
+      }
+
+      .slowFadeInRight {
+        animation: slowFadeInRight 2.5s ease-out;
+      }
+
+      /* Delay variants for staggered animations */
+      .delay-1 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.6s;
+      }
+
+      .delay-4 {
+        animation-delay: 0.8s;
+      }
+
+      .delay-5 {
+        animation-delay: 1s;
+      }
+
+      /* Adjust existing animations to work with WOW.js */
+      .what-sets-apart__card.wow {
+        animation-duration: 2.5s !important;
+      }
+
+      .stat-card.wow {
+        animation-duration: 2.5s !important;
+      }
+
+      .gallery-item.wow {
+        animation-duration: 2.5s !important;
+      }
+
+      .timeline-item.wow {
+        animation-duration: 2.5s !important;
+      }
+
+      /* Ensure fade-in happens smoothly */
+      .wow.animated.slowFadeIn,
+      .wow.animated.slowFadeInUp,
+      .wow.animated.slowFadeInDown,
+      .wow.animated.slowFadeInLeft,
+      .wow.animated.slowFadeInRight {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
     </style>
 
     <!-- Google Maps API -->
@@ -2130,7 +2890,7 @@
             </div>
 
             <p class="hero__text">
-              Invest in the region’s first integrated luxury and active eco-conscious development society, a project of the Defence Housing Authority expanded throughout Pakistan.
+              Invest in the region�s first integrated luxury and active eco-conscious development society, a project of the Defence Housing Authority expanded throughout Pakistan.
             </p>
 
             <div class="hero__scroll-wrapper">
@@ -2940,7 +3700,7 @@
           <div class="dha-showcase__orb dha-showcase__orb--two"></div>
         </section>
 
-        <section class="popular-listings">
+        <section class="popular-listings wow slowFadeInUp">
           <div class="popular-listings__inner">
             <div class="popular-listings__intro">
               <div class="popular-listings__eyebrow">Browse Hot Offers</div>
@@ -2963,7 +3723,7 @@
             <div class="popular-listings__panels">
               <div class="popular-listings__panel" id="hot-offers-popular" role="tabpanel" aria-labelledby="hot-offers-tab-popular">
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Featured</span>
                       <img src="assets/planning-1-VJSRUVaE.avif" alt="Dummy Alpine Farm House listing" loading="lazy" />
@@ -2982,7 +3742,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 2</span>
                       <img src="assets/planning-6-BcHUs8jI.avif" alt="Dummy Etihad Town Phase 2 listing" loading="lazy" />
@@ -3001,7 +3761,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 1</span>
                       <img src="assets/planning-10-DBhe8CXi.avif" alt="Dummy Etihad Town Phase 1 listing" loading="lazy" />
@@ -3024,7 +3784,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-residential" role="tabpanel" aria-labelledby="hot-offers-tab-residential" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-2-BnzO0N21.webp" alt="Dummy residence listing one" loading="lazy" />
@@ -3043,7 +3803,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-3-C6YK5w1q.webp" alt="Dummy residence listing two" loading="lazy" />
@@ -3062,7 +3822,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-4-DCwOO40E.webp" alt="Dummy residence listing three" loading="lazy" />
@@ -3085,7 +3845,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-commercial" role="tabpanel" aria-labelledby="hot-offers-tab-commercial" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-3-C3t2e9L3.avif" alt="Dummy commercial listing one" loading="lazy" />
@@ -3104,7 +3864,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-5-DE4NL4q8.avif" alt="Dummy commercial listing two" loading="lazy" />
@@ -3123,7 +3883,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-9-BMyzCawk.avif" alt="Dummy commercial listing three" loading="lazy" />
@@ -3356,6 +4116,11 @@
 
         <!-- WHAT SET US APART SECTION -->
         <section class="what-sets-apart">
+          <div class="animated-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
           <div class="what-sets-apart__container">
             <div class="what-sets-apart__header">
               <h2 class="what-sets-apart__title">What <span>Set Us Apart?</span></h2>
@@ -3365,7 +4130,7 @@
             </div>
 
             <div class="what-sets-apart__cards-grid">
-              <div class="what-sets-apart__card" style="--delay: 0;">
+              <div class="what-sets-apart__card wow slowFadeInUp" style="--delay: 0;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
@@ -3378,7 +4143,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card" style="--delay: 0.1s;">
+              <div class="what-sets-apart__card wow slowFadeInUp delay-1" style="--delay: 0.1s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 12l8 16h16l-13 10 5 16-16-12-16 12 5-16-13-10h16l8-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -3390,7 +4155,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card" style="--delay: 0.2s;">
+              <div class="what-sets-apart__card wow slowFadeInUp delay-2" style="--delay: 0.2s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="12" y="20" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -3403,7 +4168,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card" style="--delay: 0.3s;">
+              <div class="what-sets-apart__card wow slowFadeInUp delay-3" style="--delay: 0.3s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 12c11.05 0 20 8.95 20 20s-8.95 20-20 20-20-8.95-20-20 8.95-20 20-20z" stroke="currentColor" stroke-width="2"/>
@@ -3416,7 +4181,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card" style="--delay: 0.4s;">
+              <div class="what-sets-apart__card wow slowFadeInUp delay-4" style="--delay: 0.4s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 32h40M32 12v40M52 32c0 11.05-8.95 20-20 20s-20-8.95-20-20 8.95-20 20-20 20 8.95 20 20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -3428,7 +4193,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card" style="--delay: 0.5s;">
+              <div class="what-sets-apart__card wow slowFadeInUp delay-5" style="--delay: 0.5s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 12l6 15h16l-13 10 5 16-16-12-16 12 5-16-13-10h16l6-15z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -3438,6 +4203,93 @@
                 <p class="what-sets-apart__card-description">
                   Recognized for our contributions to real estate innovation and customer satisfaction across Pakistan.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STATISTICS SECTION -->
+        <section class="stats-section wow slowFadeInUp">
+          <div class="animated-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+          <div class="stats-container">
+            <div class="stats-header">
+              <h2 class="stats-title">Our <span>Achievements</span></h2>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card wow slowFadeInUp" style="--delay: 0s;">
+                <div class="stat-number">5000<span style="font-size: 0.5em;">+</span></div>
+                <div class="stat-label">Satisfied Customers</div>
+              </div>
+              <div class="stat-card wow slowFadeInUp delay-1" style="--delay: 0.1s;">
+                <div class="stat-number">10<span style="font-size: 0.5em;">+</span></div>
+                <div class="stat-label">Completed Projects</div>
+              </div>
+              <div class="stat-card wow slowFadeInUp delay-2" style="--delay: 0.2s;">
+                <div class="stat-number">20<span style="font-size: 0.5em;">+</span></div>
+                <div class="stat-label">Projects in Development</div>
+              </div>
+              <div class="stat-card wow slowFadeInUp delay-3" style="--delay: 0.3s;">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Years of Experience</div>
+              </div>
+              <div class="stat-card wow slowFadeInUp delay-4" style="--delay: 0.4s;">
+                <div class="stat-number">100<span style="font-size: 0.5em;">%</span></div>
+                <div class="stat-label">Customer Satisfaction Rate</div>
+              </div>
+              <div class="stat-card wow slowFadeInUp delay-5" style="--delay: 0.5s;">
+                <div class="stat-number">50<span style="font-size: 0.5em;">+</span></div>
+                <div class="stat-label">Team Members</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- TIMELINE SECTION -->
+        <section class="timeline-section wow slowFadeInUp">
+          <div class="animated-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+          <div class="timeline-container">
+            <div class="timeline-header">
+              <h2 class="timeline-title">Real Estate Investment <span>Journey</span></h2>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-item wow slowFadeInUp" style="--delay: 0s;">
+                <div class="timeline-item-content">
+                  <div class="timeline-item-title">1. Discovery</div>
+                  <div class="timeline-item-description">Explore our premium properties and identify the perfect investment opportunity that matches your goals and budget.</div>
+                </div>
+              </div>
+              <div class="timeline-item wow slowFadeInUp delay-1" style="--delay: 0.1s;">
+                <div class="timeline-item-content">
+                  <div class="timeline-item-title">2. Consultation</div>
+                  <div class="timeline-item-description">Our expert team provides personalized guidance and market insights to help you make informed decisions.</div>
+                </div>
+              </div>
+              <div class="timeline-item wow slowFadeInUp delay-2" style="--delay: 0.2s;">
+                <div class="timeline-item-content">
+                  <div class="timeline-item-title">3. Documentation</div>
+                  <div class="timeline-item-description">Complete all legal requirements with our transparent process and comprehensive documentation support.</div>
+                </div>
+              </div>
+              <div class="timeline-item wow slowFadeInUp delay-3" style="--delay: 0.3s;">
+                <div class="timeline-item-content">
+                  <div class="timeline-item-title">4. Investment</div>
+                  <div class="timeline-item-description">Secure your investment with flexible payment plans and guaranteed returns on your real estate portfolio.</div>
+                </div>
+              </div>
+              <div class="timeline-item wow slowFadeInUp delay-4" style="--delay: 0.4s;">
+                <div class="timeline-item-content">
+                  <div class="timeline-item-title">5. Growth</div>
+                  <div class="timeline-item-description">Watch your investment appreciate with our expert management and strategic property development.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -3566,7 +4418,7 @@
           <div class="dha-showcase__orb dha-showcase__orb--two"></div>
         </section>
 
-        <section class="popular-listings">
+        <section class="popular-listings wow slowFadeInUp">
           <div class="popular-listings__inner">
             <div class="popular-listings__intro">
               <div class="popular-listings__eyebrow">Browse Hot Offers</div>
@@ -3589,7 +4441,7 @@
             <div class="popular-listings__panels">
               <div class="popular-listings__panel" id="hot-offers-popular" role="tabpanel" aria-labelledby="hot-offers-tab-popular">
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Featured</span>
                       <img src="assets/planning-1-VJSRUVaE.avif" alt="Dummy Alpine Farm House listing" loading="lazy" />
@@ -3608,7 +4460,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 2</span>
                       <img src="assets/planning-6-BcHUs8jI.avif" alt="Dummy Etihad Town Phase 2 listing" loading="lazy" />
@@ -3627,7 +4479,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 1</span>
                       <img src="assets/planning-10-DBhe8CXi.avif" alt="Dummy Etihad Town Phase 1 listing" loading="lazy" />
@@ -3650,7 +4502,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-residential" role="tabpanel" aria-labelledby="hot-offers-tab-residential" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-2-BnzO0N21.webp" alt="Dummy residence listing one" loading="lazy" />
@@ -3669,7 +4521,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-3-C6YK5w1q.webp" alt="Dummy residence listing two" loading="lazy" />
@@ -3688,7 +4540,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-4-DCwOO40E.webp" alt="Dummy residence listing three" loading="lazy" />
@@ -3711,7 +4563,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-commercial" role="tabpanel" aria-labelledby="hot-offers-tab-commercial" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-3-C3t2e9L3.avif" alt="Dummy commercial listing one" loading="lazy" />
@@ -3730,7 +4582,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-5-DE4NL4q8.avif" alt="Dummy commercial listing two" loading="lazy" />
@@ -3749,7 +4601,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card">
+                  <article class="popular-listings__card wow slowFadeInUp">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-9-BMyzCawk.avif" alt="Dummy commercial listing three" loading="lazy" />
@@ -3777,11 +4629,11 @@
 
 
         <!-- DHA LAHORE MAP -->
-        <section class="dha-map">
+        <section class="dha-map wow slowFadeInUp">
           <div class="dha-map__inner">
             <div class="dha-map__header">
               <div class="dha-map__eyebrow">Explore Our Locations</div>
-              <h2 class="dha-map__title">DHA Lahore <span>Locations</span></h2>
+              <h2 class="dha-map__title wow slowFadeInUp">DHA Lahore <span>Locations</span></h2>
               <p class="dha-map__description">
                 Discover our premium properties across different zones in DHA Lahore. Click on the markers to view location details.
               </p>
@@ -3821,9 +4673,9 @@
 
 
         <!-- ENGINEERS  -->
-        <section class="engineers">
+        <section class="engineers wow slowFadeInUp">
           <!-- heading  -->
-          <h2 class="engineers__heading">
+          <h2 class="engineers__heading wow slowFadeInUp">
             <span>THE ENGINEERS</span>
           </h2>
 
@@ -3845,7 +4697,7 @@
               <div class="engineers-swiper-wrapper">
 
                 <!-- HSE  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-5-Dhwq0MSh.webp"
@@ -3921,7 +4773,7 @@
                 </div>
 
                 <!-- MECHANICAL -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-1">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-4-CF7hJjnb.webp"
@@ -4012,7 +4864,7 @@
                 </div>
 
                 <!-- ELECTRICAL ENGINEERS  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-2">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-7-DUtWwN1m.avif"
@@ -4055,7 +4907,7 @@
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect y="4.24268" width="6" height="6" transform="rotate(-45 0 4.24268)" fill="#bb9c46" />
                       </svg>
-                      <span>Lighting Systems:</span>indoor, outdoor & faÃ§ade illumination.
+                      <span>Lighting Systems:</span>indoor, outdoor & façade illumination.
                     </li>
                     <li class="engineers-swiper-slide__li">
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4079,7 +4931,7 @@
                 </div>
 
                 <!-- CIVIL ENGINEERS  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-3">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-8-BBY5_l4c.avif"
@@ -4152,7 +5004,7 @@
                 </div>
 
                 <!-- ARCHITECTURAL ENGINEERS  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-4">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-9-DF7f4plj.avif"
@@ -4201,7 +5053,7 @@
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect y="4.24268" width="6" height="6" transform="rotate(-45 0 4.24268)" fill="#bb9c46" />
                       </svg>
-                      <span>FaÃ§ade Design & Execution:</span>glass, cladding, and curtain wall systems.
+                      <span>Façade Design & Execution:</span>glass, cladding, and curtain wall systems.
                     </li>
                     <li class="engineers-swiper-slide__li">
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4225,7 +5077,7 @@
                 </div>
 
                 <!-- PLANNING ENGINEERS  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-5">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-10-OTLoLSu5.avif"
@@ -4298,7 +5150,7 @@
                 </div>
 
                 <!-- INTERIOR ENGINEERS  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-1">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-11-D6FlRDrG.avif"
@@ -4365,7 +5217,7 @@
                 </div>
 
                 <!-- QC ENGINEERS  -->
-                <div class="engineers-swiper-slide">
+                <div class="engineers-swiper-slide wow slowFadeInUp delay-2">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-12-DmWN4WJ1.avif"
@@ -4446,7 +5298,7 @@
         </section>
 
         <!-- CLIENTS  -->
-        <section class="clients" data-fade-out data-fade-out-scale="1" data-swiper-active-slide="1">
+        <section class="clients wow slowFadeInUp" data-fade-out data-fade-out-scale="1" data-swiper-active-slide="1">
           <div class="clients-flex">
             <!-- left wrapper  -->
             <div class="clients-left">
@@ -4464,14 +5316,14 @@
                 data-swiper-sync="clients-partners"
                 data-swiper-parent-class="clients"
               >
-                <h3 class="clients__heading">
+                <h3 class="clients__heading wow slowFadeInUp">
                   <span class="clients__heading-icon"></span>
                   MAJOR CLIENTS
                 </h3>
 
                 <div class="clients-left-swiper-wrapper">
                   <!-- slide  9-->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp">
                     <h3 class="clients-left-swiper-slide__heading">
                       farah experiences
                     </h3>
@@ -4498,7 +5350,7 @@
                   </div>
 
                   <!-- slide 1 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-1">
                     <h3 class="clients-left-swiper-slide__heading">
                       yas asset management
                     </h3>
@@ -4526,7 +5378,7 @@
                   </div>
 
                   <!-- slide  5 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-2">
                     <h3 class="clients-left-swiper-slide__heading">
                       Department of Culture & Tourism
                     </h3>
@@ -4551,7 +5403,7 @@
                   </div>
 
                   <!-- slide 3 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-3">
                     <h3 class="clients-left-swiper-slide__heading">
                       al forsan
                     </h3>
@@ -4576,7 +5428,7 @@
                   </div>
 
                   <!-- slide 4 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-4">
                     <h3 class="clients-left-swiper-slide__heading">
                       miral company
                     </h3>
@@ -4603,7 +5455,7 @@
                   </div>
 
                   <!-- slide  2 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-5">
                     <h3 class="clients-left-swiper-slide__heading">
                       telemed healthpoint
                     </h3>
@@ -4630,7 +5482,7 @@
                   </div>
 
                   <!-- slide  6 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-1">
                     <h3 class="clients-left-swiper-slide__heading">
                       DHA Properties
                     </h3>
@@ -4655,7 +5507,7 @@
                   </div>
 
                   <!-- slide  7 -->
-                  <div class="clients-left-swiper-slide">
+                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-2">
                     <h3 class="clients-left-swiper-slide__heading">
                       Etihad Marketing
                     </h3>
@@ -4939,8 +5791,8 @@
         </section>
 
         <!-- REVIEWS  -->
-        <section class="reviews" data-fade-out data-fade-out-scale="1">
-          <h3 class="reviews__heading">
+        <section class="reviews wow slowFadeInUp" data-fade-out data-fade-out-scale="1">
+          <h3 class="reviews__heading wow slowFadeInUp">
             <span>OVER 1000+ PEOPLE TRUST</span>
           </h3>
 
@@ -4991,7 +5843,7 @@
                   </span>
 
                   <p class="reviews-swiper-slide__text">
-                    I recently hired Etihad for some engineering and maintenance work, and I couldnâ€™t be more satisfied with the results. From start to finish, the team was professional, punctual, and highly skilled. They communicated clearly throughout the process and delivered high-quality work that exceeded my expectations. Itâ€™s rare to find such a reliable and knowledgeable team these days. I would absolutely recommend them to anyone looking for top-tier service. Thank you for a job well done!
+                    I recently hired Etihad for some engineering and maintenance work, and I couldn’t be more satisfied with the results. From start to finish, the team was professional, punctual, and highly skilled. They communicated clearly throughout the process and delivered high-quality work that exceeded my expectations. It’s rare to find such a reliable and knowledgeable team these days. I would absolutely recommend them to anyone looking for top-tier service. Thank you for a job well done!
                   </p>
 
                   <div class="reviews-swiper-slide__user">
@@ -5360,7 +6212,7 @@
         </section>
 
         <!-- LOCATION  -->
-        <section class="location" data-fade-out data-fade-out-scale="1">
+        <section class="location wow slowFadeInUp" data-fade-out data-fade-out-scale="1">
           <!-- map  -->
           <img
             src="https://etihadmarketing.co/wp-content/uploads/2022/10/02-copy.jpg"
@@ -5378,7 +6230,7 @@
             loading="lazy"
           /> -->
 
-          <div class="location-card">
+          <div class="location-card wow slowFadeInUp">
             <img
               class="location-card__image"
               src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweqoi88vjbsxr1gHZuLjSJPzqLhQCDLy_FNZjsvB8SI8xzdjMaIxxL8uk5apmRxpkzYQtn-Y0jOzF5l7UT1gF37KKJjmsm3IpsA-5fkdu9GLyA_XV-UA9E1gzgS4Z9DIyj97C8S7YA=w408-h544-k-no"
@@ -5643,7 +6495,7 @@
 
           <!-- copyright  -->
           <p class="footer-copyright">
-            <span>©</span>2025 ETIHAD. All Rights Reserved
+            <span>�</span>2025 ETIHAD. All Rights Reserved
           </p>
 
           <!-- terms  -->
@@ -6555,7 +7407,7 @@
             header.innerHTML = `
               <div class="dha-map__community-color" style="background-color: ${development.color}; box-shadow: 0 0 1rem ${development.color};"></div>
               <div class="dha-map__community-name">${development.name}</div>
-              <div class="dha-map__community-toggle expanded">▼</div>
+              <div class="dha-map__community-toggle expanded">?</div>
             `;
 
             // Create locations list
@@ -6789,6 +7641,249 @@
           populateSidebar();
           initializeGoogleMap();
         }
+      }
+    </script>
+
+    <!-- Additional Animations Script -->
+    <script>
+      // Timeline Scroll Animation
+      const animateTimelineOnScroll = () => {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        timelineItems.forEach((item, index) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = item.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible && !item.dataset.animated) {
+            item.dataset.animated = true;
+            item.style.animation = `fadeInTimeline 0.8s ease-out ${index * 0.15}s forwards`;
+          }
+        });
+      };
+
+      // Scroll Reveal Animation
+      const revealElements = () => {
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        reveals.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('revealed');
+          }
+        });
+      };
+
+      // Counter Animation for Statistics
+      const animateCounters = () => {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach((element) => {
+          const windowHeight = window.innerHeight;
+          const elementTop = element.getBoundingClientRect().top;
+          
+          if (elementTop < windowHeight && !element.dataset.counted) {
+            element.dataset.counted = true;
+            const finalValue = element.textContent;
+            const numericValue = parseInt(finalValue.match(/\d+/)[0]);
+            let currentValue = 0;
+            
+            const increment = numericValue / 60;
+            const interval = setInterval(() => {
+              currentValue += increment;
+              if (currentValue >= numericValue) {
+                element.textContent = finalValue;
+                clearInterval(interval);
+              } else {
+                element.textContent = Math.floor(currentValue) + finalValue.substring(finalValue.length - 2);
+              }
+            }, 30);
+          }
+        });
+      };
+
+      // Parallax Effect on Scroll
+      const parallaxEffect = () => {
+        const shapes = document.querySelectorAll('.animated-bg-shapes');
+        const scrollY = window.scrollY;
+        
+        shapes.forEach((shape) => {
+          shape.style.transform = `translateY(${scrollY * 0.5}px)`;
+        });
+      };
+
+      // Intersection Observer for Scroll Reveal
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all scroll-reveal elements
+      document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Magnetic Hover Effect for Cards
+      const magneticHover = () => {
+        const cards = document.querySelectorAll('.tilt-card');
+        
+        cards.forEach((card) => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const angleX = (e.clientY - centerY) / 10;
+            const angleY = (e.clientX - centerX) / -10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
+          });
+
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+          });
+        });
+      };
+
+      // Ripple Effect on Button Click
+      const addRippleEffect = () => {
+        const buttons = document.querySelectorAll('.animated-cta-btn');
+        
+        buttons.forEach((button) => {
+          button.addEventListener('click', (e) => {
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+          });
+        });
+      };
+
+      // Text Reveal Animation
+      const revealText = () => {
+        const textElements = document.querySelectorAll('.animated-underline');
+        
+        textElements.forEach((element) => {
+          const text = element.textContent;
+          element.innerHTML = text
+            .split('')
+            .map((char, index) => {
+              if (char === ' ') return '<span style="margin-right: 0.5rem;"></span>';
+              return `<span style="animation-delay: ${index * 0.05}s;">${char}</span>`;
+            })
+            .join('');
+        });
+      };
+
+      // Initialize all animations
+      document.addEventListener('DOMContentLoaded', () => {
+        revealElements();
+        animateCounters();
+        parallaxEffect();
+        animateTimelineOnScroll();
+        magneticHover();
+        addRippleEffect();
+        revealText();
+      });
+
+      // Update on scroll
+      window.addEventListener('scroll', () => {
+        revealElements();
+        animateCounters();
+        parallaxEffect();
+        animateTimelineOnScroll();
+      });
+
+      // Smooth Scroll Behavior
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Add ripple CSS dynamically
+      const style = document.createElement('style');
+      style.textContent = `
+        .ripple {
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.6);
+          transform: scale(0);
+          animation: ripple-animation 0.6s ease-out;
+          pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // WOW.js Initialization
+      function initWOW() {
+        // Create a simple WOW.js alternative using Intersection Observer
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.target.classList.contains('wow')) {
+              // Get animation class
+              const animationClass = entry.target.className.match(/slowFadeIn\w*/)?.[0] || 'slowFadeIn';
+              
+              // Add animation class
+              entry.target.classList.add('animated', animationClass);
+              
+              // Optional: Stop observing after animation
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all WOW elements
+        document.querySelectorAll('.wow').forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      // Initialize WOW on page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWOW);
+      } else {
+        initWOW();
       }
     </script>
   </body>
