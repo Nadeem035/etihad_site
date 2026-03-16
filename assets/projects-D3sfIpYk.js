@@ -7,8 +7,8 @@ class A{constructor(t={}){this.order=t.order||"desc",this.page=t.currentPage||1,
         `,t.innerHTML=`
             <div class="projects-loader__spinner">
                 <svg class="projects-loader__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="20" cy="20" r="18" stroke="#009CA8" stroke-width="4" stroke-linecap="round" stroke-dasharray="28 28" opacity="0.3"/>
-                    <circle cx="20" cy="20" r="18" stroke="#009CA8" stroke-width="4" stroke-linecap="round" stroke-dasharray="28 28">
+                    <circle cx="20" cy="20" r="18" stroke="#bb9c46" stroke-width="4" stroke-linecap="round" stroke-dasharray="28 28" opacity="0.3"/>
+                    <circle cx="20" cy="20" r="18" stroke="#bb9c46" stroke-width="4" stroke-linecap="round" stroke-dasharray="28 28">
                         <animateTransform 
                             attributeName="transform" 
                             type="rotate" 
@@ -41,7 +41,7 @@ class A{constructor(t={}){this.order=t.order||"desc",this.page=t.currentPage||1,
                     <button onclick="window.projectsFilters.loadProjects()" style="
                         margin-top: 16px;
                         padding: 8px 16px;
-                        background-color: #009CA8;
+                        background-color: #bb9c46;
                         color: white;
                         border: none;
                         border-radius: 4px;
@@ -65,7 +65,7 @@ class A{constructor(t={}){this.order=t.order||"desc",this.page=t.currentPage||1,
                                 <g clip-path="url(#clip0_852_213)">
                                     <path
                                         d="M9.99984 4.99984V9.99984L13.3332 11.6665M18.3332 9.99984C18.3332 14.6022 14.6022 18.3332 9.99984 18.3332C5.39746 18.3332 1.6665 14.6022 1.6665 9.99984C1.6665 5.39746 5.39746 1.6665 9.99984 1.6665C14.6022 1.6665 18.3332 5.39746 18.3332 9.99984Z"
-                                        stroke="#009CA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        stroke="#bb9c46" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 </g>
                                 <defs>
                                     <clipPath id="clip0_852_213">
@@ -84,7 +84,7 @@ class A{constructor(t={}){this.order=t.order||"desc",this.page=t.currentPage||1,
                                 viewBox="0 0 21 21" fill="none">
                                 <path
                                     d="M6.125 6.125H6.13375M18.0162 11.7337L11.7425 18.0075C11.58 18.1702 11.387 18.2993 11.1745 18.3874C10.9621 18.4754 10.7344 18.5207 10.5044 18.5207C10.2744 18.5207 10.0467 18.4754 9.83423 18.3874C9.62178 18.2993 9.42878 18.1702 9.26625 18.0075L1.75 10.5V1.75H10.5L18.0162 9.26625C18.3422 9.59413 18.5251 10.0377 18.5251 10.5C18.5251 10.9623 18.3422 11.4059 18.0162 11.7337Z"
-                                    stroke="#009CA8" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="#bb9c46" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <span class="projects__tag-text">
                                 ${((f=(j=(h=s.acf)==null?void 0:h.project_details)==null?void 0:j.project_budget)==null?void 0:f.amount)||"N/A"} 
