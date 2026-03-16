@@ -1651,6 +1651,244 @@
           font-size: 0.8rem;
         }
       }
+
+      /* What Set Us Apart Section */
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes borderGlow {
+        0%, 100% {
+          border-color: rgba(29, 122, 110, 0.4);
+          box-shadow: 0 0 20px rgba(29, 122, 110, 0.2);
+        }
+        50% {
+          border-color: rgba(187, 156, 70, 0.6);
+          box-shadow: 0 0 30px rgba(187, 156, 70, 0.3);
+        }
+      }
+
+      .what-sets-apart {
+        width: 100%;
+        padding-block: min(15rem, 15vh) min(10rem, 10vh);
+        background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .what-sets-apart__container {
+        max-width: 140rem;
+        margin: 0 auto;
+        width: 100%;
+        padding-inline: 1.5rem;
+      }
+
+      .what-sets-apart__header {
+        text-align: center;
+        margin-bottom: min(8rem, 8vh);
+        position: relative;
+        z-index: 2;
+      }
+
+      .what-sets-apart__title {
+        color: #fff;
+        font-size: clamp(40px, min(10rem, 10vh), 120px);
+        line-height: normal;
+        margin-bottom: min(3rem, 3vh);
+        overflow: hidden;
+      }
+
+      .what-sets-apart__title span {
+        color: #1d7a6e;
+        display: inline-block;
+      }
+
+      .what-sets-apart__subtitle {
+        color: #ffffff80;
+        font-size: min(2rem, 2vh);
+        line-height: 140%;
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+
+      .what-sets-apart__cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: min(3rem, 3vh);
+        position: relative;
+        z-index: 2;
+      }
+
+      .what-sets-apart__card {
+        padding: min(3rem, 3vh);
+        border: 2px solid rgba(29, 122, 110, 0.4);
+        background: linear-gradient(135deg, rgba(29, 122, 110, 0.05) 0%, rgba(187, 156, 70, 0.02) 100%);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.6s ease;
+        animation: slideInUp 0.8s ease-out var(--delay);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .what-sets-apart__card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(29, 122, 110, 0.1) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .what-sets-apart__card:hover {
+        border-color: rgba(187, 156, 70, 0.6);
+        box-shadow: 0 0 30px rgba(187, 156, 70, 0.3), inset 0 0 20px rgba(29, 122, 110, 0.1);
+        transform: translateY(-10px);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .what-sets-apart__card:hover::before {
+        opacity: 1;
+      }
+
+      .what-sets-apart__card-icon {
+        width: min(6rem, 6vh);
+        height: min(6rem, 6vh);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: min(2rem, 2vh);
+        color: #bb9c46;
+        transition: color 0.6s ease;
+        position: relative;
+        z-index: 2;
+      }
+
+      .what-sets-apart__card:hover .what-sets-apart__card-icon {
+        color: #1d7a6e;
+      }
+
+      .what-sets-apart__card-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke-width: 1.5;
+        filter: drop-shadow(0 0 8px rgba(187, 156, 70, 0.3));
+      }
+
+      .what-sets-apart__card:hover .what-sets-apart__card-icon svg {
+        filter: drop-shadow(0 0 15px rgba(29, 122, 110, 0.6));
+      }
+
+      .what-sets-apart__card-title {
+        color: #fff;
+        font-size: min(2.2rem, 2.2vh);
+        line-height: 130%;
+        margin-bottom: min(1.5rem, 1.5vh);
+        position: relative;
+        z-index: 2;
+      }
+
+      .what-sets-apart__card-description {
+        color: #ffffff99;
+        font-size: min(1.6rem, 1.6vh);
+        line-height: 140%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .what-sets-apart__card:hover .what-sets-apart__card-description {
+        color: #fff;
+      }
+
+      /* Mobile Responsive */
+      @media screen and (orientation: portrait) {
+        .what-sets-apart {
+          padding-block: 6rem 8rem;
+        }
+
+        .what-sets-apart__container {
+          padding-inline: 1.5rem;
+        }
+
+        .what-sets-apart__header {
+          margin-bottom: 4rem;
+        }
+
+        .what-sets-apart__title {
+          font-size: 3.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .what-sets-apart__subtitle {
+          font-size: 1.4rem;
+        }
+
+        .what-sets-apart__cards-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .what-sets-apart__card {
+          padding: 2rem 1.5rem;
+          animation-delay: var(--delay);
+        }
+
+        .what-sets-apart__card-icon {
+          width: 4rem;
+          height: 4rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .what-sets-apart__card-title {
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+        }
+
+        .what-sets-apart__card-description {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media screen and (min-width: 482px) and (max-width: 991px) and (orientation: portrait) {
+        .what-sets-apart__title {
+          font-size: 5.5rem;
+        }
+
+        .what-sets-apart__subtitle {
+          font-size: 1.8rem;
+        }
+
+        .what-sets-apart__cards-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
     </style>
 
     <!-- Google Maps API -->
@@ -3116,6 +3354,94 @@
           </div>
         </section>
 
+        <!-- WHAT SET US APART SECTION -->
+        <section class="what-sets-apart">
+          <div class="what-sets-apart__container">
+            <div class="what-sets-apart__header">
+              <h2 class="what-sets-apart__title">What <span>Set Us Apart?</span></h2>
+              <p class="what-sets-apart__subtitle">
+                At Etihad Marketing, we combine expertise, innovation, and customer-centric solutions to deliver exceptional real estate experiences in Pakistan.
+              </p>
+            </div>
+
+            <div class="what-sets-apart__cards-grid">
+              <div class="what-sets-apart__card" style="--delay: 0;">
+                <div class="what-sets-apart__card-icon">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+                    <path d="M32 12v20m10-10H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="what-sets-apart__card-title">Expert Knowledge</h3>
+                <p class="what-sets-apart__card-description">
+                  With years of experience in Pakistan's real estate market, we bring deep insights and strategic guidance to every project.
+                </p>
+              </div>
+
+              <div class="what-sets-apart__card" style="--delay: 0.1s;">
+                <div class="what-sets-apart__card-icon">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 12l8 16h16l-13 10 5 16-16-12-16 12 5-16-13-10h16l8-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="what-sets-apart__card-title">Premium Quality</h3>
+                <p class="what-sets-apart__card-description">
+                  Every project reflects our commitment to excellence, featuring premium designs, superior construction, and thoughtful planning.
+                </p>
+              </div>
+
+              <div class="what-sets-apart__card" style="--delay: 0.2s;">
+                <div class="what-sets-apart__card-icon">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="20" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 28h40M20 20v-6h24v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="what-sets-apart__card-title">Transparent Process</h3>
+                <p class="what-sets-apart__card-description">
+                  We believe in full transparency with clear communication, fair pricing, and documented agreements at every step.
+                </p>
+              </div>
+
+              <div class="what-sets-apart__card" style="--delay: 0.3s;">
+                <div class="what-sets-apart__card-icon">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 12c11.05 0 20 8.95 20 20s-8.95 20-20 20-20-8.95-20-20 8.95-20 20-20z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M32 22v14l10 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="what-sets-apart__card-title">24/7 Support</h3>
+                <p class="what-sets-apart__card-description">
+                  Our dedicated customer support team is always available to address your queries and concerns promptly.
+                </p>
+              </div>
+
+              <div class="what-sets-apart__card" style="--delay: 0.4s;">
+                <div class="what-sets-apart__card-icon">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 32h40M32 12v40M52 32c0 11.05-8.95 20-20 20s-20-8.95-20-20 8.95-20 20-20 20 8.95 20 20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3 class="what-sets-apart__card-title">Strategic Locations</h3>
+                <p class="what-sets-apart__card-description">
+                  Our projects are strategically positioned in high-demand areas across Lahore and Pakistan for maximum value appreciation.
+                </p>
+              </div>
+
+              <div class="what-sets-apart__card" style="--delay: 0.5s;">
+                <div class="what-sets-apart__card-icon">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 12l6 15h16l-13 10 5 16-16-12-16 12 5-16-13-10h16l6-15z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="what-sets-apart__card-title">Award Winning</h3>
+                <p class="what-sets-apart__card-description">
+                  Recognized for our contributions to real estate innovation and customer satisfaction across Pakistan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section class="dha-showcase">
           <div class="dha-showcase__inner">
