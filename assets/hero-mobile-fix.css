@@ -1,0 +1,369 @@
+/**
+ * Mobile Hero Diamond Animation - Enhanced CSS
+ * Properly enables and styles the hero screen 2 diamond animation on mobile
+ */
+
+/* ========== MOBILE PORTRAIT ONLY ========== */
+@media screen and (orientation: portrait) and (max-width: 991px) {
+
+  /* ===== HERO CONTAINER ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh !important;
+    height: 100vh;
+    overflow: hidden !important;
+    margin-bottom: 5rem;
+  }
+
+  /* ===== HERO SCREEN 1 ===== */
+  .hero__screen-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    padding-top: min(19rem, 19vh);
+    overflow: visible;
+  }
+
+  .hero__screen-1 .hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  /* ===== HERO SCREEN 2 - ENABLE IT ===== */
+  .hero__screen-2 {
+    display: block !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    overflow: hidden;
+  }
+
+  /* ===== DIAMOND CLIP CONTAINER ===== */
+  .hero__screen-2 .hero__background-clip {
+    display: block !important;
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    /* Size adjusted by JS - start small */
+    width: 10rem;
+    height: 10rem;
+    background: #171717;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform, clip-path, width, height;
+  }
+
+  /* ===== IMAGE WRAPPERS INSIDE DIAMOND ===== */
+  .hero__screen-2 .hero__image-wrapper {
+    display: block !important;
+    position: absolute !important;
+  }
+
+  .hero__screen-2 .hero__image-wrapper-1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    will-change: transform, width, height;
+  }
+
+  .hero__screen-2 .hero__image-wrapper-2 {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  /* Images inside wrappers */
+  .hero__screen-2 .hero__image-1,
+  .hero__screen-2 .hero__image-2 {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ===== BACKGROUND LINES ===== */
+  .hero__screen-2 .hero__screen-2__lines {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ===== CONTENT CONTAINER ===== */
+  .hero__screen-2 .hero__content {
+    display: flex !important;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem 4rem 2rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* ===== FLEX LAYOUT ===== */
+  .hero__screen-2 .hero__flex {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .hero__screen-2 .hero__flex-left {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .hero__screen-2 .hero__flex-right {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__screen-2 .hero__flex-right-overflow {
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+  }
+
+  /* ===== TEXT ELEMENTS ===== */
+  .hero__screen-2 .hero__tagline {
+    display: grid !important;
+    color: #fff;
+    font-size: min(1.6rem, 2vh);
+    line-height: 1.3;
+    overflow: hidden;
+    grid-template-rows: 1fr;
+    font-weight: 300;
+  }
+
+  .hero__screen-2 .hero__tagline span {
+    display: inline-block !important;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .hero__screen-2 .hero__heading {
+    display: block !important;
+    color: #fff;
+    font-size: min(3.5rem, 4.5vh);
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    overflow: visible;
+  }
+
+  .hero__screen-2 .hero__heading span {
+    display: block !important;
+    will-change: transform, opacity;
+  }
+
+  /* ===== DESCRIPTION & FLEX BLOCKS ===== */
+  .hero__screen-2 .hero__description {
+    display: block !important;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: min(1.3rem, 1.6vh);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    will-change: transform, opacity;
+  }
+
+  .hero__screen-2 .hero__description span {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .hero__screen-2 .hero__flex-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero__screen-2 .hero__flex-block-1 {
+    z-index: 2;
+  }
+
+  .hero__screen-2 .hero__flex-block-2 {
+    z-index: 1;
+  }
+
+  /* ===== MEDIA (VIDEO) ===== */
+  .hero__screen-2 .hero__media {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .hero__screen-2 .hero__media video {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .hero__screen-2 .hero__media-text {
+    display: grid !important;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: min(1.2rem, 1.5vh);
+    line-height: 1.5;
+    grid-template-rows: 1fr;
+  }
+
+  .hero__screen-2 .hero__media-text-1,
+  .hero__screen-2 .hero__media-text-2 {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .hero__screen-2 .hero__media-text-1 {
+    opacity: 0;
+  }
+
+  .hero__screen-2 .hero__media-text-2 {
+    opacity: 0;
+  }
+
+  /* ===== CTA BUTTON ===== */
+  .hero__screen-2 .hero__cta {
+    display: block !important;
+    margin-top: 2rem;
+    will-change: transform, opacity;
+  }
+
+  /* ===== ROTATING LINE ===== */
+  .hero__screen-2 .hero__rotating-line {
+    display: block !important;
+    position: absolute;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* ===== AFFILIATED LINK ===== */
+  .hero__screen-2 .hero__affiliated {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: min(1.2rem, 1.4vh);
+    text-decoration: none;
+  }
+
+  /* ===== HIDE MOBILE ABOUT SECTION ===== */
+  /* Keep mobile about section visible but with proper spacing */
+  .about.--is-mobile {
+    margin-top: 0;
+  }
+
+  /* ===== PERFORMANCE OPTIMIZATIONS ===== */
+  .hero__screen-2,
+  .hero__screen-2 * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+
+  /* Only apply will-change to animating elements */
+  .hero__screen-2 .hero__background-clip,
+  .hero__screen-2 .hero__image-wrapper,
+  .hero__screen-2 .hero__tagline,
+  .hero__screen-2 .hero__heading,
+  .hero__screen-2 .hero__description {
+    will-change: transform, opacity;
+  }
+
+}
+
+/* ========== LARGER MOBILE DEVICES (TABLETS IN PORTRAIT) ========== */
+@media screen and (orientation: portrait) and (min-width: 600px) and (max-width: 991px) {
+
+  .hero__screen-2 .hero__heading {
+    font-size: min(5rem, 6vh);
+  }
+
+  .hero__screen-2 .hero__tagline {
+    font-size: min(2rem, 2.5vh);
+  }
+
+  .hero__screen-2 .hero__description {
+    font-size: min(1.5rem, 1.8vh);
+  }
+
+  .hero__screen-2 .hero__content {
+    padding: 3rem 3rem 5rem 3rem;
+  }
+
+  .hero__screen-2 .hero__media video {
+    max-height: 250px;
+  }
+}
+
+/* ========== DEBUG MODE (UNCOMMENT TO SEE LAYOUT) ========== */
+/*
+@media screen and (orientation: portrait) and (max-width: 991px) {
+  .hero {
+    border: 3px solid orange !important;
+  }
+
+  .hero__screen-2 {
+    border: 3px solid red !important;
+  }
+
+  .hero__screen-2 .hero__background-clip {
+    border: 3px solid blue !important;
+  }
+
+  .hero__screen-2 .hero__content {
+    border: 2px solid green !important;
+  }
+
+  .hero__screen-2 .hero__image-wrapper-1 {
+    border: 2px solid yellow !important;
+  }
+}
+*/
