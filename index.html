@@ -62,17 +62,7 @@
     <link rel="modulepreload" href="assets/marquee-DoEEElvA.js" />
     <link rel="modulepreload" href="assets/drag-follower-CaHV_THh.js" />
     <link rel="stylesheet" href="assets/homepage-DUfNMqJf.css" />
-
-    <!-- Custom Mobile Hero Animation Fix CSS -->
-    <link rel="stylesheet" href="assets/hero-mobile-fix.css" />
-
     <script type="module" defer src="assets/homepage-D6GbVUca.js"></script>
-
-    <!-- Custom Mobile Hero Animation Fix -->
-    <script defer src="assets/hero-mobile-fix.js"></script>
-
-    <!-- WOW.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     
     <!-- Loader Styles -->
     <style>
@@ -2520,142 +2510,6 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
-
-      /* ============================================
-         WOW.JS CUSTOM ANIMATIONS
-         ============================================ */
-
-      /* Slow Fade In Animation */
-      @keyframes slowFadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes slowFadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(60px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slowFadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-60px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slowFadeInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-80px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slowFadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(80px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      /* WOW.js Animation Classes */
-      .wow {
-        visibility: hidden;
-      }
-
-      .wow.animated {
-        visibility: visible;
-      }
-
-      /* Slow animations - 2.5 seconds */
-      .slowFadeIn {
-        animation: slowFadeIn 2.5s ease-out;
-      }
-
-      .slowFadeInUp {
-        animation: slowFadeInUp 2.5s ease-out;
-      }
-
-      .slowFadeInDown {
-        animation: slowFadeInDown 2.5s ease-out;
-      }
-
-      .slowFadeInLeft {
-        animation: slowFadeInLeft 2.5s ease-out;
-      }
-
-      .slowFadeInRight {
-        animation: slowFadeInRight 2.5s ease-out;
-      }
-
-      /* Delay variants for staggered animations */
-      .delay-1 {
-        animation-delay: 0.2s;
-      }
-
-      .delay-2 {
-        animation-delay: 0.4s;
-      }
-
-      .delay-3 {
-        animation-delay: 0.6s;
-      }
-
-      .delay-4 {
-        animation-delay: 0.8s;
-      }
-
-      .delay-5 {
-        animation-delay: 1s;
-      }
-
-      /* Adjust existing animations to work with WOW.js */
-      .what-sets-apart__card.wow {
-        animation-duration: 2.5s !important;
-      }
-
-      .stat-card.wow {
-        animation-duration: 2.5s !important;
-      }
-
-      .gallery-item.wow {
-        animation-duration: 2.5s !important;
-      }
-
-      .timeline-item.wow {
-        animation-duration: 2.5s !important;
-      }
-
-      /* Ensure fade-in happens smoothly */
-      .wow.animated.slowFadeIn,
-      .wow.animated.slowFadeInUp,
-      .wow.animated.slowFadeInDown,
-      .wow.animated.slowFadeInLeft,
-      .wow.animated.slowFadeInRight {
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
     </style>
 
     <!-- Google Maps API -->
@@ -2897,7 +2751,7 @@
             </div>
 
             <p class="hero__text">
-              Invest in the region�s first integrated luxury and active eco-conscious development society, a project of the Defence Housing Authority expanded throughout Pakistan.
+              Invest in the region’s first integrated luxury and active eco-conscious development society, a project of the Defence Housing Authority expanded throughout Pakistan.
             </p>
 
             <div class="hero__scroll-wrapper">
@@ -3707,7 +3561,7 @@
           <div class="dha-showcase__orb dha-showcase__orb--two"></div>
         </section>
 
-        <section class="popular-listings wow slowFadeInUp">
+        <section class="popular-listings">
           <div class="popular-listings__inner">
             <div class="popular-listings__intro">
               <div class="popular-listings__eyebrow">Browse Hot Offers</div>
@@ -3730,7 +3584,7 @@
             <div class="popular-listings__panels">
               <div class="popular-listings__panel" id="hot-offers-popular" role="tabpanel" aria-labelledby="hot-offers-tab-popular">
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Featured</span>
                       <img src="assets/planning-1-VJSRUVaE.avif" alt="Dummy Alpine Farm House listing" loading="lazy" />
@@ -3749,7 +3603,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 2</span>
                       <img src="assets/planning-6-BcHUs8jI.avif" alt="Dummy Etihad Town Phase 2 listing" loading="lazy" />
@@ -3768,7 +3622,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 1</span>
                       <img src="assets/planning-10-DBhe8CXi.avif" alt="Dummy Etihad Town Phase 1 listing" loading="lazy" />
@@ -3791,7 +3645,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-residential" role="tabpanel" aria-labelledby="hot-offers-tab-residential" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-2-BnzO0N21.webp" alt="Dummy residence listing one" loading="lazy" />
@@ -3810,7 +3664,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-3-C6YK5w1q.webp" alt="Dummy residence listing two" loading="lazy" />
@@ -3829,7 +3683,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-4-DCwOO40E.webp" alt="Dummy residence listing three" loading="lazy" />
@@ -3852,7 +3706,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-commercial" role="tabpanel" aria-labelledby="hot-offers-tab-commercial" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-3-C3t2e9L3.avif" alt="Dummy commercial listing one" loading="lazy" />
@@ -3871,7 +3725,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-5-DE4NL4q8.avif" alt="Dummy commercial listing two" loading="lazy" />
@@ -3890,7 +3744,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-9-BMyzCawk.avif" alt="Dummy commercial listing three" loading="lazy" />
@@ -4137,7 +3991,7 @@
             </div>
 
             <div class="what-sets-apart__cards-grid">
-              <div class="what-sets-apart__card wow slowFadeInUp" style="--delay: 0;">
+              <div class="what-sets-apart__card" style="--delay: 0;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
@@ -4150,7 +4004,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card wow slowFadeInUp delay-1" style="--delay: 0.1s;">
+              <div class="what-sets-apart__card" style="--delay: 0.1s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 12l8 16h16l-13 10 5 16-16-12-16 12 5-16-13-10h16l8-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -4162,7 +4016,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card wow slowFadeInUp delay-2" style="--delay: 0.2s;">
+              <div class="what-sets-apart__card" style="--delay: 0.2s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="12" y="20" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -4175,7 +4029,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card wow slowFadeInUp delay-3" style="--delay: 0.3s;">
+              <div class="what-sets-apart__card" style="--delay: 0.3s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 12c11.05 0 20 8.95 20 20s-8.95 20-20 20-20-8.95-20-20 8.95-20 20-20z" stroke="currentColor" stroke-width="2"/>
@@ -4188,7 +4042,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card wow slowFadeInUp delay-4" style="--delay: 0.4s;">
+              <div class="what-sets-apart__card" style="--delay: 0.4s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 32h40M32 12v40M52 32c0 11.05-8.95 20-20 20s-20-8.95-20-20 8.95-20 20-20 20 8.95 20 20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -4200,7 +4054,7 @@
                 </p>
               </div>
 
-              <div class="what-sets-apart__card wow slowFadeInUp delay-5" style="--delay: 0.5s;">
+              <div class="what-sets-apart__card" style="--delay: 0.5s;">
                 <div class="what-sets-apart__card-icon">
                   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M32 12l6 15h16l-13 10 5 16-16-12-16 12 5-16-13-10h16l6-15z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -4216,7 +4070,7 @@
         </section>
 
         <!-- STATISTICS SECTION -->
-        <section class="stats-section wow slowFadeInUp">
+        <section class="stats-section">
           <div class="animated-bg-shapes">
             <div class="shape shape-1"></div>
             <div class="shape shape-2"></div>
@@ -4227,27 +4081,27 @@
               <h2 class="stats-title">Our <span>Achievements</span></h2>
             </div>
             <div class="stats-grid">
-              <div class="stat-card wow slowFadeInUp" style="--delay: 0s;">
+              <div class="stat-card" style="--delay: 0s;">
                 <div class="stat-number">5000<span style="font-size: 0.5em;">+</span></div>
                 <div class="stat-label">Satisfied Customers</div>
               </div>
-              <div class="stat-card wow slowFadeInUp delay-1" style="--delay: 0.1s;">
+              <div class="stat-card" style="--delay: 0.1s;">
                 <div class="stat-number">10<span style="font-size: 0.5em;">+</span></div>
                 <div class="stat-label">Completed Projects</div>
               </div>
-              <div class="stat-card wow slowFadeInUp delay-2" style="--delay: 0.2s;">
+              <div class="stat-card" style="--delay: 0.2s;">
                 <div class="stat-number">20<span style="font-size: 0.5em;">+</span></div>
                 <div class="stat-label">Projects in Development</div>
               </div>
-              <div class="stat-card wow slowFadeInUp delay-3" style="--delay: 0.3s;">
+              <div class="stat-card" style="--delay: 0.3s;">
                 <div class="stat-number">15</div>
                 <div class="stat-label">Years of Experience</div>
               </div>
-              <div class="stat-card wow slowFadeInUp delay-4" style="--delay: 0.4s;">
+              <div class="stat-card" style="--delay: 0.4s;">
                 <div class="stat-number">100<span style="font-size: 0.5em;">%</span></div>
                 <div class="stat-label">Customer Satisfaction Rate</div>
               </div>
-              <div class="stat-card wow slowFadeInUp delay-5" style="--delay: 0.5s;">
+              <div class="stat-card" style="--delay: 0.5s;">
                 <div class="stat-number">50<span style="font-size: 0.5em;">+</span></div>
                 <div class="stat-label">Team Members</div>
               </div>
@@ -4257,7 +4111,7 @@
 
 
         <!-- TIMELINE SECTION -->
-        <section class="timeline-section wow slowFadeInUp">
+        <section class="timeline-section">
           <div class="animated-bg-shapes">
             <div class="shape shape-1"></div>
             <div class="shape shape-2"></div>
@@ -4268,31 +4122,31 @@
               <h2 class="timeline-title">Real Estate Investment <span>Journey</span></h2>
             </div>
             <div class="timeline-content">
-              <div class="timeline-item wow slowFadeInUp" style="--delay: 0s;">
+              <div class="timeline-item">
                 <div class="timeline-item-content">
                   <div class="timeline-item-title">1. Discovery</div>
                   <div class="timeline-item-description">Explore our premium properties and identify the perfect investment opportunity that matches your goals and budget.</div>
                 </div>
               </div>
-              <div class="timeline-item wow slowFadeInUp delay-1" style="--delay: 0.1s;">
+              <div class="timeline-item">
                 <div class="timeline-item-content">
                   <div class="timeline-item-title">2. Consultation</div>
                   <div class="timeline-item-description">Our expert team provides personalized guidance and market insights to help you make informed decisions.</div>
                 </div>
               </div>
-              <div class="timeline-item wow slowFadeInUp delay-2" style="--delay: 0.2s;">
+              <div class="timeline-item">
                 <div class="timeline-item-content">
                   <div class="timeline-item-title">3. Documentation</div>
                   <div class="timeline-item-description">Complete all legal requirements with our transparent process and comprehensive documentation support.</div>
                 </div>
               </div>
-              <div class="timeline-item wow slowFadeInUp delay-3" style="--delay: 0.3s;">
+              <div class="timeline-item">
                 <div class="timeline-item-content">
                   <div class="timeline-item-title">4. Investment</div>
                   <div class="timeline-item-description">Secure your investment with flexible payment plans and guaranteed returns on your real estate portfolio.</div>
                 </div>
               </div>
-              <div class="timeline-item wow slowFadeInUp delay-4" style="--delay: 0.4s;">
+              <div class="timeline-item">
                 <div class="timeline-item-content">
                   <div class="timeline-item-title">5. Growth</div>
                   <div class="timeline-item-description">Watch your investment appreciate with our expert management and strategic property development.</div>
@@ -4425,7 +4279,7 @@
           <div class="dha-showcase__orb dha-showcase__orb--two"></div>
         </section>
 
-        <section class="popular-listings wow slowFadeInUp">
+        <section class="popular-listings">
           <div class="popular-listings__inner">
             <div class="popular-listings__intro">
               <div class="popular-listings__eyebrow">Browse Hot Offers</div>
@@ -4448,7 +4302,7 @@
             <div class="popular-listings__panels">
               <div class="popular-listings__panel" id="hot-offers-popular" role="tabpanel" aria-labelledby="hot-offers-tab-popular">
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Featured</span>
                       <img src="assets/planning-1-VJSRUVaE.avif" alt="Dummy Alpine Farm House listing" loading="lazy" />
@@ -4467,7 +4321,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 2</span>
                       <img src="assets/planning-6-BcHUs8jI.avif" alt="Dummy Etihad Town Phase 2 listing" loading="lazy" />
@@ -4486,7 +4340,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Phase 1</span>
                       <img src="assets/planning-10-DBhe8CXi.avif" alt="Dummy Etihad Town Phase 1 listing" loading="lazy" />
@@ -4509,7 +4363,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-residential" role="tabpanel" aria-labelledby="hot-offers-tab-residential" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-2-BnzO0N21.webp" alt="Dummy residence listing one" loading="lazy" />
@@ -4528,7 +4382,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-3-C6YK5w1q.webp" alt="Dummy residence listing two" loading="lazy" />
@@ -4547,7 +4401,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Residential</span>
                       <img src="assets/project-4-DCwOO40E.webp" alt="Dummy residence listing three" loading="lazy" />
@@ -4570,7 +4424,7 @@
 
               <div class="popular-listings__panel" id="hot-offers-commercial" role="tabpanel" aria-labelledby="hot-offers-tab-commercial" hidden>
                 <div class="popular-listings__grid">
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-3-C3t2e9L3.avif" alt="Dummy commercial listing one" loading="lazy" />
@@ -4589,7 +4443,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-5-DE4NL4q8.avif" alt="Dummy commercial listing two" loading="lazy" />
@@ -4608,7 +4462,7 @@
                     </div>
                   </article>
 
-                  <article class="popular-listings__card wow slowFadeInUp">
+                  <article class="popular-listings__card">
                     <div class="popular-listings__media">
                       <span class="popular-listings__badge">Commercial</span>
                       <img src="assets/planning-9-BMyzCawk.avif" alt="Dummy commercial listing three" loading="lazy" />
@@ -4636,11 +4490,11 @@
 
 
         <!-- DHA LAHORE MAP -->
-        <section class="dha-map wow slowFadeInUp">
+        <section class="dha-map">
           <div class="dha-map__inner">
             <div class="dha-map__header">
               <div class="dha-map__eyebrow">Explore Our Locations</div>
-              <h2 class="dha-map__title wow slowFadeInUp">DHA Lahore <span>Locations</span></h2>
+              <h2 class="dha-map__title">DHA Lahore <span>Locations</span></h2>
               <p class="dha-map__description">
                 Discover our premium properties across different zones in DHA Lahore. Click on the markers to view location details.
               </p>
@@ -4680,9 +4534,9 @@
 
 
         <!-- ENGINEERS  -->
-        <section class="engineers wow slowFadeInUp">
+        <section class="engineers">
           <!-- heading  -->
-          <h2 class="engineers__heading wow slowFadeInUp">
+          <h2 class="engineers__heading">
             <span>THE ENGINEERS</span>
           </h2>
 
@@ -4704,7 +4558,7 @@
               <div class="engineers-swiper-wrapper">
 
                 <!-- HSE  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-5-Dhwq0MSh.webp"
@@ -4780,7 +4634,7 @@
                 </div>
 
                 <!-- MECHANICAL -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-1">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-4-CF7hJjnb.webp"
@@ -4871,7 +4725,7 @@
                 </div>
 
                 <!-- ELECTRICAL ENGINEERS  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-2">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-7-DUtWwN1m.avif"
@@ -4914,7 +4768,7 @@
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect y="4.24268" width="6" height="6" transform="rotate(-45 0 4.24268)" fill="#bb9c46" />
                       </svg>
-                      <span>Lighting Systems:</span>indoor, outdoor & façade illumination.
+                      <span>Lighting Systems:</span>indoor, outdoor & faÃ§ade illumination.
                     </li>
                     <li class="engineers-swiper-slide__li">
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4938,7 +4792,7 @@
                 </div>
 
                 <!-- CIVIL ENGINEERS  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-3">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-8-BBY5_l4c.avif"
@@ -5011,7 +4865,7 @@
                 </div>
 
                 <!-- ARCHITECTURAL ENGINEERS  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-4">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-9-DF7f4plj.avif"
@@ -5060,7 +4914,7 @@
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect y="4.24268" width="6" height="6" transform="rotate(-45 0 4.24268)" fill="#bb9c46" />
                       </svg>
-                      <span>Façade Design & Execution:</span>glass, cladding, and curtain wall systems.
+                      <span>FaÃ§ade Design & Execution:</span>glass, cladding, and curtain wall systems.
                     </li>
                     <li class="engineers-swiper-slide__li">
                       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -5084,7 +4938,7 @@
                 </div>
 
                 <!-- PLANNING ENGINEERS  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-5">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-10-OTLoLSu5.avif"
@@ -5157,7 +5011,7 @@
                 </div>
 
                 <!-- INTERIOR ENGINEERS  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-1">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-11-D6FlRDrG.avif"
@@ -5224,7 +5078,7 @@
                 </div>
 
                 <!-- QC ENGINEERS  -->
-                <div class="engineers-swiper-slide wow slowFadeInUp delay-2">
+                <div class="engineers-swiper-slide">
                   <div class="engineers-swiper-slide__image-wrapper">
                     <img
                       src="assets/engineers-12-DmWN4WJ1.avif"
@@ -5305,7 +5159,7 @@
         </section>
 
         <!-- CLIENTS  -->
-        <section class="clients wow slowFadeInUp" data-fade-out data-fade-out-scale="1" data-swiper-active-slide="1">
+        <section class="clients" data-fade-out data-fade-out-scale="1" data-swiper-active-slide="1">
           <div class="clients-flex">
             <!-- left wrapper  -->
             <div class="clients-left">
@@ -5323,14 +5177,14 @@
                 data-swiper-sync="clients-partners"
                 data-swiper-parent-class="clients"
               >
-                <h3 class="clients__heading wow slowFadeInUp">
+                <h3 class="clients__heading">
                   <span class="clients__heading-icon"></span>
                   MAJOR CLIENTS
                 </h3>
 
                 <div class="clients-left-swiper-wrapper">
                   <!-- slide  9-->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       farah experiences
                     </h3>
@@ -5357,7 +5211,7 @@
                   </div>
 
                   <!-- slide 1 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-1">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       yas asset management
                     </h3>
@@ -5385,7 +5239,7 @@
                   </div>
 
                   <!-- slide  5 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-2">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       Department of Culture & Tourism
                     </h3>
@@ -5410,7 +5264,7 @@
                   </div>
 
                   <!-- slide 3 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-3">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       al forsan
                     </h3>
@@ -5435,7 +5289,7 @@
                   </div>
 
                   <!-- slide 4 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-4">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       miral company
                     </h3>
@@ -5462,7 +5316,7 @@
                   </div>
 
                   <!-- slide  2 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-5">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       telemed healthpoint
                     </h3>
@@ -5489,7 +5343,7 @@
                   </div>
 
                   <!-- slide  6 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-1">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       DHA Properties
                     </h3>
@@ -5514,7 +5368,7 @@
                   </div>
 
                   <!-- slide  7 -->
-                  <div class="clients-left-swiper-slide wow slowFadeInUp delay-2">
+                  <div class="clients-left-swiper-slide">
                     <h3 class="clients-left-swiper-slide__heading">
                       Etihad Marketing
                     </h3>
@@ -5798,8 +5652,8 @@
         </section>
 
         <!-- REVIEWS  -->
-        <section class="reviews wow slowFadeInUp" data-fade-out data-fade-out-scale="1">
-          <h3 class="reviews__heading wow slowFadeInUp">
+        <section class="reviews" data-fade-out data-fade-out-scale="1">
+          <h3 class="reviews__heading">
             <span>OVER 1000+ PEOPLE TRUST</span>
           </h3>
 
@@ -5850,7 +5704,7 @@
                   </span>
 
                   <p class="reviews-swiper-slide__text">
-                    I recently hired Etihad for some engineering and maintenance work, and I couldn’t be more satisfied with the results. From start to finish, the team was professional, punctual, and highly skilled. They communicated clearly throughout the process and delivered high-quality work that exceeded my expectations. It’s rare to find such a reliable and knowledgeable team these days. I would absolutely recommend them to anyone looking for top-tier service. Thank you for a job well done!
+                    I recently hired Etihad for some engineering and maintenance work, and I couldnâ€™t be more satisfied with the results. From start to finish, the team was professional, punctual, and highly skilled. They communicated clearly throughout the process and delivered high-quality work that exceeded my expectations. Itâ€™s rare to find such a reliable and knowledgeable team these days. I would absolutely recommend them to anyone looking for top-tier service. Thank you for a job well done!
                   </p>
 
                   <div class="reviews-swiper-slide__user">
@@ -6219,7 +6073,7 @@
         </section>
 
         <!-- LOCATION  -->
-        <section class="location wow slowFadeInUp" data-fade-out data-fade-out-scale="1">
+        <section class="location" data-fade-out data-fade-out-scale="1">
           <!-- map  -->
           <img
             src="https://etihadmarketing.co/wp-content/uploads/2022/10/02-copy.jpg"
@@ -6237,7 +6091,7 @@
             loading="lazy"
           /> -->
 
-          <div class="location-card wow slowFadeInUp">
+          <div class="location-card">
             <img
               class="location-card__image"
               src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweqoi88vjbsxr1gHZuLjSJPzqLhQCDLy_FNZjsvB8SI8xzdjMaIxxL8uk5apmRxpkzYQtn-Y0jOzF5l7UT1gF37KKJjmsm3IpsA-5fkdu9GLyA_XV-UA9E1gzgS4Z9DIyj97C8S7YA=w408-h544-k-no"
@@ -6502,7 +6356,7 @@
 
           <!-- copyright  -->
           <p class="footer-copyright">
-            <span>�</span>2025 ETIHAD. All Rights Reserved
+            <span>©</span>2025 ETIHAD. All Rights Reserved
           </p>
 
           <!-- terms  -->
@@ -7414,7 +7268,7 @@
             header.innerHTML = `
               <div class="dha-map__community-color" style="background-color: ${development.color}; box-shadow: 0 0 1rem ${development.color};"></div>
               <div class="dha-map__community-name">${development.name}</div>
-              <div class="dha-map__community-toggle expanded">?</div>
+              <div class="dha-map__community-toggle expanded">▼</div>
             `;
 
             // Create locations list
@@ -7856,42 +7710,6 @@
         }
       `;
       document.head.appendChild(style);
-
-      // WOW.js Initialization
-      function initWOW() {
-        // Create a simple WOW.js alternative using Intersection Observer
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.target.classList.contains('wow')) {
-              // Get animation class
-              const animationClass = entry.target.className.match(/slowFadeIn\w*/)?.[0] || 'slowFadeIn';
-              
-              // Add animation class
-              entry.target.classList.add('animated', animationClass);
-              
-              // Optional: Stop observing after animation
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-
-        // Observe all WOW elements
-        document.querySelectorAll('.wow').forEach((el) => {
-          observer.observe(el);
-        });
-      }
-
-      // Initialize WOW on page load
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initWOW);
-      } else {
-        initWOW();
-      }
     </script>
   </body>
 </html>
