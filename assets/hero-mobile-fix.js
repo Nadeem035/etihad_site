@@ -85,14 +85,15 @@
       overflow: 'hidden'
     });
 
-    // Screen 1 – visible
-    gsap.set('.hero__screen-1', { autoAlpha: 1, zIndex: 10 });
+    // Screen 1 – visible, z-index below screen-2 so diamond clip shows on top
+    gsap.set('.hero__screen-1', { autoAlpha: 1, zIndex: 2 });
 
-    // Screen 2 – behind screen 1, visible but no pointer events yet
+    // Screen 2 – above screen 1 so diamond clip is visible on top.
+    // The tiny initial clip-path ensures screen 2 doesn't cover screen 1 visually.
     gsap.set('.hero__screen-2', {
       autoAlpha: 1,
       visibility: 'visible',
-      zIndex: 5,
+      zIndex: 10,
       pointerEvents: 'none'
     });
 
@@ -105,10 +106,11 @@
       top: '50%',
       xPercent: -50,
       yPercent: -50,
-      width: '150vw',
-      height: '150vh',
+      width: '200vmax',
+      height: '200vmax',
       rotate: '45deg',
       autoAlpha: 1,
+      zIndex: 1,
       // Start as a tiny diamond in the centre (same idea as desktop)
       clipPath: 'polygon(48% 48%, 52% 48%, 52% 52%, 48% 52%)'
     });
