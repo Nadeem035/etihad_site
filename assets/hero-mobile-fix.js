@@ -233,6 +233,10 @@
       }, '1')
 
       /* ========== PHASE 3 (2.5 – 3.5): Content appears ========== */
+      // Reveal parent containers so child span animations are visible
+      .to('.hero__screen-2 .hero__tagline', { autoAlpha: 1, duration: 0.5 }, '2.5')
+      .to('.hero__screen-2 .hero__heading', { autoAlpha: 1, duration: 0.5 }, '2.5')
+
       .fromTo(
         '.hero__screen-2 .hero__tagline span:nth-child(1)',
         { autoAlpha: 0, yPercent: 100 },
@@ -253,6 +257,9 @@
         { autoAlpha: 1, rotate: '-180deg', duration: 3 },
         '3'
       )
+
+      // Reveal media parent container
+      .to('.hero__screen-2 .hero__media', { autoAlpha: 1, duration: 0.5 }, '3')
 
       .fromTo(
         ['.hero__screen-2 .hero__media video', '.hero__screen-2 .hero__media-text'],
