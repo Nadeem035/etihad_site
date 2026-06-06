@@ -1,15 +1,23 @@
 /**
  * Mobile Hero Diamond Expand Animation
- * Properly implements the desktop diamond animation for mobile devices
+ * Mirrors the desktop landscape diamond→fullscreen animation for mobile portrait.
+ *
+ * Desktop approach (landscape):
+ *   – 130 vw × 130 vw container, clip-path polygon from tiny centre square → full rect
+ *   – Container rotated 45 deg → 25 deg → 0 deg
+ *   – Image wrapper counter-rotated
+ *
+ * Mobile approach (portrait ≤ 991 px):
+ *   – 150 vw × 150 vh container centred, clip-path polygon from tiny diamond → full rect
+ *   – Same rotation + counter-rotation pattern, scaled for portrait viewports
  */
 
-(function() {
+(function () {
   'use strict';
 
   let mobileTimeline = null;
   let isInitialized = false;
 
-  // Wait for GSAP to be available
   function initMobileHeroAnimation() {
     try {
       if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
@@ -17,81 +25,58 @@
         return;
       }
 
-      // Register plugins
       gsap.registerPlugin(ScrollTrigger);
 
-      // Wait for main script to initialize first
-      setTimeout(() => {
+      setTimeout(function () {
         try {
-          // Check if we're on mobile portrait
-          const isMobile = window.matchMedia("(max-width: 991px)").matches;
-          const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+          var isMobile = window.matchMedia('(max-width: 991px)').matches;
+          var isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
           if (isMobile && isPortrait && !isInitialized) {
-            console.log('🚀 Initializing mobile hero diamond animation...');
             killExistingAnimations();
             setupMobileAnimation();
             isInitialized = true;
           }
-        } catch (error) {
-          console.error('❌ Error during mobile animation setup:', error);
+        } catch (e) {
+          console.error('Mobile hero init error:', e);
         }
-      }, 800); // Give main script time to initialize
-    } catch (error) {
-      console.error('❌ Error initializing GSAP:', error);
+      }, 800);
+    } catch (e) {
+      console.error('GSAP not ready:', e);
     }
   }
 
-  // Kill any existing hero animations
   function killExistingAnimations() {
-    const heroElement = document.querySelector('.hero');
+    var heroEl = document.querySelector('.hero');
 
-    ScrollTrigger.getAll().forEach(trigger => {
+    ScrollTrigger.getAll().forEach(function (trigger) {
       if (trigger.vars && trigger.vars.trigger) {
-        const triggerEl = trigger.vars.trigger;
-
-        // Check if trigger is the hero element (can be string or DOM element)
-        const isHeroTrigger =
-          triggerEl === '.hero' ||
-          triggerEl === heroElement ||
-          (typeof triggerEl === 'string' && triggerEl.includes('hero')) ||
-          (triggerEl instanceof Element && triggerEl.classList && triggerEl.classList.contains('hero'));
-
-        if (isHeroTrigger) {
-          console.log('Removing existing hero trigger');
-          trigger.kill();
-        }
+        var t = trigger.vars.trigger;
+        var isHero =
+          t === '.hero' ||
+          t === heroEl ||
+          (typeof t === 'string' && t.includes('hero')) ||
+          (t instanceof Element && t.classList && t.classList.contains('hero'));
+        if (isHero) trigger.kill();
       }
     });
 
-    // Kill any existing timelines affecting hero elements
     gsap.killTweensOf([
       '.hero',
       '.hero__screen-1',
       '.hero__screen-2',
       '.hero__background-clip',
+      '.hero__image-wrapper',
+      '.hero__image-wrapper-1',
+      '.hero__image-wrapper-2',
       '.hero__heading',
       '.hero__subheading'
     ]);
   }
 
-  function setupMobileAnimation() {
-    try {
-      // Set up initial states for all elements
-      setupInitialStates();
-
-      // Create the main mobile timeline
-      createMobileTimeline();
-
-      // Refresh ScrollTrigger
-      ScrollTrigger.refresh();
-
-      console.log('✅ Mobile diamond animation ready');
-    } catch (error) {
-      console.error('❌ Error setting up mobile animation:', error);
-    }
-  }
-
+  /* ------------------------------------------------------------------ */
+  /*  Initial states                                                     */
+  /* ------------------------------------------------------------------ */
   function setupInitialStates() {
     // Hero container
     gsap.set('.hero', {
@@ -100,13 +85,10 @@
       overflow: 'hidden'
     });
 
-    // Screen 1 - visible initially
-    gsap.set('.hero__screen-1', {
-      autoAlpha: 1,
-      zIndex: 10
-    });
+    // Screen 1 – visible
+    gsap.set('.hero__screen-1', { autoAlpha: 1, zIndex: 10 });
 
-    // Screen 2 container - hidden initially
+    // Screen 2 – behind screen 1, visible but no pointer events yet
     gsap.set('.hero__screen-2', {
       autoAlpha: 1,
       visibility: 'visible',
@@ -114,298 +96,268 @@
       pointerEvents: 'none'
     });
 
-    // Diamond clip - start small and rotated
+    // --- Diamond clip container ---
+    // Use a large fixed-size box (like desktop's 130 vw) so it always covers
+    // the viewport once the clip-path opens up.
     gsap.set('.hero__screen-2 .hero__background-clip', {
       position: 'absolute',
       left: '50%',
       top: '50%',
       xPercent: -50,
       yPercent: -50,
-      width: '8rem',
-      height: '8rem',
+      width: '150vw',
+      height: '150vh',
       rotate: '45deg',
-      scale: 0.5,
-      autoAlpha: 0
+      autoAlpha: 1,
+      // Start as a tiny diamond in the centre (same idea as desktop)
+      clipPath: 'polygon(48% 48%, 52% 48%, 52% 52%, 48% 52%)'
     });
 
-    // Image wrappers inside diamond
+    // Image wrapper 1 – counter-rotated so the image stays upright
     gsap.set('.hero__screen-2 .hero__image-wrapper-1', {
       position: 'absolute',
       top: '50%',
       left: '50%',
       xPercent: -50,
       yPercent: -50,
-      width: '200%',
-      height: '200%',
-      scale: 1.5,
-      rotate: '0deg'
+      width: '100%',
+      height: '100%',
+      rotate: '-45deg',
+      scale: 1.5
     });
 
-    gsap.set('.hero__screen-2 .hero__image-wrapper-2', {
-      autoAlpha: 0
-    });
+    // Image wrapper 2 – hidden initially
+    gsap.set('.hero__screen-2 .hero__image-wrapper-2', { autoAlpha: 0 });
 
-    // Content elements - hidden initially
-    gsap.set([
-      '.hero__screen-2 .hero__tagline',
-      '.hero__screen-2 .hero__heading',
-      '.hero__screen-2 .hero__description',
-      '.hero__screen-2 .hero__media',
-      '.hero__screen-2 .hero__cta',
-      '.hero__screen-2 .hero__rotating-line',
-      '.hero__screen-2 .hero__screen-2__lines'
-    ], {
-      autoAlpha: 0
-    });
+    // Content elements hidden
+    gsap.set(
+      [
+        '.hero__screen-2 .hero__tagline',
+        '.hero__screen-2 .hero__heading',
+        '.hero__screen-2 .hero__description',
+        '.hero__screen-2 .hero__media',
+        '.hero__screen-2 .hero__cta',
+        '.hero__screen-2 .hero__rotating-line',
+        '.hero__screen-2 .hero__screen-2__lines'
+      ],
+      { autoAlpha: 0 }
+    );
 
     // Flex blocks
-    gsap.set('.hero__screen-2 .hero__flex-block-1', {
-      autoAlpha: 1,
-      yPercent: 0
-    });
-
-    gsap.set('.hero__screen-2 .hero__flex-block-2', {
-      autoAlpha: 0,
-      yPercent: 110
-    });
+    gsap.set('.hero__screen-2 .hero__flex-block-1', { autoAlpha: 1, yPercent: 0 });
+    gsap.set('.hero__screen-2 .hero__flex-block-2', { autoAlpha: 0, yPercent: 110 });
   }
 
+  /* ------------------------------------------------------------------ */
+  /*  Timeline                                                           */
+  /* ------------------------------------------------------------------ */
   function createMobileTimeline() {
     mobileTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '.hero',
         start: 'top top',
-        end: 'bottom+=80% top',
-        scrub: 1.2,
+        end: 'bottom+=100% top',
+        scrub: 1.1,
         pin: true,
         anticipatePin: 1,
-        invalidateOnRefresh: true,
-        markers: false, // Set to true for debugging
-        onUpdate: (self) => {
-          // Debug progress
-          // console.log('Scroll progress:', self.progress.toFixed(2));
-        }
+        invalidateOnRefresh: true
       }
     });
 
-    // Timeline duration markers
-    const TOTAL_DURATION = 100;
+    // Base duration (timeline is scrub-driven, so absolute numbers are ratios)
+    var D = 12;
 
     mobileTimeline
-      // Create a base duration
-      .to({}, { duration: TOTAL_DURATION })
+      .to({}, { duration: D })
 
-      // ========== PHASE 1: FADE OUT SCREEN 1 (0-25%) ==========
+      /* ========== PHASE 1 (0 – 4): Fade out screen 1 ========== */
       .to('.hero__screen-1 .hero__heading span', {
-        xPercent: 120,
+        xPercent: 100,
         autoAlpha: 0,
-        duration: 25,
-        ease: 'power2.inOut'
-      }, 0)
+        duration: 4
+      }, '0')
 
       .to('.hero__screen-1 .hero__subheading span', {
-        xPercent: -120,
+        xPercent: -100,
         autoAlpha: 0,
-        duration: 25,
+        duration: 4
+      }, '0')
+
+      .to(
+        [
+          '.hero__screen-1 .hero__tagline',
+          '.hero__screen-1 .hero__button',
+          '.hero__screen-1 .hero__shadow'
+        ],
+        { autoAlpha: 0, duration: 4 },
+        '0'
+      )
+
+      .to('.hero__line', { scaleX: 0, duration: 4 }, '0')
+
+      .to(
+        ['.hero__screen-1 .hero__text', '.hero__screen-1 .hero__scroll-wrapper'],
+        { autoAlpha: 0, y: 50, stagger: 0.1, duration: 4 },
+        '0'
+      )
+
+      /* ========== PHASE 2 (0 – 5): Diamond expands ========== */
+      // Clip-path opens from tiny square to full rectangle while container
+      // rotates from 45° toward 0° (via 25°).
+      .to('.hero__screen-2 .hero__background-clip', {
+        duration: 5,
+        rotate: '25deg',
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
         ease: 'power2.inOut'
-      }, 0)
+      }, '0')
 
-      .to([
-        '.hero__screen-1 .hero__tagline',
-        '.hero__screen-1 .hero__button',
-        '.hero__screen-1 .hero__text',
-        '.hero__screen-1 .hero__shadow'
-      ], {
-        autoAlpha: 0,
-        y: -30,
-        duration: 20,
-        ease: 'power2.in'
-      }, 0)
-
-      .to('.hero__line', {
-        scaleX: 0,
-        duration: 20,
-        ease: 'power2.in'
-      }, 0)
-
-      .to('.hero__screen-1 .hero__scroll-wrapper', {
-        autoAlpha: 0,
-        yPercent: -50,
-        duration: 15,
-        ease: 'power2.in'
-      }, 0)
-
-      // Fade screen 1 background
-      .to('.hero__screen-1', {
-        autoAlpha: 0,
-        duration: 10,
-        ease: 'power2.in'
-      }, 15)
-
-      // ========== PHASE 2: DIAMOND APPEARS & GROWS (20-60%) ==========
-
-      // Diamond appears
-      .to('.hero__screen-2 .hero__background-clip', {
-        autoAlpha: 1,
-        scale: 1,
-        duration: 15,
-        ease: 'power1.out'
-      }, 20)
-
-      // Diamond expands and rotates to full screen
-      .to('.hero__screen-2 .hero__background-clip', {
-        width: '100vw',
-        height: '100vh',
-        rotate: '0deg',
-        duration: 35,
-        ease: 'power2.inOut',
-        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
-      }, 30)
-
-      // Image inside diamond scales properly
+      // Image wrapper counter-rotates and scales to fill
       .to('.hero__screen-2 .hero__image-wrapper-1', {
+        duration: 5,
         scale: 1,
-        width: '100%',
-        height: '100%',
-        duration: 35,
+        rotate: '-25deg',
         ease: 'power2.inOut'
-      }, 30)
+      }, '0')
 
-      // Second image wrapper fades in
       .to('.hero__screen-2 .hero__image-wrapper-2', {
-        autoAlpha: 1,
-        duration: 15,
+        duration: 5,
+        scale: 1,
+        ease: 'power2.inOut'
+      }, '0')
+
+      // Second image fades in
+      .to('.hero__screen-2 .hero__image-wrapper-2', {
+        opacity: 1,
+        duration: 4,
         ease: 'power1.inOut'
-      }, 50)
+      }, '1')
 
-      // ========== PHASE 3: CONTENT APPEARS (55-80%) ==========
+      /* ========== PHASE 3 (2.5 – 3.5): Content appears ========== */
+      .fromTo(
+        '.hero__screen-2 .hero__tagline span:nth-child(1)',
+        { autoAlpha: 0, yPercent: 100 },
+        { autoAlpha: 1, yPercent: 0, duration: 3 },
+        '2.5'
+      )
 
-      // Tagline appears
-      .to('.hero__screen-2 .hero__tagline span:nth-child(1)', {
-        autoAlpha: 1,
-        yPercent: 0,
-        duration: 12,
-        ease: 'power2.out'
-      }, 55)
+      .fromTo(
+        '.hero__screen-2 .hero__heading span',
+        { autoAlpha: 0, xPercent: -50 },
+        { autoAlpha: 1, xPercent: 1, stagger: 0.1, duration: 3 },
+        '2.5'
+      )
 
-      // Heading appears
-      .to('.hero__screen-2 .hero__heading span', {
-        autoAlpha: 1,
-        xPercent: 0,
-        stagger: 0.5,
-        duration: 15,
-        ease: 'power2.out'
-      }, 58)
+      .fromTo(
+        '.hero__screen-2 .hero__rotating-line',
+        { autoAlpha: 0, rotate: '0deg' },
+        { autoAlpha: 1, rotate: '-180deg', duration: 3 },
+        '3'
+      )
 
-      // Rotating line animates
-      .to('.hero__screen-2 .hero__rotating-line', {
-        autoAlpha: 0.3,
-        rotate: '-180deg',
-        duration: 15,
-        ease: 'none'
-      }, 60)
+      .fromTo(
+        ['.hero__screen-2 .hero__media video', '.hero__screen-2 .hero__media-text'],
+        { autoAlpha: 0, y: 50 },
+        { autoAlpha: 1, y: 0, stagger: 0.3, duration: 3 },
+        '3'
+      )
 
-      // Lines background appears
       .to('.hero__screen-2 .hero__screen-2__lines', {
-        autoAlpha: 1,
-        duration: 15,
-        ease: 'power1.in'
-      }, 60)
+        duration: 3,
+        autoAlpha: 1
+      }, '3')
 
-      // Media (video) appears
-      .to('.hero__screen-2 .hero__media', {
-        autoAlpha: 1,
-        y: 0,
-        duration: 12,
-        ease: 'power2.out'
-      }, 65)
+      .set('.hero__screen-2', { pointerEvents: 'all' }, '3.5')
 
-      // Media text 1 appears
-      .to('.hero__screen-2 .hero__media-text-1', {
-        autoAlpha: 1,
-        duration: 10,
-        ease: 'power1.out'
-      }, 67)
+      .fromTo(
+        '.hero__screen-2 .hero__cta',
+        { autoAlpha: 0, yPercent: 50 },
+        { autoAlpha: 1, yPercent: 0, duration: 3 },
+        '3.5'
+      )
 
-      // Description block 1 appears
-      .to('.hero__screen-2 .hero__description', {
-        autoAlpha: 1,
-        yPercent: 0,
-        stagger: 0.3,
-        duration: 12,
-        ease: 'power2.out'
-      }, 68)
+      .fromTo(
+        '.hero__screen-2 .hero__description',
+        { autoAlpha: 0, yPercent: 50 },
+        { autoAlpha: 1, yPercent: 0, stagger: 0.1, duration: 3 },
+        '3.5'
+      )
 
-      // CTA button appears
-      .to('.hero__screen-2 .hero__cta', {
-        autoAlpha: 1,
-        yPercent: 0,
-        duration: 10,
-        ease: 'back.out(1.2)'
-      }, 70)
+      /* ========== PHASE 4 (7 – end): Content transition ========== */
+      .fromTo(
+        '.hero__screen-2 .hero__image-2',
+        { yPercent: 100, scale: 1.5 },
+        { scale: 1.2, yPercent: 0, duration: 4 },
+        '7'
+      )
 
-      // Enable pointer events
-      .set('.hero__screen-2', {
-        pointerEvents: 'all'
-      }, 75)
+      .fromTo(
+        '.hero__screen-2 .hero__tagline span:nth-child(1)',
+        { autoAlpha: 1 },
+        { autoAlpha: 0, duration: 4 },
+        '7'
+      )
 
-      // ========== PHASE 4: CONTENT TRANSITION (80-100%) ==========
+      .fromTo(
+        '.hero__screen-2 .hero__tagline span:nth-child(2)',
+        { yPercent: 0 },
+        { yPercent: -100, duration: 4 },
+        '7'
+      )
 
-      // Tagline transition
-      .to('.hero__screen-2 .hero__tagline span:nth-child(1)', {
-        autoAlpha: 0,
-        duration: 8,
-        ease: 'power2.in'
-      }, 82)
+      .fromTo(
+        '.hero__screen-2 .hero__media-text-1',
+        { autoAlpha: 1 },
+        { autoAlpha: 0, duration: 3 },
+        '7'
+      )
 
-      .to('.hero__screen-2 .hero__tagline span:nth-child(2)', {
-        yPercent: -100,
-        duration: 8,
-        ease: 'power2.inOut'
-      }, 82)
+      .fromTo(
+        '.hero__screen-2 .hero__media-text-2',
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 4 },
+        '7'
+      )
 
-      // Media text transition
-      .to('.hero__screen-2 .hero__media-text-1', {
-        autoAlpha: 0,
-        duration: 8,
-        ease: 'power2.in'
-      }, 83)
+      .fromTo(
+        '.hero__screen-2 .hero__flex-block-1',
+        { autoAlpha: 1, yPercent: 0 },
+        { autoAlpha: 0, yPercent: -100, duration: 4 },
+        '7'
+      )
 
-      .to('.hero__screen-2 .hero__media-text-2', {
-        autoAlpha: 1,
-        duration: 8,
-        ease: 'power2.out'
-      }, 85)
-
-      // Description blocks transition
-      .to('.hero__screen-2 .hero__flex-block-1', {
-        autoAlpha: 0,
-        yPercent: -100,
-        duration: 12,
-        ease: 'power2.inOut'
-      }, 84)
-
-      .to('.hero__screen-2 .hero__flex-block-2', {
-        autoAlpha: 1,
-        yPercent: 0,
-        duration: 12,
-        ease: 'power2.out'
-      }, 86);
-
-    console.log('📱 Mobile timeline created with', TOTAL_DURATION, 'duration units');
+      .fromTo(
+        '.hero__screen-2 .hero__flex-block-2',
+        { yPercent: 110 },
+        { yPercent: 0, duration: 5 },
+        '7'
+      );
   }
 
-  // Handle resize
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
+  /* ------------------------------------------------------------------ */
+  /*  Setup                                                              */
+  /* ------------------------------------------------------------------ */
+  function setupMobileAnimation() {
+    try {
+      setupInitialStates();
+      createMobileTimeline();
+      ScrollTrigger.refresh();
+    } catch (e) {
+      console.error('Mobile animation setup error:', e);
+    }
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Resize handling                                                     */
+  /* ------------------------------------------------------------------ */
+  var resizeTimeout;
+  window.addEventListener('resize', function () {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      const isMobile = window.matchMedia("(max-width: 991px)").matches;
-      const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    resizeTimeout = setTimeout(function () {
+      var isMobile = window.matchMedia('(max-width: 991px)').matches;
+      var isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
       if (isMobile && isPortrait) {
         if (!isInitialized) {
-          console.log('Reinitializing on resize...');
           killExistingAnimations();
           setupMobileAnimation();
           isInitialized = true;
@@ -413,7 +365,6 @@
           ScrollTrigger.refresh();
         }
       } else {
-        // Not mobile portrait - clean up
         if (mobileTimeline) {
           mobileTimeline.kill();
           mobileTimeline = null;
@@ -424,22 +375,22 @@
     }, 300);
   });
 
-  // Initialize on load
+  /* ------------------------------------------------------------------ */
+  /*  Init                                                               */
+  /* ------------------------------------------------------------------ */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initMobileHeroAnimation);
   } else {
     initMobileHeroAnimation();
   }
 
-  // Also try on window load for extra safety
-  window.addEventListener('load', () => {
+  window.addEventListener('load', function () {
     if (!isInitialized) {
-      const isMobile = window.matchMedia("(max-width: 991px)").matches;
-      const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+      var isMobile = window.matchMedia('(max-width: 991px)').matches;
+      var isPortrait = window.matchMedia('(orientation: portrait)').matches;
       if (isMobile && isPortrait) {
         setTimeout(initMobileHeroAnimation, 500);
       }
     }
   });
-
 })();
